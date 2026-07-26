@@ -106,7 +106,27 @@
     ============================================= -->
     <header class="site-header">
         <div class="container">
-            <a href="/" class="logo" aria-label="ETROYL home">ETROYL</a>
+            <!-- The logo is a real <img>, not a CSS background.
+                 WHY THIS MATTERS: a background-image is invisible
+                 to screen readers and to Google's image index —
+                 it is purely decorative as far as accessibility
+                 and SEO are concerned. The company logo is
+                 meaningful content (it identifies the brand), so
+                 it belongs in the DOM as an <img> with real alt
+                 text. width/height are set explicitly to match
+                 the file's intrinsic aspect ratio — this reserves
+                 the correct space in the layout before the image
+                 finishes loading, preventing a Cumulative Layout
+                 Shift (a measured Core Web Vital that affects
+                 both UX and Google ranking). -->
+            <a href="/" class="logo" aria-label="ETROYL home">
+                <img
+                    src="/assets/images/logos/logo-icon.png"
+                    alt="ETROYL"
+                    width="200"
+                    height="109"
+                    class="logo-mark">
+            </a>
 
             <!-- <nav> is a landmark element — screen readers
                  can jump directly to "navigation" the same
@@ -116,6 +136,7 @@
                 <ul>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="/pages/education.html">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -139,6 +160,35 @@
              crawlers and screen-reader users navigating by
              heading/landmark. -->
         <section class="hero" aria-labelledby="hero-heading">
+            <!-- <picture> lets the browser choose the smallest
+                 format it supports: WebP (~48KB) if available,
+                 falling back to JPEG (~96KB) only for the rare
+                 browser that can't decode WebP. This is a real
+                 performance decision, not a formality — the
+                 original PNG export of this banner was 1.7MB,
+                 which alone would have made this the heaviest
+                 single request on the entire page. -->
+            <picture class="hero-banner">
+                <source srcset="/assets/images/banner-hero.webp" type="image/webp">
+                <img
+                    src="/assets/images/banner-hero.jpg"
+                    alt="ETROYL — Defense, AI Robots, Automation"
+                    width="1792"
+                    height="592"
+                    loading="eager"
+                    fetchpriority="high">
+            </picture>
+
+            <!-- IMPORTANT ACCESSIBILITY/SEO NOTE:
+                 The banner above has its brand tagline baked
+                 into the pixels. Text inside an image cannot be
+                 read by screen readers, cannot be selected/copied,
+                 and is invisible to search engine text indexing.
+                 The heading below is NOT decorative repetition —
+                 it is the real, crawlable, accessible equivalent
+                 of what a sighted user already saw in the image.
+                 Never rely on image-only text to carry your only
+                 copy of a page's core message. -->
             <div class="container">
                 <h1 id="hero-heading">Engineering the systems others can't.</h1>
                 <p>FPGA. Embedded Systems. Signal Processing. Applied AI.</p>
@@ -176,6 +226,18 @@
     ============================================= -->
     <footer class="site-footer">
         <div class="container">
+            <!-- The FULL lockup (icon + wordmark stacked) is used
+                 here rather than the compact header icon. The
+                 footer isn't height-constrained like the nav bar,
+                 so there's no reason to crop the wordmark — using
+                 the fuller mark here gives the brand one strong,
+                 unhurried appearance per page rather than none. -->
+            <img
+                src="/assets/images/logos/logo-full.png"
+                alt="ETROYL"
+                width="140"
+                height="109"
+                class="footer-logo">
             <p>&copy; <span id="current-year"></span> ETROYL. All rights reserved.</p>
         </div>
     </footer>

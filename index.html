@@ -1,19 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <!-- ============================================
+         DOCUMENT ENCODING & COMPATIBILITY
+         Must be the first tags in <head>. The browser
+         reads charset before it can correctly parse
+         any other character (including other meta tags),
+         so this line's position is not cosmetic.
+    ============================================= -->
     <meta charset="UTF-8">
-    <title>ETROYL</title>
-</head>
 
+    <!-- ============================================
+         RESPONSIVE VIEWPORT
+         Without this, mobile browsers render the page
+         at a fixed desktop width (~980px) and scale it
+         down, making text illegibly small. This tag
+         tells the browser to use the device's actual
+         width as the layout width.
+    ============================================= -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============================================
+         PRIMARY SEO METADATA
+         Title and description are what Google displays
+         in search results. Title also appears in the
+         browser tab. Keep title under ~60 characters
+         and description under ~160 to avoid truncation.
+    ============================================= -->
+    <title>ETROYL | FPGA, Embedded Systems &amp; Signal Processing Engineering</title>
+    <meta name="description" content="ETROYL is an engineering firm specializing in FPGA design, embedded systems, digital signal processing, and applied AI for high-performance hardware products.">
+    <meta name="author" content="ETROYL">
+
+    <!-- ============================================
+         CANONICAL URL
+         Prevents duplicate-content SEO penalties if the
+         same page becomes reachable at multiple URLs
+         (e.g. with/without trailing slash, http/https).
+         Update this once the production domain is live.
+    ============================================= -->
+    <link rel="canonical" href="https://www.etroyl.com/">
+
+    <!-- ============================================
+         OPEN GRAPH / SOCIAL SHARING METADATA
+         Controls how the page appears when shared on
+         LinkedIn, Slack, Twitter/X, etc. Without these,
+         social platforms fall back to guessing, often
+         picking the wrong image or no description at all.
+    ============================================= -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ETROYL | FPGA, Embedded Systems &amp; Signal Processing Engineering">
+    <meta property="og:description" content="Engineering firm specializing in FPGA design, embedded systems, DSP, and applied AI.">
+    <meta property="og:image" content="/assets/images/logos/og-cover.jpg">
+    <meta property="og:url" content="https://www.etroyl.com/">
+
+    <!-- ============================================
+         FAVICON
+         Modern browsers request /favicon.ico by default,
+         but declaring it explicitly avoids a wasted
+         404 request and lets you specify PNG/SVG variants.
+    ============================================= -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/icons/favicon.svg">
+    <link rel="icon" type="image/png" href="/assets/images/icons/favicon.png">
+
+    <!-- ============================================
+         THEME COLOR
+         Colors the browser UI chrome (address bar on
+         Android Chrome, tab bar on some mobile browsers)
+         to match the brand rather than showing default gray.
+    ============================================= -->
+    <meta name="theme-color" content="#0d0d0d">
+
+    <!-- ============================================
+         STYLESHEETS
+         Loaded in dependency order: reset first (undoes
+         browser defaults), then variables (design tokens
+         that later files depend on), then the main
+         stylesheet (actual layout/component rules).
+         Order matters because CSS is cascade-based —
+         later rules override earlier ones of equal
+         specificity.
+    ============================================= -->
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
 <body>
 
-<h1>ETROYL</h1>
+    <!-- ============================================
+         SKIP LINK (ACCESSIBILITY)
+         The very first focusable element on the page.
+         Lets keyboard and screen-reader users jump
+         straight to the main content, bypassing
+         repeated navigation links on every page load.
+         Visually hidden by default, revealed on focus
+         via CSS (handled in style.css).
+    ============================================= -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<p>Engineering Intelligent Systems</p>
+    <!-- ============================================
+         HEADER
+         The <header> landmark is a semantic signal to
+         screen readers and search engines: "this is
+         introductory/navigational content for the page
+         or section it's in." It is not just a styling box.
+    ============================================= -->
+    <header class="site-header">
+        <div class="container">
+            <a href="/" class="logo" aria-label="ETROYL home">ETROYL</a>
 
-<p>Website under construction.</p>
+            <!-- <nav> is a landmark element — screen readers
+                 can jump directly to "navigation" the same
+                 way they jump to "main". A <div> with nav-like
+                 styling would not offer this. -->
+            <nav class="main-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+         MAIN CONTENT
+         Exactly one <main> per page. It tells assistive
+         technology and browsers "the primary content
+         starts here" — distinct from repeated chrome
+         like headers, footers, and sidebars. This is
+         also the target of the skip link above.
+    ============================================= -->
+    <main id="main-content">
+
+        <!-- Each top-level content block on the page is a
+             <section>, not a <div>. A <section> is semantic:
+             it tells the document outline "this is a distinct
+             thematic grouping," which matters for both SEO
+             crawlers and screen-reader users navigating by
+             heading/landmark. -->
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="container">
+                <h1 id="hero-heading">Engineering the systems others can't.</h1>
+                <p>FPGA. Embedded Systems. Signal Processing. Applied AI.</p>
+            </div>
+        </section>
+
+        <section id="services" class="services" aria-labelledby="services-heading">
+            <div class="container">
+                <h2 id="services-heading">What We Build</h2>
+                <!-- Placeholder — populated in Phase 2 -->
+            </div>
+        </section>
+
+        <section id="about" class="about" aria-labelledby="about-heading">
+            <div class="container">
+                <h2 id="about-heading">About ETROYL</h2>
+                <!-- Placeholder — populated in Phase 2 -->
+            </div>
+        </section>
+
+        <section id="contact" class="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Get in Touch</h2>
+                <!-- Placeholder — populated in Phase 2 -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         Like <header>, this is a landmark — signals
+         "site-wide closing content" (copyright, legal,
+         secondary links) as distinct from page content.
+    ============================================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> ETROYL. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         SCRIPT LOADING STRATEGY
+         Placed at the end of <body>, with `defer`.
+         `defer` downloads the script in parallel with
+         HTML parsing but executes it only after the
+         DOM is fully built — meaning script.js can
+         safely query any element on the page without
+         a DOMContentLoaded wrapper, and without
+         blocking the initial render (better perceived
+         performance than a blocking <script> in <head>).
+    ============================================= -->
+    <script src="/assets/js/script.js" defer></script>
 
 </body>
-
 </html>

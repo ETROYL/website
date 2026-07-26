@@ -12,10 +12,20 @@
    HOW TO ADD NEW CONTENT (this is the actual "upload" workflow
    for this phase of the site):
 
-     1. Put the real file in the matching folder:
-          videos    -> /assets/education/videos/
-          images    -> /assets/education/images/
-          documents -> /assets/education/documents/
+     1. Add the real file to the repo root, next to index.html
+        and the other files (this repo is currently flat — no
+        subfolders — so content files live at the top level too,
+        e.g. fpga-pipeline-intro.mp4 sits right next to index.html).
+
+        NOTE: once there are more than a handful of resources,
+        a dedicated folder (e.g. /education-media/) is worth
+        creating so videos/images/documents don't get mixed in
+        with the site's code files. GitHub supports this — drag
+        an actual folder (not individual files) into the repo in
+        the web UI, or type a path like "education-media/foo.mp4"
+        into the "Add file" box, which creates the folder for
+        you. Flat is fine to start; it's not the file-count-proof
+        long-term shape.
 
      2. Add one object to the `educationManifest` array below,
         following the shape of the examples (commented out).
@@ -59,20 +69,20 @@ const educationManifest = [
     //     type: 'video',
     //     title: 'Intro to FPGA Pipeline Design',
     //     description: 'A walkthrough of a basic HDL pipeline stage.',
-    //     src: '/assets/education/videos/fpga-pipeline-intro.mp4',
-    //     poster: '/assets/education/images/fpga-pipeline-poster.jpg'
+    //     src: 'fpga-pipeline-intro.mp4',
+    //     poster: 'fpga-pipeline-poster.jpg'
     // },
     // {
     //     type: 'image',
     //     title: 'VCU Encoder Block Diagram',
     //     description: 'Signal path for the six-camera video pipeline.',
-    //     src: '/assets/education/images/vcu-block-diagram.png'
+    //     src: 'vcu-block-diagram.png'
     // },
     // {
     //     type: 'document',
     //     title: 'GStreamer Pipeline Reference',
     //     description: 'PDF reference for common pipeline elements.',
-    //     src: '/assets/education/documents/gstreamer-reference.pdf',
+    //     src: 'gstreamer-reference.pdf',
     //     fileLabel: 'PDF'
     // },
 ];

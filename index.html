@@ -50,17 +50,20 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="ETROYL | FPGA, Embedded Systems &amp; Signal Processing Engineering">
     <meta property="og:description" content="Engineering firm specializing in FPGA design, embedded systems, DSP, and applied AI.">
-    <meta property="og:image" content="/assets/images/logos/og-cover.jpg">
+    <meta property="og:image" content="banner-hero.jpg">
     <meta property="og:url" content="https://www.etroyl.com/">
 
     <!-- ============================================
          FAVICON
-         Modern browsers request /favicon.ico by default,
-         but declaring it explicitly avoids a wasted
-         404 request and lets you specify PNG/SVG variants.
+         No dedicated favicon file exists in the repo yet —
+         logo-icon.png is a wide rectangular wordmark-icon,
+         not the square crop a browser tab wants, so it's
+         deliberately NOT wired up as a favicon below. Add a
+         real 32x32/16x16 square icon (favicon.png or .ico)
+         to the repo root and link it here when ready; until
+         then, browsers just show a generic page icon, which
+         is harmless.
     ============================================= -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
-    <link rel="icon" type="image/png" href="assets/images/icons/favicon.png">
 
     <!-- ============================================
          THEME COLOR
@@ -80,9 +83,9 @@
          later rules override earlier ones of equal
          specificity.
     ============================================= -->
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/variables.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -121,7 +124,7 @@
                  both UX and Google ranking). -->
             <a href="./" class="logo" aria-label="ETROYL home">
                 <img
-                    src="assets/images/logos/logo-icon.png"
+                    src="logo-icon.png"
                     alt="ETROYL"
                     width="200"
                     height="109"
@@ -136,7 +139,7 @@
                 <ul>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="pages/education.html">Education</a></li>
+                    <li><a href="education.html">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -169,9 +172,9 @@
                  which alone would have made this the heaviest
                  single request on the entire page. -->
             <picture class="hero-banner">
-                <source srcset="assets/images/banner-hero.webp" type="image/webp">
+                <source srcset="banner-hero.webp" type="image/webp">
                 <img
-                    src="assets/images/banner-hero.jpg"
+                    src="banner-hero.jpg"
                     alt="ETROYL — Defense, AI Robots, Automation"
                     width="1792"
                     height="592"
@@ -233,7 +236,7 @@
                  the fuller mark here gives the brand one strong,
                  unhurried appearance per page rather than none. -->
             <img
-                src="assets/images/logos/logo-full.png"
+                src="logo-full.png"
                 alt="ETROYL"
                 width="140"
                 height="109"
@@ -253,7 +256,7 @@
          blocking the initial render (better perceived
          performance than a blocking <script> in <head>).
     ============================================= -->
-    <script src="assets/js/script.js" defer></script>
+    <script src="script.js" defer></script>
 
 </body>
 </html>

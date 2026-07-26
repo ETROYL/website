@@ -32,76 +32,59 @@
  * on a schedule should be computed, not hardcoded.
  */
  
-// Detect System Preference
+'use strict';
+
+// 1. SELECTORS & CONSTANTS (Define these first!)
+const htmlElement = document.documentElement;
+const toggleButton = document.getElementById('theme-toggle');
 const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const savedTheme = localStorage.getItem('theme');
 
-// Set initial theme
+// 2. INITIAL THEME LOGIC
 if (savedTheme) {
     htmlElement.setAttribute('data-theme', savedTheme);
 } else if (userPrefersDark) {
     htmlElement.setAttribute('data-theme', 'dark');
 } else {
     htmlElement.setAttribute('data-theme', 'light');
-} 
- 
-const toggleButton = document.getElementById('theme-toggle');
-const htmlElement = document.documentElement;
+}
 
-toggleButton.addEventListener('click', () => {
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    htmlElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-});
+// 3. EVENT LISTENERS
+if (toggleButton) {
+    toggleButton.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+}
 
+// 4. OTHER FUNCTIONS
 function setCurrentYear() {
     const yearElement = document.getElementById('current-year');
-    if (!yearElement) return; // Defensive check: if the element
-                                // is ever removed from the HTML,
-                                // this fails silently instead of
-                                // throwing a console error.
+    if (!yearElement) return;
     yearElement.textContent = new Date().getFullYear();
 }
 
-/**
- * Single initialization entry point.
- * WHY: As more behaviors are added (mobile nav toggle,
- * scroll-based header state, form validation), they each
- * get their own function above and one line here — keeping
- * this init() function as a readable table of contents for
- * everything the page does on load.
- */
-function init() {
-    setCurrentYear();
-}
-
-/* Because script.js is loaded with `defer` in index.html,
-   the DOM is guaranteed to be fully parsed by the time this
-   line executes — so init() can safely run immediately
-   without wrapping it in a DOMContentLoaded listener. */
-init();
-
-// Function to randomize the hero slogan
 function randomizeSlogan() {
     const slogans = [
         "Engineering the systems others can't.",
         "Engineering Behind Boundaries.",
         "Engineering Intelligent Systems."
     ];
-
-    // Select a random index
     const randomIndex = Math.floor(Math.random() * slogans.length);
-    
-    // Target the element
     const heroHeading = document.getElementById('hero-heading');
     
-    // Update the content
     if (heroHeading) {
         heroHeading.textContent = slogans[randomIndex];
     }
 }
 
-// Execute on load
-randomizeSlogan();
+// 5. INITIALIZATION
+function init() {
+    setCurrentYear();
+    randomizeSlogan();
+}
+
+init();

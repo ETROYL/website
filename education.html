@@ -6,17 +6,15 @@
 
     <title>Education &amp; Resources | ETROYL</title>
     <meta name="description" content="Technical training videos, reference documents, and diagrams from ETROYL covering FPGA design, embedded systems, and signal processing.">
-    <link rel="canonical" href="https://www.etroyl.com/pages/education.html">
+    <link rel="canonical" href="https://www.etroyl.com/education.html">
 
-    <link rel="icon" type="image/svg+xml" href="../assets/images/icons/favicon.svg">
-    <link rel="icon" type="image/png" href="../assets/images/icons/favicon.png">
     <meta name="theme-color" content="#0d0d0d">
 
     <!-- Same three-file loading order as index.html: reset,
          then tokens, then layout. -->
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/variables.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Page-specific stylesheet, loaded ONLY here. This is the
          "split when it earns its place" principle from the
@@ -25,7 +23,7 @@
          doesn't bloat the shared style.css with rules that exist
          nowhere else. As more pages arrive, each gets this same
          treatment only if its component needs actually diverge. -->
-    <link rel="stylesheet" href="../assets/css/education.css">
+    <link rel="stylesheet" href="education.css">
 </head>
 <body>
 
@@ -33,9 +31,9 @@
 
     <header class="site-header">
         <div class="container">
-            <a href="../" class="logo" aria-label="ETROYL home">
+            <a href="index.html" class="logo" aria-label="ETROYL home">
                 <img
-                    src="../assets/images/logos/logo-icon.png"
+                    src="logo-icon.png"
                     alt="ETROYL"
                     width="200"
                     height="109"
@@ -44,8 +42,8 @@
 
             <nav class="main-nav" aria-label="Primary">
                 <ul>
-                    <li><a href="../index.html#services">Services</a></li>
-                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
                     <!-- aria-current="page" tells screen readers
                          (and enables the CSS below) which nav
                          item represents the page currently open —
@@ -55,7 +53,7 @@
                          to sighted users but communicate nothing
                          to assistive technology. -->
                     <li><a href="education.html" aria-current="page">Education</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -98,7 +96,7 @@
                      though the visual presentation is a CSS Grid,
                      not a <ul>. -->
                 <div id="education-grid" class="education-grid" role="list">
-                    <!-- Populated by assets/js/education.js -->
+                    <!-- Populated by education.js -->
                 </div>
 
                 <!-- Empty state: shown/hidden by JS depending on
@@ -107,10 +105,9 @@
                      an empty screen with no explanation reads as a
                      bug, not as "nothing here yet." -->
                 <p id="education-empty" class="empty-state" hidden>
-                    No resources published yet. To add one, drop the file into
-                    <code>/assets/education/&lt;videos|images|documents&gt;/</code>
-                    and add a matching entry to <code>educationManifest</code>
-                    in <code>/assets/js/education.js</code>.
+                    No resources published yet. To add one, add the file to the
+                    repo root and add a matching entry to
+                    <code>educationManifest</code> in <code>education.js</code>.
                 </p>
             </div>
         </section>
@@ -120,7 +117,7 @@
     <footer class="site-footer">
         <div class="container">
             <img
-                src="../assets/images/logos/logo-full.png"
+                src="logo-full.png"
                 alt="ETROYL"
                 width="140"
                 height="109"
@@ -129,7 +126,7 @@
         </div>
     </footer>
 
-    <script src="../assets/js/script.js" defer></script>
-    <script src="../assets/js/education.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="education.js" defer></script>
 </body>
 </html>

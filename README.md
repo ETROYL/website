@@ -34,6 +34,37 @@ index.html                 Entry point
   on a simple row, and don't fight Flexbox to build a true grid.
 - **Accessibility is not optional**: every interactive element must be
   keyboard-reachable, and focus states must remain visible.
+# /assets/education/
+
+Storage for real files referenced by the Education page's resource
+library (`/pages/education.html`).
+
+## Folders
+
+- `videos/`    — .mp4 files (H.264/MP4 has the broadest browser support)
+- `images/`    — diagrams, screenshots, photos (.png / .jpg / .webp)
+- `documents/` — PDFs, datasheets, reference sheets
+
+## Adding new content
+
+1. Drop the file into the matching folder above.
+2. Add one entry to `educationManifest` in `/assets/js/education.js`
+   pointing at the file's path.
+3. Refresh the page.
+
+`.gitkeep` files exist only so Git tracks these otherwise-empty
+folders — delete a `.gitkeep` the moment its folder has a real file
+in it.
+
+## A note on file size
+
+This is a static site with no server-side processing — every file
+here is served exactly as uploaded, with no compression pass. Before
+adding a video, compress it (e.g. via `ffmpeg` or HandBrake) rather
+than uploading a raw camera/screen-recording export; a multi-hundred-
+MB video will make this page slow to load for every visitor, every
+time, indefinitely, since there's no backend to fix that after the
+fact.
 
 ## Phase Roadmap
 

@@ -1,0 +1,205 @@
+/* ==================================================
+   STYLE.CSS — LAYOUT & COMPONENTS
+   ==================================================
+   PURPOSE: This is where actual visual rules live —
+   everything here CONSUMES the tokens defined in
+   variables.css via var(--token-name). You should not
+   see a raw hex code or hardcoded pixel value below;
+   if you do, it's a sign the value should be promoted
+   to a variable.
+
+   STRUCTURE OF THIS FILE (kept in this order deliberately):
+   1. Base element defaults (body, headings, links)
+   2. Layout utilities (.container)
+   3. Accessibility utilities (.skip-link)
+   4. Components, top to bottom in page order
+      (header → hero → services → about → contact → footer)
+
+   As the site grows, sections 4 onward are the first
+   candidates to split into separate files (e.g.
+   components/header.css, components/hero.css) and
+   pulled in via <link> tags or @import. For Phase 1,
+   one file is simpler to read and reason about.
+   ================================================== */
+
+/* ---------- 1. BASE ELEMENT DEFAULTS ---------- */
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.6; /* 1.6 is a well-established readability
+                          baseline for body copy — tight enough
+                          to feel cohesive, loose enough that
+                          lines don't visually blur together. */
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.2; /* Headings want tighter leading than
+                          body text — large text has more
+                          natural visual gap between lines. */
+    font-weight: 600;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------- 2. LAYOUT UTILITIES ---------- */
+
+/* The .container pattern: a reusable horizontal constraint
+   applied inside every full-width section. This is a classic
+   CSS architecture pattern — sections can be full-bleed
+   (background spans the whole viewport) while their CONTENT
+   stays readable and centered. Using a class instead of
+   repeating this on every section respects DRY (Don't Repeat
+   Yourself) — the same reason you'd factor repeated logic
+   into a function rather than copy-pasting it. */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-inline: auto; /* shorthand for margin-left/right: auto — centers the block */
+    padding-inline: var(--space-sm);
+}
+
+/* ---------- 3. ACCESSIBILITY UTILITIES ---------- */
+
+/* Visually hides the skip-link until it receives keyboard
+   focus, at which point it snaps into view. This pattern
+   (as opposed to display:none) is important: display:none
+   would also hide it from screen readers and remove it from
+   tab order entirely, defeating its purpose. */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--color-accent);
+    color: #fff;
+    padding: var(--space-xs) var(--space-sm);
+    z-index: 100;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ---------- 4. COMPONENTS (in page order) ---------- */
+
+/* -- Site Header -- */
+.site-header {
+    border-bottom: 1px solid var(--color-border);
+    padding-block: var(--space-sm);
+}
+
+.site-header .container {
+    display: flex; /* Flexbox, not Grid — because this is a
+                       ONE-DIMENSIONAL alignment problem (logo
+                       on the left, nav on the right, along a
+                       single row). Grid is reserved for
+                       two-dimensional layouts below. Choosing
+                       the simpler tool for the job is itself
+                       a maintainability decision — the next
+                       engineer reading this immediately
+                       understands the intent. */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: var(--space-md);
+    list-style: none; /* Removes default bullets — this is a
+                          navigation menu, not a content list,
+                          so bullets are a browser default we
+                          override intentionally, not omit
+                          carelessly. */
+}
+
+.main-nav a {
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+    color: var(--color-text);
+}
+
+/* :focus-visible (rather than :focus) shows the focus ring
+   only for keyboard navigation, not mouse clicks — matching
+   what sighted mouse users expect while still fully
+   supporting keyboard/screen-reader users. This is a modern
+   accessibility best practice, not a stylistic preference. */
+
+/* -- Hero Section -- */
+.hero {
+    padding-block: var(--space-2xl);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-sm);
+}
+
+.hero p {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+}
+
+/* -- Generic Content Sections (services / about / contact) --
+   These share a class-free tag+ID approach for now since
+   Phase 1 has no unique component design yet. As real content
+   and layout needs arrive in Phase 2, this is where Grid
+   becomes the right tool — e.g. a services grid showing
+   multiple cards in a 2D arrangement (rows AND columns),
+   which is what CSS Grid is actually built for, unlike the
+   1D flex row used in the header above. */
+section {
+    padding-block: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+section h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-md);
+}
+
+/* -- Site Footer -- */
+.site-footer {
+    padding-block: var(--space-md);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    border-top: 1px solid var(--color-border);
+}
+
+/* ---------- RESPONSIVE BEHAVIOR ---------- */
+
+/* Mobile-first would normally mean writing the narrow
+   layout as the DEFAULT and widening with min-width media
+   queries. Here, since the base styles above are already
+   simple enough to work at any width unmodified, the only
+   adjustment needed is stacking the header nav on very
+   narrow viewports. As components grow more complex in
+   Phase 2, prefer converting the base rules to mobile-first
+   rather than accumulating many override queries here. */
+@media (max-width: 640px) {
+    .site-header .container {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+
+    .hero h1 {
+        font-size: var(--text-3xl);
+    }
+}

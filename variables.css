@@ -1,0 +1,91 @@
+/* ==================================================
+   VARIABLES.CSS — DESIGN TOKENS
+   ==================================================
+   PURPOSE: This file is the single source of truth for
+   every color, font, spacing value, and size used across
+   the site. It uses native CSS Custom Properties
+   (--variable-name syntax), not a preprocessor like Sass —
+   staying true to the zero-dependency philosophy while
+   still getting real variables, inheritance, and even
+   runtime updates via JavaScript if ever needed.
+
+   ENGINEERING RATIONALE:
+   Imagine the brand color changes in 8 months. Without
+   this file, you'd grep through every CSS file hunting
+   for every instance of a hardcoded hex value — error-prone
+   and easy to miss instances. With this file, you change
+   ONE line here and it propagates everywhere instantly.
+
+   This is the same principle as a #define constant in C,
+   or a config file in a firmware project: define the value
+   once, reference it everywhere, change it in one place.
+
+   NOTE: These are placeholder values for Phase 1 structure.
+   Actual brand colors/typography come in the Phase 2 visual
+   identity pass — don't treat these as final art direction.
+   ================================================== */
+
+:root {
+    /* ---- COLOR PALETTE ----
+       Named by role (--color-surface), not by appearance
+       (--color-dark-gray). If the "surface" color changes
+       from dark gray to navy, every rule referencing
+       --color-surface stays correct with zero find/replace. */
+    --color-background: #0d0d0d;
+    --color-surface:    #161616;
+    --color-text:       #f2f2f2;
+    --color-text-muted: #a3a3a3;
+    --color-accent:     #3a86ff;
+    --color-border:     #2a2a2a;
+
+    /* ---- TYPOGRAPHY ----
+       System font stack as a Phase 1 placeholder: zero
+       network requests, instant render, and every OS
+       renders its own native, legible UI font. This will
+       likely be swapped for a licensed/self-hosted brand
+       typeface in Phase 2 — but the site should never
+       ship without a working fallback stack regardless. */
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono",
+                 Menlo, monospace;
+
+    /* A modular type scale (ratio-based, ~1.25 "Major Third")
+       keeps heading sizes visually harmonious instead of
+       arbitrary guesses like 22px, 27px, 34px. */
+    --text-sm:   0.875rem;
+    --text-base: 1rem;
+    --text-lg:   1.25rem;
+    --text-xl:   1.563rem;
+    --text-2xl:  1.953rem;
+    --text-3xl:  2.441rem;
+    --text-4xl:  3.052rem;
+
+    /* ---- SPACING SCALE ----
+       A constrained set of spacing values (rather than
+       "whatever pixel value looks right in the moment")
+       keeps margins/padding consistent across every
+       component. This is the same discipline as using
+       a fixed set of register widths in hardware design
+       rather than arbitrary bit widths per signal. */
+    --space-xs:  0.5rem;
+    --space-sm:  1rem;
+    --space-md:  1.5rem;
+    --space-lg:  2.5rem;
+    --space-xl:  4rem;
+    --space-2xl: 6rem;
+
+    /* ---- LAYOUT ----
+       Single source of truth for the max content width,
+       referenced by the .container utility class in
+       style.css. */
+    --container-width: 1200px;
+    --border-radius: 4px;
+
+    /* ---- MOTION ----
+       Centralizing transition timing means every hover
+       effect, dropdown, or fade feels consistent site-wide
+       rather than each component inventing its own speed. */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+}

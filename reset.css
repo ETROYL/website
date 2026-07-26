@@ -1,0 +1,107 @@
+/* ==================================================
+   RESET.CSS
+   ==================================================
+   PURPOSE: Every browser ships its own default stylesheet
+   (Chrome's differs from Firefox's differs from Safari's).
+   Without a reset, the same HTML renders with different
+   margins, font sizes, and list bullets depending on the
+   browser — meaning your layout math ("this section is
+   40px below that one") is unreliable from the start.
+
+   This is a MINIMAL, modern reset — not the old-school
+   "nuke everything to zero" approach. We only remove
+   inconsistencies that actively cause layout bugs, and
+   we preserve useful native behavior (like smooth
+   scrolling and sensible image sizing).
+
+   This file should rarely change once written. If you
+   find yourself editing it often, the fix probably
+   belongs in style.css instead.
+   ================================================== */
+
+/* Box-sizing: border-box means padding and border are
+   INCLUDED in an element's declared width, not added on
+   top of it. Without this, "width: 100%; padding: 20px;"
+   silently overflows its container by 40px. This single
+   rule prevents an entire category of layout bugs. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Prevents mobile browsers from auto-inflating font sizes
+   when a device is rotated to landscape — a common cause
+   of text appearing to randomly resize. */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+/* min-height: 100% + font smoothing gives text a cleaner
+   render on macOS/iOS WebKit without affecting other
+   platforms. */
+body {
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Images and video are "replaced elements" — by default
+   they can overflow their container and ignore max-width.
+   This makes all media responsive by default, everywhere,
+   with zero extra classes needed per <img>. */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Form elements don't inherit font styles by default in
+   most browsers — meaning a <button> or <input> looks like
+   it's from a different design system than your body text
+   unless you force the inheritance here. */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Prevents long unbroken strings (URLs, technical part
+   numbers — relevant for an engineering firm's content)
+   from overflowing their container and breaking layout. */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* Respects the user's OS-level "reduce motion" accessibility
+   setting. Some users have motion sensitivity or vestibular
+   disorders — this is not optional politeness, it's a WCAG
+   accessibility requirement (2.3.3). */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

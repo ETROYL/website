@@ -57,3 +57,26 @@ function init() {
    line executes — so init() can safely run immediately
    without wrapping it in a DOMContentLoaded listener. */
 init();
+
+// Function to randomize the hero slogan
+function randomizeSlogan() {
+    const slogans = [
+        "Engineering the systems others can't.",
+        "Engineering Behind Boundaries.",
+        "Engineering Intelligent Systems."
+    ];
+
+    // Select a random index
+    const randomIndex = Math.floor(Math.random() * slogans.length);
+    
+    // Target the element
+    const heroHeading = document.getElementById('hero-heading');
+    
+    // Update the content
+    if (heroHeading) {
+        heroHeading.textContent = slogans[randomIndex];
+    }
+}
+
+// Execute on load
+randomizeSlogan();

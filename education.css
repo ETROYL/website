@@ -1,0 +1,173 @@
+/* ==================================================
+   EDUCATION.CSS
+   ==================================================
+   PURPOSE: Component styles specific to the Education page's
+   resource library. Loaded ONLY by pages/education.html — see
+   the comment in that file's <head> for why this is split out
+   rather than merged into the global style.css.
+
+   Still consumes tokens from variables.css exactly like
+   style.css does — "page-specific" describes WHERE these rules
+   apply, not a license to hardcode new colors/spacing outside
+   the token system.
+   ================================================== */
+
+.page-intro {
+    padding-block: var(--space-xl) var(--space-lg);
+    text-align: center;
+}
+
+.page-intro h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-sm);
+}
+
+.page-intro p {
+    max-width: 640px;
+    margin-inline: auto;
+    color: var(--color-text-muted);
+}
+
+/* -- Filter Bar -- */
+.filter-bar {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap; /* Wraps to a second line on narrow screens
+                         instead of overflowing or shrinking
+                         buttons into unreadable tap targets. */
+    margin-bottom: var(--space-lg);
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--text-sm);
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.filter-btn:hover,
+.filter-btn:focus-visible {
+    color: var(--color-text);
+    border-color: var(--color-accent);
+}
+
+/* .is-active is a plain visual class here (not aria-current,
+   which is reserved for page-level navigation). For a same-page
+   toggle group like this, the correct accessible pattern is
+   aria-pressed, set by JS on the button element itself — see
+   education.js. This CSS simply styles whichever button
+   currently carries aria-pressed="true". */
+.filter-btn[aria-pressed="true"] {
+    color: var(--color-background);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* -- Resource Grid --
+   THIS is the payoff of the earlier note in style.css about
+   reserving CSS Grid for genuinely two-dimensional layouts.
+   A card library is the textbook case: content needs to flow
+   in both rows AND columns, and the number of columns should
+   adapt to available width — exactly what auto-fill + minmax
+   solves in a single declaration, without a single media query. */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+}
+
+.resource-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card__media {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Reserves consistent space for the
+                              media before it loads, so cards of
+                              different content types (a video vs
+                              a document icon) still line up in a
+                              uniform grid rather than causing
+                              jagged row heights. */
+    background: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resource-card__media img,
+.resource-card__media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Documents don't have a natural thumbnail image, so they get a
+   simple typographic file-type badge instead of an empty box —
+   an empty box would look like a broken/missing image, which
+   erodes trust in the whole page. */
+.resource-card__doc-badge {
+    font-size: var(--text-sm);
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--border-radius);
+    text-transform: uppercase;
+}
+
+.resource-card__body {
+    padding: var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    flex-grow: 1; /* Ensures the body fills remaining card height
+                     so action links land at a consistent bottom
+                     edge across a row of mixed-length cards. */
+}
+
+.resource-card__title {
+    font-size: var(--text-base);
+    font-weight: 600;
+}
+
+.resource-card__description {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    flex-grow: 1;
+}
+
+.resource-card__link {
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+    align-self: flex-start;
+}
+
+.resource-card__link:hover,
+.resource-card__link:focus-visible {
+    text-decoration: underline;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding-block: var(--space-xl);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--border-radius);
+}
+
+.empty-state code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--color-surface);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+}

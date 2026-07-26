@@ -10,41 +10,49 @@ keeps the site fast, auditable, and free of dependency-rot over time.
 
 ## Structure
 
+The repo is currently flat — every file lives at the root, no
+subfolders. This is a deliberate simplification for how the repo is
+currently being managed via GitHub's web upload UI, which doesn't
+reliably preserve dragged subfolders unless you drag real OS folders
+(not individually-picked files) into it.
+
 ```
-index.html                 Entry point
-/pages/
-    education.html          Education & Resources library
-/assets/css/
-    reset.css               Browser-default normalization (rarely changes)
-    variables.css           Design tokens: color, type, spacing (the theme)
-    style.css               Global layout & components (all pages)
-    education.css           Page-specific styles, loaded only by education.html
-/assets/js/
-    script.js               Global page behavior, small named functions + one init()
-    education.js            Resource manifest + render logic for the Education page
-/assets/images/
-    logos/                  logo-icon.png (header), logo-full.png (footer/lockup)
-    banner-hero.webp / .jpg Hero banner, WebP with JPEG fallback via <picture>
-    icons/                  Favicons
-/assets/education/
-    videos/ images/ documents/   Real files referenced by educationManifest
-/assets/fonts/             Self-hosted font files, if used instead of a CDN
-/docs/                     Internal engineering notes
+index.html          Homepage
+education.html       Education & Resources library
+reset.css            Browser-default normalization (rarely changes)
+variables.css        Design tokens: color, type, spacing (the theme)
+style.css             Global layout & components (all pages)
+education.css         Page-specific styles, loaded only by education.html
+script.js             Global page behavior, small named functions + one init()
+education.js          Resource manifest + render logic for the Education page
+logo-icon.png          Header logo (transparent, cropped to icon only)
+logo-full.png           Footer logo (icon + wordmark lockup)
+banner-hero.webp / .jpg  Hero banner, WebP with JPEG fallback via <picture>
+CNAME                    Custom domain configuration (GitHub Pages)
 ```
+
+As real education content (videos/images/PDFs) is added, consider
+creating one `education-media/` folder to keep those separate from
+the site's code files — see the note at the top of `education.js`
+for exactly how to do that via GitHub's web UI without needing git
+on the command line.
 
 ## Hosting note: relative paths, on purpose
 
-Every internal `href`/`src` in this repo is a **relative path**
-(`assets/css/style.css`, `../assets/css/style.css` from `/pages/`),
-never root-absolute (`/assets/css/style.css`). This is deliberate:
-GitHub Pages project sites (`username.github.io/repo-name`) serve the
-repo from a subpath, not the domain root, so a root-absolute path
-silently 404s there. Relative paths resolve correctly regardless of
-subpath, custom domain, or renaming the repo. **When adding a new
-page**, count its folder depth from the repo root and prefix asset
-paths with the matching number of `../` — a page at `/pages/foo.html`
-uses `../assets/...`, one at `/pages/sub/foo.html` would use
-`../../assets/...`.
+Every internal `href`/`src` in this repo is a **relative, same-folder
+path** (`style.css`, `logo-icon.png`, `education.html`) — never
+root-absolute (`/style.css`) and never assuming subfolders that don't
+exist in this repo. This is deliberate: GitHub Pages project sites
+(`username.github.io/repo-name`) serve the repo from a subpath, not
+the domain root, so a root-absolute path silently 404s there — and a
+path assuming an `assets/` folder 404s the moment that folder doesn't
+actually exist in the repo. Same-folder relative paths resolve
+correctly regardless of subpath, custom domain, or repo layout.
+**If subfolders are reintroduced later**, every path that crosses
+into or out of that folder needs updating to match — that's the one
+tradeoff of the current flat layout: it's simple today, but nothing
+here auto-adjusts if the shape of the repo changes without matching
+the code.
 
 ## Adding Education content
 

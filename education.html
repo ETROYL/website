@@ -12,9 +12,9 @@
 
     <!-- Same three-file loading order as index.html: reset,
          then tokens, then layout. -->
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="variables.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Page-specific stylesheet, loaded ONLY here. This is the
          "split when it earns its place" principle from the
@@ -23,7 +23,7 @@
          doesn't bloat the shared style.css with rules that exist
          nowhere else. As more pages arrive, each gets this same
          treatment only if its component needs actually diverge. -->
-    <link rel="stylesheet" href="education.css">
+    <link rel="stylesheet" href="assets/css/education.css">
 </head>
 <body>
 
@@ -33,10 +33,10 @@
         <div class="container">
             <a href="index.html" class="logo" aria-label="ETROYL home">
                 <img
-                    src="logo-icon.png"
+                    src="assets/img/logo-icon.png"
                     alt="ETROYL"
-                    width="200"
-                    height="109"
+                    width="408"
+                    height="289"
                     class="logo-mark">
             </a>
 
@@ -117,16 +117,16 @@
     <footer class="site-footer">
         <div class="container">
             <img
-                src="logo-full.png"
+                src="assets/img/logo-icon.png"
                 alt="ETROYL"
-                width="140"
-                height="109"
+                width="408"
+                height="289"
                 class="footer-logo">
             <p>&copy; <span id="current-year"></span> ETROYL. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js" defer></script>
-    <script src="education.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/education.js" defer></script>
 </body>
 </html>

@@ -59,6 +59,7 @@
     /* A modular type scale (ratio-based, ~1.25 "Major Third")
        keeps heading sizes visually harmonious instead of
        arbitrary guesses like 22px, 27px, 34px. */
+	--text-xsm:   0.675rem;
     --text-sm:   0.875rem;
     --text-base: 1rem;
     --text-lg:   1.25rem;
@@ -94,4 +95,12 @@
        rather than each component inventing its own speed. */
     --transition-fast: 150ms ease;
     --transition-base: 250ms ease;
+}
+/* Light Mode Overrides */
+[data-theme='light'] {
+	--color-background: #ffffff;
+	--color-surface: #f4f4f4;
+	--color-text: #1a1a1a;
+	--color-text-muted: #555555;
+	--color-accent: #0077b6; /* A deeper blue for light mode readability */
 }

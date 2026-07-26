@@ -126,7 +126,28 @@ a {
                        engineer reading this immediately
                        understands the intent. */
     align-items: center;
+	align-items: center;
     justify-content: space-between;
+    gap: var(--space-md);
+}
+
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--color-surface);
+    color: var(--color-text-muted);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: var(--text-xsm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-base);
+    border-radius: 2px;
+}
+
+.theme-btn:hover {
+    background: var(--color-text);
+    color: var(--color-background);
 }
 
 .logo {

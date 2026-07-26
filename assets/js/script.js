@@ -31,6 +31,31 @@
  * example of a broader principle: any value that changes
  * on a schedule should be computed, not hardcoded.
  */
+ 
+// Detect System Preference
+const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+
+// Set initial theme
+if (savedTheme) {
+    htmlElement.setAttribute('data-theme', savedTheme);
+} else if (userPrefersDark) {
+    htmlElement.setAttribute('data-theme', 'dark');
+} else {
+    htmlElement.setAttribute('data-theme', 'light');
+} 
+ 
+const toggleButton = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+
+toggleButton.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    htmlElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+});
+
 function setCurrentYear() {
     const yearElement = document.getElementById('current-year');
     if (!yearElement) return; // Defensive check: if the element

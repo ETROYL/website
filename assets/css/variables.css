@@ -24,6 +24,14 @@
    Actual brand colors/typography come in the Phase 2 visual
    identity pass — don't treat these as final art direction.
    ================================================== */
+/* ---- TYPOGRAPHY ---- */
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/InterVariable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+}
 
 :root {
     /* ---- COLOR PALETTE ----
@@ -31,10 +39,10 @@
        (--color-dark-gray). If the "surface" color changes
        from dark gray to navy, every rule referencing
        --color-surface stays correct with zero find/replace. */
-    --color-background: #0d0d0d;
-    --color-surface:    #161616;
-    --color-text:       #f2f2f2;
-    --color-text-muted: #a3a3a3;
+    --color-background: #050505;
+    --color-surface:    #121216;
+    --color-text:       #e0e0e0;
+    --color-text-muted: #888888;
     --color-accent:     #3a86ff;
     --color-border:     #2a2a2a;
 
@@ -45,10 +53,8 @@
        likely be swapped for a licensed/self-hosted brand
        typeface in Phase 2 — but the site should never
        ship without a working fallback stack regardless. */
-    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 Roboto, Helvetica, Arial, sans-serif;
-    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono",
-                 Menlo, monospace;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', Consolas, "Liberation Mono", monospace;
 
     /* A modular type scale (ratio-based, ~1.25 "Major Third")
        keeps heading sizes visually harmonious instead of

@@ -86,6 +86,27 @@ a {
     top: 0;
 }
 
+/* Unlike .skip-link, this hides content PERMANENTLY from sighted
+   users while keeping it fully readable by screen readers — used
+   for headings that establish document structure (e.g. a required
+   <h2> a screen-reader user needs to navigate by) but that would
+   be visually redundant next to an already-visible page <h1>.
+   display:none is never used here because that removes the
+   element from the accessibility tree entirely, defeating the
+   purpose. This exact clip-based pattern is the long-standing,
+   broadly-supported standard for this — not a homemade guess. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* ---------- 4. COMPONENTS (in page order) ---------- */
 
 /* -- Site Header -- */
@@ -109,9 +130,20 @@ a {
 }
 
 .logo {
-    font-size: var(--text-lg);
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    display: flex; /* Removes the small baseline gap that
+                       browsers add below inline images by
+                       default, and lets us vertically center
+                       the mark against the nav links via the
+                       header's align-items: center rule. */
+}
+
+.logo-mark {
+    height: 36px;   /* Constrain by height, since the header
+                        is a fixed-height horizontal bar — width
+                        is left to "auto" (the browser's default)
+                        so the image scales proportionally
+                        instead of distorting. */
+    width: auto;
 }
 
 .main-nav ul {
@@ -134,6 +166,16 @@ a {
     color: var(--color-text);
 }
 
+/* Styling the [aria-current="page"] ATTRIBUTE (not a separate
+   CSS class) means the visual "active" state and the accessible
+   "active" state can never drift out of sync — there is only
+   one source of truth for "this is the current page," and both
+   sighted and screen-reader users read it from the same place. */
+.main-nav a[aria-current="page"] {
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-accent);
+}
+
 /* :focus-visible (rather than :focus) shows the focus ring
    only for keyboard navigation, not mouse clicks — matching
    what sighted mouse users expect while still fully
@@ -142,8 +184,30 @@ a {
 
 /* -- Hero Section -- */
 .hero {
-    padding-block: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
     text-align: center;
+}
+
+/* The banner is full-bleed (edge-to-edge, ignoring .container's
+   max-width) because it's meant to read as an environment/stage,
+   not as constrained body content. This is a deliberate exception
+   to the .container pattern used everywhere else — full-bleed
+   should be rare and intentional, not the default, or it stops
+   meaning anything. */
+.hero-banner {
+    width: 100%;
+    margin-bottom: var(--space-lg);
+}
+
+.hero-banner img {
+    width: 100%;
+    height: auto;
+    /* max-height + object-fit keeps extremely wide viewports
+       (ultrawide monitors) from stretching the banner into an
+       unnaturally tall crop — the image scales down to fit
+       instead of blowing out vertically. */
+    max-height: 60vh;
+    object-fit: cover;
 }
 
 .hero h1 {
@@ -181,6 +245,24 @@ section h2 {
     color: var(--color-text-muted);
     font-size: var(--text-sm);
     border-top: 1px solid var(--color-border);
+}
+
+.site-footer .container {
+    /* Flexbox again, not Grid — this is a single-column stack
+       (logo above text), which is a 1D arrangement even though
+       it happens to be vertical rather than horizontal. Grid
+       would work too, but reaching for the simpler tool that
+       fully solves the problem is the correct default. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.footer-logo {
+    height: 32px;
+    width: auto;
+    opacity: 0.85;
 }
 
 /* ---------- RESPONSIVE BEHAVIOR ---------- */

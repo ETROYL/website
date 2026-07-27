@@ -12,9 +12,9 @@
 
     <!-- Same three-file loading order as index.html: reset,
          then tokens, then layout. -->
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/variables.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
     <!-- Page-specific stylesheet, loaded ONLY here. This is the
          "split when it earns its place" principle from the
@@ -23,7 +23,7 @@
          doesn't bloat the shared style.css with rules that exist
          nowhere else. As more pages arrive, each gets this same
          treatment only if its component needs actually diverge. -->
-    <link rel="stylesheet" href="assets/css/education.css">
+    <link rel="stylesheet" href="/assets/css/education.css">
 </head>
 <body>
 
@@ -31,9 +31,9 @@
 
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo" aria-label="ETROYL home">
+            <a href="/index.html" class="logo" aria-label="ETROYL home">
                 <img
-                    src="assets/img/logo-icon.png"
+                    src="/assets/img/logo-icon.png"
                     alt="ETROYL"
                     width="408"
                     height="289"
@@ -42,18 +42,10 @@
 
             <nav class="main-nav" aria-label="Primary">
                 <ul>
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="about/about.html">About</a></li>
-                    <!-- aria-current="page" tells screen readers
-                         (and enables the CSS below) which nav
-                         item represents the page currently open —
-                         the accessible equivalent of a visual
-                         "you are here" indicator. Using a plain
-                         CSS class instead would look identical
-                         to sighted users but communicate nothing
-                         to assistive technology. -->
-                    <li><a href="education.html" aria-current="page">Education</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="/index.html#services">Services</a></li>
+                    <li><a href="/about/about.html">About</a></li>
+                    <li><a href="/education.html" aria-current="page">Education</a></li>
+                    <li><a href="/index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -74,13 +66,6 @@
             <div class="container">
                 <h2 id="library-heading" class="visually-hidden">Resource Library</h2>
 
-                <!-- Filter controls. Built as real <button> elements,
-                     not clickable <div>/<span> — buttons are natively
-                     keyboard-focusable and screen-reader-announced as
-                     interactive controls with zero extra ARIA needed.
-                     role="group" + aria-label tells assistive tech
-                     these buttons act together as one control, not as
-                     unrelated standalone actions. -->
                 <div class="filter-bar" role="group" aria-label="Filter resources by type">
                     <button type="button" class="filter-btn is-active" data-filter="all">All</button>
                     <button type="button" class="filter-btn" data-filter="video">Videos</button>
@@ -88,13 +73,6 @@
                     <button type="button" class="filter-btn" data-filter="document">Documents</button>
                 </div>
 
-                <!-- The grid itself is rendered entirely by
-                     education.js from the manifest array — this
-                     container starts empty on purpose. role="list"
-                     + each card as role="listitem" (added in JS)
-                     preserves list semantics for screen readers even
-                     though the visual presentation is a CSS Grid,
-                     not a <ul>. -->
                 <div id="education-grid" class="education-grid" role="list">
                     <!-- Populated by education.js -->
                 </div>

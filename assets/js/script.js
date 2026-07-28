@@ -69,10 +69,7 @@ function setCurrentYear() {
 
 function randomizeSlogan() {
     const slogans = [
-        "Advanced Engineering Solutions",
-        "Engineering the systems others can't",
-        "Engineering Behind Boundaries",
-        "Engineering Intelligent Systems"
+    	"Built on Science. Delivered through Engineering."
     ];
     const randomIndex = Math.floor(Math.random() * slogans.length);
     const heroHeading = document.getElementById('hero-heading');

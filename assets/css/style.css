@@ -767,6 +767,11 @@ section h2 {
         flex-direction: column;
         gap: var(--space-xs);
     }
+    
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
     .hero h1 {
         font-size: var(--text-3xl);

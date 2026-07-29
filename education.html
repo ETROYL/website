@@ -24,6 +24,8 @@
          nowhere else. As more pages arrive, each gets this same
          treatment only if its component needs actually diverge. -->
     <link rel="stylesheet" href="/assets/css/education.css">
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
 
@@ -43,11 +45,16 @@
             <nav class="main-nav" aria-label="Primary">
                 <ul>
                     <li><a href="/index.html#services">Services</a></li>
-                    <li><a href="/about/about.html">About</a></li>
+                    <li><a href="/index.html#projects">Projects</a></li>
                     <li><a href="/education.html" aria-current="page">Education</a></li>
+                    <li><a href="/about/about.html">About</a></li>
                     <li><a href="/index.html#contact">Contact</a></li>
                 </ul>
             </nav>
+
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
+                <i data-lucide="sun-moon"></i>
+            </button>
         </div>
     </header>
 
@@ -93,18 +100,47 @@
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <img
-                src="assets/img/logo-icon.png"
-                alt="ETROYL"
-                width="408"
-                height="289"
-                class="footer-logo">
-            <p>&copy; <span id="current-year"></span> ETROYL. All rights reserved.</p>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img
+                    src="/assets/img/logo-icon.png"
+                    alt="ETROYL"
+                    width="408"
+                    height="289"
+                    class="footer-logo">
+                <p>&copy; <span id="current-year"></span> ETROYL. All rights reserved.</p>
+            </div>
+
+            <nav class="footer-nav" aria-label="Company">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="/about/about.html">About</a></li>
+                    <li><a href="/about/founder.html">Leadership</a></li>
+                    <li><a href="/index.html#contact">Careers</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-nav" aria-label="Resources">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="/education.html" aria-current="page">Education</a></li>
+                    <li><a href="/index.html#insights">Blog</a></li>
+                    <li><a href="/education.html">Documentation</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-nav" aria-label="Connect">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="mailto:contact@etroyl.com">Contact</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </nav>
         </div>
     </footer>
 
-    <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/education.js" defer></script>
+    <script src="/assets/js/script.js" defer></script>
+    <script src="/assets/js/education.js" defer></script>
 </body>
 </html>

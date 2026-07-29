@@ -95,6 +95,29 @@
        rather than each component inventing its own speed. */
     --transition-fast: 150ms ease;
     --transition-base: 250ms ease;
+
+    /* ---- PHASE 2 ADDITIONS ----
+       Added for the front-page rebuild. Same rule as above:
+       named by role, consumed everywhere via var(), never
+       hardcoded at the point of use.
+
+       --color-surface-raised: one step lighter than
+       --color-surface, for cards that sit ON TOP of an
+       already-elevated surface (e.g. a project card's media
+       placeholder sitting inside the card itself).
+
+       --color-accent-glow: the accent color at low opacity,
+       used for the hero's ambient glow and focus/hover halos.
+       Kept as a token (not re-derived with opacity utilities
+       everywhere it's used) so the glow color moves in lockstep
+       if --color-accent ever changes.
+
+       --shadow-card: a single elevation shadow reused by every
+       raised component (cards, the stats band) instead of each
+       one inventing its own blur/spread values. */
+    --color-surface-raised: #1a1a20;
+    --color-accent-glow: rgba(58, 134, 255, 0.18);
+    --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 /* Light Mode Overrides */
 [data-theme='light'] {
@@ -103,4 +126,7 @@
 	--color-text: #1a1a1a;
 	--color-text-muted: #555555;
 	--color-accent: #0077b6; /* A deeper blue for light mode readability */
+	--color-surface-raised: #e8e8e8;
+	--color-accent-glow: rgba(0, 119, 182, 0.12);
+	--shadow-card: 0 8px 24px rgba(0, 0, 0, 0.08);
 }

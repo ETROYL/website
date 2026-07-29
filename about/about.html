@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/css/variables.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <title>About | ETROYL</title>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -22,11 +23,15 @@
             <nav class="main-nav" aria-label="Primary">
                 <ul>
 		    <li><a href="/index.html#services">Services</a></li>
-                    <li><a href="/about/founder.html">Leadership</a></li>
+                    <li><a href="/index.html#projects">Projects</a></li>
                     <li><a href="/education.html">Education</a></li>
+                    <li><a href="/about/founder.html">Leadership</a></li>
                     <li><a href="/index.html#contact">Contact</a></li>
                 </ul>
             </nav>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
+                <i data-lucide="sun-moon"></i>
+            </button>
         </div>
     </header>
 
@@ -52,7 +57,46 @@
         </section>
     </main>
 
-    <footer class="site-footer">...</footer>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img
+                    src="/assets/img/logo-icon.png"
+                    alt="ETROYL"
+                    width="408"
+                    height="289"
+                    class="footer-logo">
+                <p>&copy; <span id="current-year"></span> ETROYL. All rights reserved.</p>
+            </div>
+
+            <nav class="footer-nav" aria-label="Company">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="/about/about.html">About</a></li>
+                    <li><a href="/about/founder.html">Leadership</a></li>
+                    <li><a href="/index.html#contact">Careers</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-nav" aria-label="Resources">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="/education.html">Education</a></li>
+                    <li><a href="/index.html#insights">Blog</a></li>
+                    <li><a href="/education.html">Documentation</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-nav" aria-label="Connect">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="mailto:contact@etroyl.com">Contact</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
     <script src="/assets/js/script.js" defer></script>
 </body>
 </html>

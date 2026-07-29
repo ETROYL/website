@@ -126,28 +126,38 @@ a {
                        engineer reading this immediately
                        understands the intent. */
     align-items: center;
-	align-items: center;
     justify-content: space-between;
     gap: var(--space-md);
 }
 
+/* Theme toggle is now a round icon button living inside the
+   same header flex row as logo/nav (rather than a separate
+   fixed-position element floating outside it), matching the
+   compact top-right control shown in the mockup. */
 .theme-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
     background: transparent;
-    border: 1px solid var(--color-surface);
+    border: 1px solid var(--color-border);
     color: var(--color-text-muted);
-    padding: 0.5rem 1rem;
     cursor: pointer;
-    font-family: var(--font-main);
-    font-size: var(--text-xsm);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: var(--transition-base);
-    border-radius: 2px;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
-.theme-btn:hover {
-    background: var(--color-text);
-    color: var(--color-background);
+.theme-btn:hover,
+.theme-btn:focus-visible {
+    color: var(--color-text);
+    border-color: var(--color-accent);
+}
+
+.theme-btn svg {
+    width: 18px;
+    height: 18px;
 }
 
 .logo {
@@ -203,52 +213,87 @@ a {
    supporting keyboard/screen-reader users. This is a modern
    accessibility best practice, not a stylistic preference. */
 
-/* -- Hero Section -- */
+/* -- Hero Section --
+   No border-top here (unlike the generic `section` rule further
+   down) since the hero is the first thing on the page — a divider
+   above it would separate it from nothing. */
 .hero {
-    padding-bottom: var(--space-2xl);
+    position: relative;
+    padding-block: var(--space-md);
     text-align: center;
+    border-top: none;
+    overflow: hidden; /* keeps the backdrop's glow from spilling
+                          past the section's own edges */
 }
 
-/* The banner is full-bleed (edge-to-edge, ignoring .container's
-   max-width) because it's meant to read as an environment/stage,
-   not as constrained body content. This is a deliberate exception
-   to the .container pattern used everywhere else — full-bleed
-   should be rare and intentional, not the default, or it stops
-   meaning anything. */
+/* Pure-CSS backdrop: a faint grid (two repeating linear
+   gradients, one per axis) plus a radial glow centered behind
+   the logo. This replaces the old photographed banner — it
+   costs zero requests and zero KB of image asset, which matters
+   given there is no real hero photography yet. Swap this div
+   out for a photo-based treatment later without touching any
+   other hero markup. */
+.hero-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        radial-gradient(ellipse at 50% 0%, var(--color-accent-glow), transparent 60%),
+        repeating-linear-gradient(to right, var(--color-border) 0 1px, transparent 1px 64px),
+        repeating-linear-gradient(to bottom, var(--color-border) 0 1px, transparent 1px 64px);
+    opacity: 0.6;
+    mask-image: linear-gradient(to bottom, black 0%, transparent 90%);
+}
+
 .hero-banner {
     width: 100%;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xs);
 }
 
 .hero-banner img {
     width: 100%;
     height: auto;
-    /* max-height + object-fit keeps extremely wide viewports
-       (ultrawide monitors) from stretching the banner into an
-       unnaturally tall crop — the image scales down to fit
-       instead of blowing out vertically. */
     max-height: 60vh;
     object-fit: cover;
 }
 
-.hero h1 {
-    font-size: var(--text-4xl);
+.hero-mark {
+    height: 96px;
+    width: auto;
+    margin-inline: auto;
     margin-bottom: var(--space-sm);
 }
 
-.hero p {
+.hero-wordmark {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: 0.15em; /* wide tracking reads as a
+                                logotype rather than a heading */
+    margin-bottom: var(--space-md);
+}
+
+.hero h1 {
+    font-size: var(--text-4xl);
+    max-width: 20ch;
+    margin-inline: auto;
+    margin-bottom: var(--space-sm);
+}
+
+.hero-subline {
     font-size: var(--text-lg);
     color: var(--color-text-muted);
 }
 
-/* -- Generic Content Sections (services / about / contact) --
-   These share a class-free tag+ID approach for now since
-   Phase 1 has no unique component design yet. As real content
-   and layout needs arrive in Phase 2, this is where Grid
-   becomes the right tool — e.g. a services grid showing
-   multiple cards in a 2D arrangement (rows AND columns),
-   which is what CSS Grid is actually built for, unlike the
-   1D flex row used in the header above. */
+.hero-subline span {
+    color: var(--color-accent);
+    margin-inline: var(--space-xs);
+}
+
+/* -- Generic Content Sections --
+   Shared rhythm/border for every full-width section below the
+   hero. Individual sections add their own background color or
+   grid layout on top of this shared baseline rather than
+   repeating padding/border values each time. */
 section {
     padding-block: var(--space-xl);
     border-top: 1px solid var(--color-border);
@@ -259,31 +304,452 @@ section h2 {
     margin-bottom: var(--space-md);
 }
 
-/* -- Site Footer -- */
-.site-footer {
-    padding-block: var(--space-md);
+/* -- Eyebrow label --
+   The small accent-colored label above most section headings
+   ("What We Build", "Featured Projects", etc). A single shared
+   class instead of styling section-specific <p> tags keeps this
+   pattern visually identical everywhere it appears. */
+.eyebrow {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-xs);
+}
+
+/* -- Buttons --
+   Two variants: outline (secondary, used repeatedly per-section
+   for "explore/view all" actions) and primary (solid fill,
+   reserved for the single highest-priority action on the page —
+   the final contact CTA). Reserving the solid-fill treatment for
+   one button is what makes it read as *the* action rather than
+   *an* action. */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--border-radius);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.btn-outline {
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    background: transparent;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.btn-primary {
+    border: 1px solid var(--color-accent);
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    background: transparent;
+    color: var(--color-accent);
+}
+
+/* -- Card grid --
+   Shared by the services grid and the projects grid. Genuinely
+   two-dimensional (rows AND columns, adaptive column count) —
+   same auto-fill/minmax reasoning already used for the education
+   library grid in education.css. */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-md);
+    margin-block: var(--space-lg);
+}
+
+.card-grid--projects {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* -- Service cards -- */
+.service-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--space-md);
+    text-align: left;
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.service-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.service-card svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+}
+
+.service-card h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-xs);
+}
+
+.service-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+}
+
+/* -- Who We Help row --
+   A flex-wrap row rather than Grid: unlike the card grids above,
+   these items don't need matched card heights or strict column
+   alignment — they're a simple label list that should just wrap
+   naturally at any width, which is exactly the 1D-with-wrapping
+   case flex-wrap is for. */
+.domain-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg);
+    list-style: none;
     text-align: center;
+}
+
+.domain-row li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    width: 120px;
+}
+
+.domain-row svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-accent);
+}
+
+.domain-row span {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+}
+
+.who-we-help {
+    text-align: center;
+}
+
+.who-we-help h2 {
+    max-width: 32ch;
+    margin-inline: auto;
+    margin-bottom: var(--space-lg);
+}
+
+/* -- Section header centering --
+   Services/projects/insights all lead with a centered
+   eyebrow+heading before their (left-aligned) content grid. */
+.services .container > .eyebrow,
+.services .container > h2,
+.projects .container > .eyebrow,
+.projects .container > h2,
+.insights .container > .eyebrow,
+.insights .container > h2 {
+    text-align: center;
+}
+
+.services .container > h2,
+.projects .container > h2,
+.insights .container > h2 {
+    max-width: 36ch;
+    margin-inline: auto;
+}
+
+.services > .container,
+.projects > .container,
+.insights > .container {
+    text-align: center;
+}
+
+/* -- Placeholder media graphic --
+   Shared "not a photo yet" treatment for project cards, the
+   insight list, and the About teaser. A soft diagonal gradient
+   plus a large centered icon reads intentionally as a stand-in
+   graphic (rather than a broken image), so nothing here needs
+   to apologize for being a placeholder. Swap for a real <img>
+   per instance once photography exists — none of the
+   surrounding card markup needs to change when that happens. */
+.card-media-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, var(--color-surface-raised), var(--color-surface));
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--space-sm);
+}
+
+.card-media-placeholder img,
+.card-media-placeholder picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-media-placeholder svg {
+    width: 40px;
+    height: 40px;
+    color: var(--color-text-muted);
+}
+
+.card-media-placeholder--sm {
+    aspect-ratio: 1 / 1;
+    width: 96px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.card-media-placeholder--sm svg {
+    width: 28px;
+    height: 28px;
+}
+
+.card-media-placeholder--lg {
+    aspect-ratio: 4 / 3;
+    margin-bottom: 0;
+}
+
+.card-media-placeholder--lg svg {
+    width: 56px;
+    height: 56px;
+}
+
+/* -- Project cards -- */
+.project-card {
+    text-align: left;
+}
+
+.project-card h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-xs);
+}
+
+.project-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.card-link svg {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--transition-fast);
+}
+
+.card-link:hover svg,
+.card-link:focus-visible svg {
+    transform: translateX(3px);
+}
+
+/* -- Insights list --
+   A horizontal media+text row per item, not a grid of cards —
+   these read more like a compact article index than standalone
+   tiles, so a list is both the more honest markup (an ordered
+   set of posts) and the better-fitting visual. */
+.insight-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: left;
+    margin-block: var(--space-lg);
+}
+
+.insight-item {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.insight-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.insight-item__body h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-xs);
+}
+
+.insight-item__body p {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.insight-item__meta {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* -- Stats band --
+   Visually distinct from the sections around it (raised
+   surface + accent-tinted glow) since these are the site's
+   proof points — it should read as a highlighted band you
+   pause on while scrolling, not blend into the surrounding
+   sections. */
+.stats {
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--space-lg);
+    text-align: center;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.stat__number {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+}
+
+.stat__number--accent {
+    color: var(--color-accent);
+}
+
+.stat__label {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat--callout {
+    border-left: 1px solid var(--color-border);
+    padding-left: var(--space-lg);
+}
+
+.stat--callout .stat__label {
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: var(--text-base);
+}
+
+.stat__caption {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+}
+
+/* -- About teaser --
+   Two-dimensional layout (copy column + image column, side by
+   side) — Grid is the right tool here, same reasoning as the
+   card grids above, just with two fixed tracks instead of an
+   auto-fit repeat. */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.about-copy p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+}
+
+/* -- Contact / CTA -- */
+.contact {
+    text-align: center;
+    background: var(--color-surface);
+}
+
+.contact p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+}
+
+/* -- Site Footer --
+   Now a genuine 2D layout (brand block + 3 nav columns across
+   a row that stacks on mobile), so this moves from the flex
+   stack used previously to Grid — same rule of thumb as the
+   card grids: reach for Grid once there's more than one
+   dimension of alignment to solve for. */
+.site-footer {
+    padding-block: var(--space-lg);
     color: var(--color-text-muted);
     font-size: var(--text-sm);
     border-top: 1px solid var(--color-border);
 }
 
-.site-footer .container {
-    /* Flexbox again, not Grid — this is a single-column stack
-       (logo above text), which is a 1D arrangement even though
-       it happens to be vertical rather than horizontal. Grid
-       would work too, but reaching for the simpler tool that
-       fully solves the problem is the correct default. */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xs);
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+
+.footer-brand p {
+    margin-top: var(--space-sm);
 }
 
 .footer-logo {
     height: 32px;
     width: auto;
     opacity: 0.85;
+}
+
+.footer-nav h3 {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+}
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.footer-nav a {
+    transition: color var(--transition-fast);
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus-visible {
+    color: var(--color-text);
 }
 
 /* ---------- RESPONSIVE BEHAVIOR ---------- */
@@ -304,5 +770,49 @@ section h2 {
 
     .hero h1 {
         font-size: var(--text-3xl);
+    }
+
+    /* About teaser: the two-column grid only makes sense once
+       there's enough width for copy and image to sit side by
+       side without either being squeezed. Below that, stack. */
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Same reasoning as the about-grid: the footer's 4-column
+       row collapses to a single stacked column rather than
+       cramming nav lists into unreadably narrow tracks. */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        align-items: center;
+    }
+
+    /* A stat card with a left border only reads correctly when
+       it's actually to the right of its neighbor in a row; once
+       stats stack vertically the border would just look like a
+       stray vertical line, so it's dropped in favor of a top
+       border matching the stacked direction. */
+    .stat--callout {
+        border-left: none;
+        border-top: 1px solid var(--color-border);
+        padding-left: 0;
+        padding-top: var(--space-lg);
+    }
+
+    /* Insight rows: side-by-side thumbnail+text works down to
+       tablet width, but on narrow phones the thumbnail column
+       starts crowding the text. Stacking keeps both readable
+       instead of shrinking either past a usable size. */
+    .insight-item {
+        flex-direction: column;
+    }
+
+    .card-media-placeholder--sm {
+        width: 100%;
+        aspect-ratio: 16 / 9;
     }
 }

@@ -1,127 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ============================================
-         DOCUMENT ENCODING & COMPATIBILITY
-         Must be the first tags in <head>. The browser
-         reads charset before it can correctly parse
-         any other character (including other meta tags),
-         so this line's position is not cosmetic.
-    ============================================= -->
     <meta charset="UTF-8">
-
-    <!-- ============================================
-         RESPONSIVE VIEWPORT
-         Without this, mobile browsers render the page
-         at a fixed desktop width (~980px) and scale it
-         down, making text illegibly small. This tag
-         tells the browser to use the device's actual
-         width as the layout width.
-    ============================================= -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ============================================
-         PRIMARY SEO METADATA
-         Title and description are what Google displays
-         in search results. Title also appears in the
-         browser tab. Keep title under ~60 characters
-         and description under ~160 to avoid truncation.
-    ============================================= -->
     <title>ETROYL | GPR, FPGA, Embedded Systems, Signal Processing Engineering</title>
-    <meta name="description" content="ETROYL is an engineering firm specializing in Digital design, embedded systems, vision, digital signal processing, Ground Penetrating Radar, and Electromagnetic modeling.">
+    <meta name="description" content="ETROYL is an engineering firm specializing in FPGA & SoC design, embedded systems, signal processing, radar sensing, AI/robotics, and Ground Penetrating Radar.">
     <meta name="author" content="ETROYL">
 
-    <!-- ============================================
-         CANONICAL URL
-         Prevents duplicate-content SEO penalties if the
-         same page becomes reachable at multiple URLs
-         (e.g. with/without trailing slash, http/https).
-         Update this once the production domain is live.
-    ============================================= -->
     <link rel="canonical" href="https://www.etroyl.com/">
 
-    <!-- ============================================
-         OPEN GRAPH / SOCIAL SHARING METADATA
-         Controls how the page appears when shared on
-         LinkedIn, Slack, Twitter/X, etc. Without these,
-         social platforms fall back to guessing, often
-         picking the wrong image or no description at all.
-    ============================================= -->
 	<meta property="og:type" content="website">
-    <meta property="og:title" content="ETROYL | Built on Science.
-Delivered through Engineering.">
+    <meta property="og:title" content="ETROYL | Built on Science. Delivered through Engineering.">
     <meta property="og:description" content="Precision | Reliability | Innovation">
     <meta property="og:image" content="https://www.etroyl.com/assets/img/og-preview.jpg">
     <meta property="og:url" content="https://www.etroyl.com/">
-    
-    <!-- Twitter/X Specific Tags -->
+
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ETROYL | Built on Science.
-Delivered through Engineering.">
+    <meta name="twitter:title" content="ETROYL | Built on Science. Delivered through Engineering.">
     <meta name="twitter:description" content="Precision | Reliability | Innovation">
     <meta name="twitter:image" content="https://www.etroyl.com/assets/img/og-preview.jpg">
 
-    <!-- ============================================
-         FAVICON
-    ============================================= -->
-	<link rel="icon" type="image/png" href="/assets/img/favicon.ico">
-    <!-- ============================================
-         THEME COLOR
-         Colors the browser UI chrome (address bar on
-         Android Chrome, tab bar on some mobile browsers)
-         to match the brand rather than showing default gray.
-    ============================================= -->
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
     <meta name="theme-color" content="#0d0d0d">
 
-    <!-- ============================================
-         STYLESHEETS
-         Loaded in dependency order: reset first (undoes
-         browser defaults), then variables (design tokens
-         that later files depend on), then the main
-         stylesheet (actual layout/component rules).
-         Order matters because CSS is cascade-based —
-         later rules override earlier ones of equal
-         specificity.
-    ============================================= -->
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/variables.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- ============================================
+         ICON LIBRARY (Lucide)
+         Loaded via CDN per your call on this one — the rest of
+         the site stays zero-dependency, but a maintained icon
+         set is a reasonable single exception vs. hand-drawing
+         and hand-maintaining ~15 inline SVGs. Lucide scans the
+         DOM for <i data-lucide="name"> tags and swaps each one
+         for inline SVG — triggered by lucide.createIcons() in
+         script.js.
+    ============================================= -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
 
-    <!-- ============================================
-         SKIP LINK (ACCESSIBILITY)
-         The very first focusable element on the page.
-         Lets keyboard and screen-reader users jump
-         straight to the main content, bypassing
-         repeated navigation links on every page load.
-         Visually hidden by default, revealed on focus
-         via CSS (handled in style.css).
-    ============================================= -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- ============================================
-         HEADER
-         The <header> landmark is a semantic signal to
-         screen readers and search engines: "this is
-         introductory/navigational content for the page
-         or section it's in." It is not just a styling box.
-    ============================================= -->
     <header class="site-header">
         <div class="container">
-            <!-- The logo is a real <img>, not a CSS background.
-                 WHY THIS MATTERS: a background-image is invisible
-                 to screen readers and to Google's image index —
-                 it is purely decorative as far as accessibility
-                 and SEO are concerned. The company logo is
-                 meaningful content (it identifies the brand), so
-                 it belongs in the DOM as an <img> with real alt
-                 text. width/height are set explicitly to match
-                 the file's intrinsic aspect ratio — this reserves
-                 the correct space in the layout before the image
-                 finishes loading, preventing a Cumulative Layout
-                 Shift (a measured Core Web Vital that affects
-                 both UX and Google ranking). -->
             <a href="/" class="logo" aria-label="ETROYL home">
                 <img
                     src="/assets/img/logo-icon.png"
@@ -131,133 +55,322 @@ Delivered through Engineering.">
                     class="logo-mark">
             </a>
 
-            <!-- <nav> is a landmark element — screen readers
-                 can jump directly to "navigation" the same
-                 way they jump to "main". A <div> with nav-like
-                 styling would not offer this. -->
             <nav class="main-nav" aria-label="Primary">
                 <ul>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="/about/about.html">About</a></li>
-                    <!-- <li><a href="about/founder.html">Leadership</a></li> -->
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="/education.html">Education</a></li>
+                    <li><a href="/about/about.html">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
+                <i data-lucide="sun-moon"></i>
+            </button>
         </div>
     </header>
-	<button id="theme-toggle" class="theme-btn">Theme</button>
 
-    <!-- ============================================
-         MAIN CONTENT
-         Exactly one <main> per page. It tells assistive
-         technology and browsers "the primary content
-         starts here" — distinct from repeated chrome
-         like headers, footers, and sidebars. This is
-         also the target of the skip link above.
-    ============================================= -->
     <main id="main-content">
-
-        <!-- Each top-level content block on the page is a
-             <section>, not a <div>. A <section> is semantic:
-             it tells the document outline "this is a distinct
-             thematic grouping," which matters for both SEO
-             crawlers and screen-reader users navigating by
-             heading/landmark. -->
         <section class="hero" aria-labelledby="hero-heading">
-            <!-- <picture> lets the browser choose the smallest
-                 format it supports: WebP (~48KB) if available,
-                 falling back to JPEG (~96KB) only for the rare
-                 browser that can't decode WebP. This is a real
-                 performance decision, not a formality — the
-                 original PNG export of this banner was 1.7MB,
-                 which alone would have made this the heaviest
-                 single request on the entire page. -->
-            <picture class="hero-banner">
-                <source srcset="/assets/img/banner-hero.webp" type="image/webp">
+            <div class="container hero-banner">
                 <img
                     src="/assets/img/banner-hero.webp"
                     alt=""
                     width="1792"
                     height="592"
                     loading="eager"
-                    fetchpriority="high">
-            </picture>
-
-            <!-- IMPORTANT ACCESSIBILITY/SEO NOTE:
-                 The banner above has its brand tagline baked
-                 into the pixels. Text inside an image cannot be
-                 read by screen readers, cannot be selected/copied,
-                 and is invisible to search engine text indexing.
-                 The heading below is NOT decorative repetition —
-                 it is the real, crawlable, accessible equivalent
-                 of what a sighted user already saw in the image.
-                 Never rely on image-only text to carry your only
-                 copy of a page's core message. -->
-            <div class="container">
-                <h1 id="hero-heading">Advanced Engineering Solutions</h1>
-                <p>Embedded systems | DSP | Ground Penetrating Radar | Automation</p>
+                    fetchpriority="high"
+                    class="hero-banner">
             </div>
         </section>
 
+        <!-- ============================================
+             WHAT WE BUILD
+        ============================================= -->
         <section id="services" class="services" aria-labelledby="services-heading">
             <div class="container">
-                <h2 id="services-heading">What We Build</h2>
-                <!-- Placeholder — populated in Phase 2 -->
+                <p class="eyebrow">What We Build</p>
+                <h2 id="services-heading">Engineering solutions for complex challenges</h2>
+
+                <div class="card-grid">
+                    <article class="service-card">
+                        <i data-lucide="cpu" aria-hidden="true"></i>
+                        <h3>FPGA &amp; Digital Design</h3>
+                        <p>High-performance digital systems from concept to implementation.</p>
+                    </article>
+                    <article class="service-card">
+                        <i data-lucide="code-2" aria-hidden="true"></i>
+                        <h3>Embedded Systems</h3>
+                        <p>Robust firmware and software for mission-critical platforms.</p>
+                    </article>
+                    <article class="service-card">
+                        <i data-lucide="activity" aria-hidden="true"></i>
+                        <h3>Signal Processing</h3>
+                        <p>Advanced DSP algorithms for radar, imaging, and communications.</p>
+                    </article>
+                    <article class="service-card">
+                        <i data-lucide="radar" aria-hidden="true"></i>
+                        <h3>Radar &amp; Sensing</h3>
+                        <p>From waveform design to real-time processing and visualization.</p>
+                    </article>
+                    <article class="service-card">
+                        <i data-lucide="bot" aria-hidden="true"></i>
+                        <h3>Robotics</h3>
+                        <p>Perception, control, and intelligent autonomy for real-world systems.</p>
+                    </article>
+                    <article class="service-card">
+                        <i data-lucide="settings-2" aria-hidden="true"></i>
+                        <h3>System Integration</h3>
+                        <p>End-to-end solutions from architecture to deployment and support.</p>
+                    </article>
+                </div>
+
+                <a href="#contact" class="btn btn-outline">Explore Services</a>
             </div>
         </section>
 
-        <section id="about" class="about" aria-labelledby="about-heading">
+        <!-- ============================================
+             WHO WE HELP
+             A plain icon+label row, not cards — these are
+             industry labels, not standalone content with their
+             own description, so a bordered card would overstate
+             how much is actually being said here.
+        ============================================= -->
+        <section class="who-we-help" aria-labelledby="who-heading">
             <div class="container">
-                <h2 id="about-heading">About ETROYL</h2>
-                <!-- Placeholder — populated in Phase 2 -->
+                <p class="eyebrow">Who We Help</p>
+                <h2 id="who-heading">Domain expertise. Real-world impact.</h2>
+
+                <ul class="domain-row">
+                    <li><i data-lucide="shield" aria-hidden="true"></i><span>Defense &amp; Security</span></li>
+                    <li><i data-lucide="factory" aria-hidden="true"></i><span>Industrial Automation</span></li>
+                    <li><i data-lucide="heart-pulse" aria-hidden="true"></i><span>Medical &amp; Healthcare</span></li>
+                    <li><i data-lucide="car" aria-hidden="true"></i><span>Mobility &amp; Automotive</span></li>
+                    <li><i data-lucide="satellite" aria-hidden="true"></i><span>Space &amp; Aerospace</span></li>
+                    <li><i data-lucide="graduation-cap" aria-hidden="true"></i><span>Research &amp; Academia</span></li>
+                </ul>
             </div>
         </section>
 
+        <!-- ============================================
+             FEATURED PROJECTS
+             `#projects` is an anchor into this homepage section
+             for now, not a dedicated page (per your call) — the
+             nav link above points here. If a full case-study
+             page gets built later, only the href values need to
+             change.
+
+             Each card's media area is a placeholder graphic (CSS
+             gradient + Lucide icon), not a photo — see
+             .card-media-placeholder in style.css. Swap in a real
+             <img> per card once photography exists.
+        ============================================= -->
+        <section id="projects" class="projects" aria-labelledby="projects-heading">
+            <div class="container">
+                <p class="eyebrow">Featured Projects</p>
+                <h2 id="projects-heading">Solutions we are proud of</h2>
+
+                <div class="card-grid card-grid--projects">
+                    <article class="project-card">
+                        <div class="card-media-placeholder">
+                            <picture>
+				<source srcset="/assets/img/projects/radar-platform.webp" type="image/webp">
+				<img src="/assets/img/projects/radar-platform.jpg" alt="" width="1200" height="675" loading="lazy">
+			    </picture>
+                        </div>
+                        <h3>Multi-Channel Radar Processing Platform</h3>
+                        <p>Real-time radar signal processing on FPGA for advanced sensing applications.</p>
+                        <a href="#projects" class="card-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                    <article class="project-card">
+                        <div class="card-media-placeholder">
+                            <picture>
+				<source srcset="/assets/img/projects/embedded-vision.webp" type="image/webp">
+				<img src="/assets/img/projects/embedded-vision.jpg" alt="" width="1200" height="675" loading="lazy">
+			    </picture>
+                        </div>
+                        <h3>Embedded Vision System</h3>
+                        <p>Low-latency video pipeline with AI inference for autonomous platforms.</p>
+                        <a href="#projects" class="card-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                    <article class="project-card">
+                        <div class="card-media-placeholder">
+                            <picture>
+				<source srcset="/assets/img/projects/gpr.webp" type="image/webp">
+				<img src="/assets/img/projects/gpr.jpg" alt="" width="1200" height="675" loading="lazy">
+			    </picture>
+                        </div>
+                        <h3>Ground Penetrating Radar (GPR)</h3>
+                        <p>High-resolution subsurface imaging system for industrial and scientific use.</p>
+                        <a href="#projects" class="card-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                    <article class="project-card">
+                        <div class="card-media-placeholder">
+                            <picture>
+				<source srcset="/assets/img/projects/opensource-tools.webp" type="image/webp">
+				<img src="/assets/img/projects/opensource-tools.jpg" alt="" width="1200" height="675" loading="lazy">
+			    </picture>
+                        </div>
+                        <h3>Open-Source IP &amp; Tools</h3>
+                        <p>Reusable HDL cores, drivers, and tools to accelerate development.</p>
+                        <a href="#projects" class="card-link">View Project <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                </div>
+
+                <a href="#projects" class="btn btn-outline">View All Projects</a>
+            </div>
+        </section>
+
+        <!-- ============================================
+             LATEST INSIGHTS
+             Placeholder titles/dates/excerpts — there is no
+             blog.html yet, so every link points back at this
+             same section for now. Swap hrefs once real posts
+             (and a destination page) exist.
+        ============================================= -->
+        <section id="insights" class="insights" aria-labelledby="insights-heading">
+            <div class="container">
+                <p class="eyebrow">Latest Insights</p>
+                <h2 id="insights-heading">Knowledge we share</h2>
+
+                <ul class="insight-list">
+                    <li class="insight-item">
+                        <div class="card-media-placeholder card-media-placeholder--sm">
+                            <i data-lucide="zap" aria-hidden="true"></i>
+                        </div>
+                        <div class="insight-item__body">
+                            <h3><a href="#insights">Designing Low-Latency FPGA Video Pipelines</a></h3>
+                            <p>Key techniques for achieving deterministic latency in real-time video systems.</p>
+                            <p class="insight-item__meta">May 20, 2026 &middot; Engineering</p>
+                        </div>
+                    </li>
+                    <li class="insight-item">
+                        <div class="card-media-placeholder card-media-placeholder--sm">
+                            <i data-lucide="radar" aria-hidden="true"></i>
+                        </div>
+                        <div class="insight-item__body">
+                            <h3><a href="#insights">Fast Near-Field Modeling for GPR Systems</a></h3>
+                            <p>A novel approach for accelerating electromagnetic modeling in GPR applications.</p>
+                            <p class="insight-item__meta">May 13, 2026 &middot; Research</p>
+                        </div>
+                    </li>
+                    <li class="insight-item">
+                        <div class="card-media-placeholder card-media-placeholder--sm">
+                            <i data-lucide="cpu" aria-hidden="true"></i>
+                        </div>
+                        <div class="insight-item__body">
+                            <h3><a href="#insights">Optimizing Embedded Linux for Real-Time Performance</a></h3>
+                            <p>Practical tips for reducing latency and improving determinism in embedded Linux.</p>
+                            <p class="insight-item__meta">May 6, 2026 &middot; Embedded Systems</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="#insights" class="btn btn-outline">View All Insights</a>
+            </div>
+        </section>
+
+        <!-- ============================================
+             STATS BAND
+             Figures match what's already written in
+             about/founder.html (25+ years, 10+ countries) so
+             numbers stay consistent site-wide.
+        ============================================= -->
+        <section class="stats" aria-label="ETROYL by the numbers">
+            <div class="container stats-grid">
+                <div class="stat"><span class="stat__number">25+</span><span class="stat__label">Years of Engineering Experience</span></div>
+                <div class="stat"><span class="stat__number">10+</span><span class="stat__label">Countries Worked In</span></div>
+                <div class="stat"><span class="stat__number">20+</span><span class="stat__label">Major R&amp;D Programs</span></div>
+                <div class="stat"><span class="stat__number">100+</span><span class="stat__label">Systems Delivered</span></div>
+                <div class="stat stat--callout">
+                    <span class="stat__label">Committed to</span>
+                    <span class="stat__number stat__number--accent">Excellence</span>
+                    <span class="stat__caption">In every project we undertake.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             ABOUT TEASER
+        ============================================= -->
+        <section id="about" class="about" aria-labelledby="about-heading">
+            <div class="container about-grid">
+                <div class="about-copy">
+                    <p class="eyebrow">About ETROYL</p>
+                    <h2 id="about-heading">Where science meets engineering</h2>
+                    <p>ETROYL is a technical engineering firm at the intersection of deep-tech
+                       science and industrial reliability. We transform complex ideas into
+                       deployable systems that perform in the real world.</p>
+                    <a href="/about/about.html" class="btn btn-outline">Learn More About Us</a>
+                </div>
+                <div class="card-media-placeholder card-media-placeholder--lg">
+                    <i data-lucide="server-cog" aria-hidden="true"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             CONTACT / CTA
+             mailto: is a deliberate placeholder, not an
+             oversight — there is no backend on this site (same
+             zero-dependency reasoning as the "why not a live
+             upload button" note in education.js), so a mailto
+             link is the only thing that actually works without
+             a form-handling service. Swap for a real form action
+             once one exists.
+        ============================================= -->
         <section id="contact" class="contact" aria-labelledby="contact-heading">
             <div class="container">
-                <h2 id="contact-heading">Get in Touch</h2>
-                <!-- Placeholder — populated in Phase 2 -->
+                <h2 id="contact-heading">Let's build the next intelligent system together</h2>
+                <p>Have a project in mind? Let's discuss how we can help.</p>
+                <a href="mailto:contact@etroyl.com" class="btn btn-primary">Get in Touch</a>
             </div>
         </section>
 
     </main>
 
-    <!-- ============================================
-         FOOTER
-         Like <header>, this is a landmark — signals
-         "site-wide closing content" (copyright, legal,
-         secondary links) as distinct from page content.
-    ============================================= -->
     <footer class="site-footer">
-        <div class="container">
-            <!-- The FULL lockup (icon + wordmark stacked) is used
-                 here rather than the compact header icon. The
-                 footer isn't height-constrained like the nav bar,
-                 so there's no reason to crop the wordmark — using
-                 the fuller mark here gives the brand one strong,
-                 unhurried appearance per page rather than none. -->
-            <img
-                src="/assets/img/logo-icon.png"
-                alt="ETROYL"
-                width="408"
-                height="289"
-                class="footer-logo">
-            <p>&copy; <span id="current-year"></span> ETROYL. All rights reserved.</p>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img
+                    src="/assets/img/logo-icon.png"
+                    alt="ETROYL"
+                    width="408"
+                    height="289"
+                    class="footer-logo">
+                <p>&copy; <span id="current-year"></span> ETROYL. All rights reserved.</p>
+            </div>
+
+            <nav class="footer-nav" aria-label="Company">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="/about/about.html">About</a></li>
+                    <li><a href="/about/founder.html">Leadership</a></li>
+                    <li><a href="#contact">Careers</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-nav" aria-label="Resources">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="/education.html">Education</a></li>
+                    <li><a href="#insights">Blog</a></li>
+                    <li><a href="/education.html">Documentation</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-nav" aria-label="Connect">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="mailto:contact@etroyl.com">Contact</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </nav>
         </div>
     </footer>
 
-    <!-- ============================================
-         SCRIPT LOADING STRATEGY
-         Placed at the end of <body>, with `defer`.
-         `defer` downloads the script in parallel with
-         HTML parsing but executes it only after the
-         DOM is fully built — meaning script.js can
-         safely query any element on the page without
-         a DOMContentLoaded wrapper, and without
-         blocking the initial render (better perceived
-         performance than a blocking <script> in <head>).
-    ============================================= -->
     <script src="/assets/js/script.js" defer></script>
 
 </body>

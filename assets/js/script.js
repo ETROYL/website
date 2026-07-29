@@ -54,10 +54,26 @@ if (toggleButton) {
     toggleButton.addEventListener('click', () => {
         const currentTheme = htmlElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
+
         htmlElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     });
+}
+
+/**
+ * Renders every <i data-lucide="..."> tag in the DOM into its
+ * corresponding inline SVG icon. WHY THIS IS SEPARATE FROM
+ * init() below: Lucide loads via a deferred <script> tag from
+ * a CDN (see the <head> of each HTML file), so this call must
+ * run after that script has actually executed. `defer` on both
+ * script.js and the Lucide script guarantees they run in
+ * document order, so by the time this file executes, `window.lucide`
+ * is already available.
+ */
+function renderIcons() {
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 }
 
 // 4. OTHER FUNCTIONS
@@ -83,6 +99,7 @@ function randomizeSlogan() {
 function init() {
     setCurrentYear();
     randomizeSlogan();
+    renderIcons();
 }
 
 init();

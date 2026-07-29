@@ -525,7 +525,7 @@ section h2 {
 }
 
 .card-media-placeholder--lg {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     margin-bottom: 0;
 }
 

@@ -43,10 +43,8 @@ const savedTheme = localStorage.getItem('theme');
 // 2. INITIAL THEME LOGIC
 if (savedTheme) {
     htmlElement.setAttribute('data-theme', savedTheme);
-} else if (userPrefersDark) {
-    htmlElement.setAttribute('data-theme', 'dark');
 } else {
-    htmlElement.setAttribute('data-theme', 'light');
+    htmlElement.setAttribute('data-theme', 'dark');
 }
 
 // 3. EVENT LISTENERS

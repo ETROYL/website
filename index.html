@@ -57,68 +57,57 @@
 
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <header class="site-header">
-        <div class="container">
-            <a href="/" class="logo" aria-label="ETROYL home">
-                <img
-                    src="/assets/img/logo-icon.png"
-                    alt="ETROYL"
-                    width="408"
-                    height="289"
-                    class="logo-mark">
-            </a>
+	<header class="site-header">
+	    <div class="container">
+		<a href="/" class="logo" aria-label="ETROYL home">
+		    <img
+		        src="/assets/img/logo-icon.png"
+		        alt="ETROYL"
+		        width="408"
+		        height="289"
+		        class="logo-mark">
+		</a>
 
-            <nav class="main-nav" aria-label="Primary">
-                <ul>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <!-- These two still point at the English-only
-                         pages, since About/Education aren't part of
-                         this pilot yet — see README note on extending
-                         the template pattern to other pages. -->
-                    <li><a href="/education.html">Education</a></li>
-                    <li><a href="/about/about.html">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-
-            <!-- ============================================
-                 LANGUAGE SWITCHER (dropdown)
-                 A <button> toggles a hidden <ul> via JS (see
-                 initLangSwitcher() in script.js) — not CSS-only
-                 :hover/:focus, because a hover-only dropdown is
-                 unusable on touch devices (no hover state to
-                 trigger it) and awkward for keyboard users. The
-                 button's aria-expanded state is the single source
-                 of truth for open/closed, same pattern as
-                 aria-pressed on the education page's filter
-                 buttons.
-            ============================================= -->
-            <div class="lang-switcher">
-                <button
-                    type="button"
-                    class="lang-switcher__toggle"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    aria-label="Choose language">
-                    <i data-lucide="languages" aria-hidden="true"></i>
-                    <span class="lang-switcher__current">EN</span>
-                </button>
-                <ul class="lang-switcher__menu" hidden>
-                    <li><a href="/de/" title="Deutsch" aria-label="Deutsch">DE</a></li>
+		<!-- Header Actions / Utilities grouped together -->
+		<div class="header-actions">
+		    <!-- Language Switcher -->
+		    <div class="lang-switcher">
+		        <button
+		            type="button"
+		            class="lang-switcher__toggle"
+		            aria-haspopup="true"
+		            aria-expanded="false"
+		            aria-label="Choose language">
+		            <i data-lucide="languages" aria-hidden="true"></i>
+		            <span class="lang-switcher__current">EN</span>
+		        </button>
+		        <ul class="lang-switcher__menu" hidden>
+		            <li><a href="/de/" title="Deutsch" aria-label="Deutsch">DE</a></li>
                     <li><a href="/" aria-current="true" title="English" aria-label="English">EN</a></li>
                     <li><a href="/es/" title="Español" aria-label="Español">ES</a></li>
                     <li><a href="/fr/" title="Français" aria-label="Français">FR</a></li>
                     <li><a href="/it/" title="Italiano" aria-label="Italiano">IT</a></li>
                     <li><a href="/nl/" title="Nederlands" aria-label="Nederlands">NL</a></li>
-                </ul>
-            </div>
+		        </ul>
+		    </div>
 
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
-                <i data-lucide="sun-moon"></i>
-            </button>
-        </div>
-    </header>
+		    <!-- Theme Toggle Button -->
+		    <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
+		        <i data-lucide="sun-moon"></i>
+		    </button>
+		</div>
+
+		<nav class="main-nav" aria-label="Primary">
+		    <ul>
+		        <li><a href="#services">Services</a></li>
+		        <li><a href="#projects">Projects</a></li>
+		        <li><a href="/education.html">Education</a></li>
+		        <li><a href="/about/about.html">About</a></li>
+		        <li><a href="#contact">Contact</a></li>
+		    </ul>
+		</nav>
+	    </div>
+	</header>    
 
     <main id="main-content">
 

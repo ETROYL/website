@@ -172,13 +172,15 @@ def main():
             path = locale_path(code)
             tokens['urls.canonical'] = BASE_URL + path
             tokens['urls.og_url'] = BASE_URL + path
-            # Locale-aware absolute URLs for template links (keeps users
-            # on the same language when they navigate from the localized
-            # index pages). See templates/index.template.html for usage.
-            tokens['urls.home']      = BASE_URL + path
-            tokens['urls.education'] = BASE_URL + path + 'education.html'
-            tokens['urls.about']     = BASE_URL + path + 'about/about.html'
-            tokens['urls.founder']   = BASE_URL + path + 'about/founder.html'
+            # Locale-aware root-relative URLs for template links. Use
+            # root-relative ("/fr/education.html") rather than absolute
+            # domain URLs so local testing (python -m http.server) keeps
+            # navigation within the local server instead of jumping to
+            # https://www.etroyl.com and causing unexpected behaviour.
+            tokens['urls.home']      = path
+            tokens['urls.education'] = path + 'education.html'
+            tokens['urls.about']     = path + 'about/about.html'
+            tokens['urls.founder']   = path + 'about/founder.html'
 
             output_html = render(template_text, tokens)
 

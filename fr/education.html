@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Formation &amp; Ressources | ETROYL</title>
+    <meta name="description" content="Vidéos de formation technique, documents de référence et schémas ETROYL couvrant la conception FPGA, les systèmes embarqués et le traitement du signal.">
+    <link rel="canonical" href="https://www.etroyl.com/fr/education.html">
+
+    <!-- HREFLANG ALTERNATES -->
+    <link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/education.html" />
+    <link rel="alternate" hreflang="en" href="https://www.etroyl.com/education.html" />
+    <link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/education.html" />
+    <link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/education.html" />
+    <link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/education.html" />
+    <link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/education.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/education.html" />
+
+    <meta name="theme-color" content="#0d0d0d">
+
+    <!-- Same three-file loading order as index.html: reset,
+         then tokens, then layout. -->
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Page-specific stylesheet, loaded ONLY here. This is the
+         "split when it earns its place" principle from the
+         README: the homepage never needs to download education
+         grid/card/filter CSS it will never use, and this page
+         doesn't bloat the shared style.css with rules that exist
+         nowhere else. As more pages arrive, each gets this same
+         treatment only if its component needs actually diverge. -->
+    <link rel="stylesheet" href="/assets/css/education.css">
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+<body>
+
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/fr/index.html" class="logo" aria-label="Accueil ETROYL">
+                <img
+                    src="/assets/img/logo-icon.png"
+                    alt="ETROYL"
+                    width="408"
+                    height="289"
+                    class="logo-mark">
+            </a>
+
+            <div class="header-actions">
+                <div class="lang-switcher">
+                    <button
+                        type="button"
+                        class="lang-switcher__toggle"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-label="Choisir la langue">
+                        <i data-lucide="languages" aria-hidden="true"></i>
+                        <span class="lang-switcher__current">FR</span>
+                    </button>
+                    <ul class="lang-switcher__menu" hidden>
+                        <li><a href="/de/education.html" title="Deutsch" aria-label="Deutsch">DE</a></li>
+                        <li><a href="/education.html" title="English" aria-label="English">EN</a></li>
+                        <li><a href="/es/education.html" title="Español" aria-label="Español">ES</a></li>
+                        <li><a href="/fr/education.html" aria-current="true" title="Français" aria-label="Français">FR</a></li>
+                        <li><a href="/it/education.html" title="Italiano" aria-label="Italiano">IT</a></li>
+                        <li><a href="/nl/education.html" title="Nederlands" aria-label="Nederlands">NL</a></li>
+                    </ul>
+                </div>
+
+                <button id="theme-toggle" class="theme-btn" aria-label="Changer le thème de couleur">
+                    <i data-lucide="sun-moon"></i>
+                </button>
+            </div>
+
+            <nav class="main-nav" aria-label="Navigation principale">
+                <ul>
+                    <li><a href="/fr/index.html#services">Services</a></li>
+                    <li><a href="/fr/index.html#projects">Projets</a></li>
+                    <li><a href="/fr/education.html" aria-current="page">Formation</a></li>
+                    <li><a href="/fr/about/about.html">À propos</a></li>
+                    <li><a href="/fr/index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <section class="page-intro" aria-labelledby="education-heading">
+            <div class="container">
+                <h1 id="education-heading">Formation &amp; Ressources</h1>
+                <p>Vidéos de formation technique, documents de référence et schémas couvrant
+                   la conception FPGA, les systèmes embarqués et le traitement du signal — publiés ici
+                   pour les ingénieurs, étudiants et clients travaillant avec nos systèmes.</p>
+            </div>
+        </section>
+
+        <section class="education-library" aria-labelledby="library-heading">
+            <div class="container">
+                <h2 id="library-heading" class="visually-hidden">Bibliothèque de ressources</h2>
+
+                <div class="filter-bar" role="group" aria-label="Filtrer les ressources par type">
+                    <button type="button" class="filter-btn is-active" data-filter="all">Tous</button>
+                    <button type="button" class="filter-btn" data-filter="video">Vidéos</button>
+                    <button type="button" class="filter-btn" data-filter="image">Images</button>
+                    <button type="button" class="filter-btn" data-filter="document">Documents</button>
+                </div>
+
+                <div id="education-grid" class="education-grid" role="list">
+                    <!-- Populated by education.js -->
+                </div>
+
+                <!-- Empty state: shown/hidden by JS depending on
+                     whether the manifest has entries. Never leave a
+                     data-driven section with a silent blank space —
+                     an empty screen with no explanation reads as a
+                     bug, not as "nothing here yet." -->
+                <!-- <p id="education-empty" class="empty-state" hidden>
+                    Aucune ressource publiée pour le moment.
+                </p> -->
+                <p id="education-empty" class="empty-state" hidden>
+                    Nous enrichissons actuellement cette bibliothèque. Si vous cherchez un sujet
+                    particulier, <a href="/fr/index.html#contact">contactez-nous</a> — nous l'avons peut-être déjà en préparation.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <site-footer></site-footer>
+    </footer>
+
+    <script src="/assets/js/script.js" defer></script>
+    <script src="/assets/js/education.js" defer></script>
+</body>
+</html>

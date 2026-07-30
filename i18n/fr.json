@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "code": "fr",
+    "name": "Français",
+    "html_lang": "fr",
+    "og_locale": "fr_FR",
+    "published": true,
+    "title": "ETROYL | GPR, FPGA, Systèmes Embarqués & Traitement du Signal",
+    "description": "ETROYL est un bureau d'études spécialisé en conception FPGA et digitale, systèmes embarqués, traitement du signal, détection radar, robotique et radar à pénétration de sol (GPR).",
+    "og_title": "ETROYL | Fondé sur la science. Concrétisé par l'ingénierie.",
+    "og_description": "Précision | Fiabilité | Innovation"
+  },
+  "a11y": {
+    "skip_link": "Aller au contenu principal",
+    "nav_label": "Navigation principale",
+    "lang_switcher_label": "Choisir la langue",
+    "theme_toggle": "Changer le thème de couleur"
+  },
+  "nav": {
+    "services": "Services",
+    "projects": "Projets",
+    "education": "Formation",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "wordmark": "",
+    "tagline": "Fondé sur la science. Concrétisé par l'ingénierie.",
+    "precision": "Précision",
+    "reliability": "Fiabilité",
+    "innovation": "Innovation"
+  },
+  "services": {
+    "eyebrow": "Nos Réalisations",
+    "heading": "Des solutions d'ingénierie pour relever des défis complexes",
+    "cta": "Explorer nos services",
+    "card1_title": "Conception FPGA & Digitale",
+    "card1_desc": "Systèmes numériques haute performance, du concept à la mise en œuvre.",
+    "card2_title": "Systèmes Embarqués",
+    "card2_desc": "Lois logicielles et firmware robustes pour plateformes critiques.",
+    "card3_title": "Traitement du Signal",
+    "card3_desc": "Algorithmes DSP avancés pour le radar, l'imagerie et les communications.",
+    "card4_title": "Radar & Détection",
+    "card4_desc": "De la conception des formes d'onde au traitement temps réel et à la visualisation.",
+    "card5_title": "Robotique",
+    "card5_desc": "Perception, contrôle et autonomie intelligente pour systèmes en conditions réelles.",
+    "card6_title": "Intégration Système",
+    "card6_desc": "Solutions globales de bout en bout, de l'architecture au déploiement et au support."
+  },
+  "who": {
+    "eyebrow": "Qui Nous Accompagnons",
+    "heading": "Expertise sectorielle. Impact concret.",
+    "item1": "Défense & Sécurité",
+    "item2": "Automation Industrielle",
+    "item3": "Médical & Santé",
+    "item4": "Mobilité & Automobile",
+    "item5": "Spatiale & Aéronautique",
+    "item6": "Recherche & Enseignement"
+  },
+  "projects": {
+    "eyebrow": "Projets À La Une",
+    "heading": "Les problèmes que nous sommes armés pour résoudre",
+    "details_label": "Détails",
+    "cta": "Voir tous les projets",
+    "card1_title": "Plateforme de Traitement Radar",
+    "card1_desc": "Traitement du signal radar en temps réel sur FPGA pour applications de détection avancées.",
+    "card2_title": "Système de Vision Embarquée",
+    "card2_desc": "Pipeline vidéo à très faible latence avec inférence par réseau de neurones pour la détection, la reconnaissance et l'identification.",
+    "card3_title": "Radar à Pénétration de Sol (GPR)",
+    "card3_desc": "De la conception d'antennes et la modélisation électromagnétique en champ proche jusqu'au traitement du signal et la caractérisation des sols.",
+    "card4_title": "IPs & Outils Open-Source",
+    "card4_desc": "Cœurs HDL réutilisables, pilotes et outils pour accélérer le développement."
+  },
+  "insights": {
+    "eyebrow": "Dernières Publications",
+    "heading": "Le savoir que nous partageons",
+    "cta": "Voir toutes les publications",
+    "item1_title": "Conception de pipelines vidéo FPGA à faible latence",
+    "item1_desc": "Techniques clés pour garantir une latence déterministe dans les systèmes vidéo en temps réel.",
+    "item1_meta": "20 mai 2025 &middot; Ingénierie",
+    "item2_title": "Modélisation rapide en champ proche pour systèmes GPR",
+    "item2_desc": "Une approche novatrice pour accélérer la modélisation électromagnétique dans les applications GPR.",
+    "item2_meta": "12 avril 2024 &middot; Recherche",
+    "item3_title": "Optimisation de Linux embarqué pour des performances temps réel",
+    "item3_desc": "Conseils pratiques pour réduire la latence et améliorer le déterminisme sous Linux embarqué.",
+    "item3_meta": "6 juillet 2026 &middot; Systèmes embarqués"
+  },
+  "stats": {
+    "years_number": "25+",
+    "years_label": "Années d'expérience en ingénierie",
+    "countries_number": "5+",
+    "countries_label": "Pays d'intervention",
+    "rnd_number": "20+",
+    "rnd_label": "Programmes majeurs de R&D",
+    "systems_number": "50+",
+    "systems_label": "Systèmes déployés",
+    "callout_label": "Engagés vers",
+    "callout_word": "L'Excellence",
+    "callout_caption": "Dans chaque projet que nous entreprenons."
+  },
+  "about": {
+    "eyebrow": "À Propos d'ETROYL",
+    "heading": "Là où la science rencontre l'ingénierie",
+    "body": "ETROYL est un bureau d'études spécialisé situé à la croisée de la recherche scientifique et de la fiabilité industrielle. Nous transformons des concepts complexes en systèmes déployables performants sur le terrain.",
+    "cta": "En savoir plus sur nous"
+  },
+  "contact": {
+    "heading": "Construisons ensemble votre prochain système intelligent",
+    "body": "Vous avez un projet en tête ? Discutons de la manière dont nous pouvons vous accompagner.",
+    "cta": "Prendre contact"
+  }
+}

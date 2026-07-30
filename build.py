@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+"""
+build.py — static multi-language page generator for etroyl.com
+
+WHY THIS EXISTS:
+The site's philosophy (see README.md) is zero-dependency, no build
+step, plain files served exactly as written. Adding six languages by
+hand-copying each HTML file six times would violate that principle
+immediately — six chances to forget to update a shared change, times
+however many pages exist.
+
+This script is the compromise that keeps the *deployed* site exactly
+as static-file as before, while removing the six-copies-by-hand
+problem. It runs locally, on your machine, before you commit — never
+on GitHub's servers, never in a visitor's browser. What gets committed
+and deployed is still plain, finished HTML files; this script is just
+what writes them for you.
+
+USAGE:
+    python3 build.py
+
+Run this after editing any file in i18n/ or templates/, then commit
+the regenerated HTML/sitemap.xml files alongside your source changes.
+
+REQUIREMENTS:
+    Python 3 standard library only. No `pip install` needed.
+"""
+
+import json
+import os
+import re
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+I18N_DIR = os.path.join(ROOT, 'i18n')
+TEMPLATES_DIR = os.path.join(ROOT, 'templates')
+BASE_URL = 'https://www.etroyl.com'
+
+# Each entry in this template registry is one page. Right now only the
+# homepage is templated (see README for why) — add an entry here (and
+# a matching {name}.template.html in templates/) once about.html or
+# education.html get the same treatment.
+PAGES = {
+    'index': {'template': 'index.template.html', 'output_name': 'index.html'},
+}
+
+TOKEN_PATTERN = re.compile(r'\{\{\s*([\w.]+)\s*\}\}')
+
+
+def flatten(d, parent_key=''):
+    """Turns nested JSON like {"hero": {"tagline": "..."}} into a flat
+    dict keyed "hero.tagline" — matching the {{hero.tagline}} tokens
+    used in the templates. Recurses on nested objects only; leaves
+    (strings) become the flat dict's values."""
+    items = {}
+    for key, value in d.items():
+        flat_key = f'{parent_key}.{key}' if parent_key else key
+        if isinstance(value, dict):
+            items.update(flatten(value, flat_key))
+        else:
+            items[flat_key] = value
+    return items
+
+
+def load_locales():
+    """Loads every i18n/*.json file, keyed by its meta.code."""
+    locales = {}
+    for filename in sorted(os.listdir(I18N_DIR)):
+        if not filename.endswith('.json'):
+            continue
+        with open(os.path.join(I18N_DIR, filename), encoding='utf-8') as f:
+            data = json.load(f)
+        locales[data['meta']['code']] = data
+    return locales
+
+
+def is_live(locale_data, code):
+    """English is always live (it's the existing, already-indexed
+    default). Every other locale only goes live once a human has
+    translated it and flipped meta.published to true — see the
+    _translation_status note auto-written into each draft file."""
+    return code == 'en' or locale_data['meta'].get('published', False)
+
+
+def locale_path(code):
+    return '/' if code == 'en' else f'/{code}/'
+
+
+def build_hreflang_block(locales):
+    lines = []
+    for code, data in locales.items():
+        if is_live(data, code):
+            url = BASE_URL + locale_path(code)
+            lines.append(f'    <link rel="alternate" hreflang="{code}" href="{url}" />')
+    lines.append(f'    <link rel="alternate" hreflang="x-default" href="{BASE_URL}/" />')
+    return '\n'.join(lines)
+
+
+def build_lang_switcher(locales, current_code):
+    items = []
+    for code, data in locales.items():
+        if not is_live(data, code):
+            continue
+        path = locale_path(code)
+        full_name = data['meta']['name']
+        current = ' aria-current="true"' if code == current_code else ''
+        # Abbreviation shown (EN, FR, IT...), full name kept as a
+        # title="" tooltip and in the accessible name via aria-label —
+        # so a screen reader still announces "Français", not just "FR".
+        items.append(
+            f'<li><a href="{path}"{current} title="{full_name}" '
+            f'aria-label="{full_name}">{code.upper()}</a></li>'
+        )
+    return '\n                    '.join(items)
+
+
+def render(template_text, tokens):
+    def replace(match):
+        key = match.group(1)
+        if key not in tokens:
+            print(f'  WARNING: template uses {{{{{key}}}}} but no matching key exists in this locale\'s JSON.')
+            return match.group(0)
+        return str(tokens[key])
+    return TOKEN_PATTERN.sub(replace, template_text)
+
+
+def build_sitemap(locales):
+    live = {code: data for code, data in locales.items() if is_live(data, code)}
+    url_blocks = []
+    for code in live:
+        loc = BASE_URL + locale_path(code)
+        alt_links = '\n'.join(
+            f'      <xhtml:link rel="alternate" hreflang="{alt_code}" '
+            f'href="{BASE_URL}{locale_path(alt_code)}" />'
+            for alt_code in live
+        )
+        url_blocks.append(f'  <url>\n    <loc>{loc}</loc>\n{alt_links}\n  </url>')
+
+    sitemap = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+        '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+        + '\n'.join(url_blocks) +
+        '\n</urlset>\n'
+    )
+    out_path = os.path.join(ROOT, 'sitemap.xml')
+    with open(out_path, 'w', encoding='utf-8') as f:
+        f.write(sitemap)
+    print(f'Wrote {out_path}')
+
+
+def main():
+    locales = load_locales()
+
+    for page_key, page in PAGES.items():
+        template_path = os.path.join(TEMPLATES_DIR, page['template'])
+        with open(template_path, encoding='utf-8') as f:
+            template_text = f.read()
+
+        for code, data in locales.items():
+            if not is_live(data, code):
+                print(
+                    f'Skipping {code} ({data["meta"]["name"]}) for "{page_key}" — '
+                    f'marked draft. Set "published": true in i18n/{code}.json '
+                    f'once translated.'
+                )
+                continue
+
+            tokens = flatten(data)
+            tokens['meta.code_upper'] = code.upper()
+            tokens['hreflang_links'] = build_hreflang_block(locales)
+            tokens['lang_switcher'] = build_lang_switcher(locales, code)
+            path = locale_path(code)
+            tokens['urls.canonical'] = BASE_URL + path
+            tokens['urls.og_url'] = BASE_URL + path
+
+            output_html = render(template_text, tokens)
+
+            if code == 'en':
+                out_dir = ROOT
+            else:
+                out_dir = os.path.join(ROOT, code)
+                os.makedirs(out_dir, exist_ok=True)
+
+            out_path = os.path.join(out_dir, page['output_name'])
+            with open(out_path, 'w', encoding='utf-8') as f:
+                f.write(output_html)
+            print(f'Wrote {out_path}')
+
+    build_sitemap(locales)
+
+
+if __name__ == '__main__':
+    main()

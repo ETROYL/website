@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "code": "de",
+    "name": "Deutsch",
+    "html_lang": "de",
+    "og_locale": "de_DE",
+    "published": true,
+    "title": "ETROYL | GPR, FPGA, Embedded Systems & Signalverarbeitung",
+    "description": "ETROYL ist ein Ingenieurbüro, spezialisiert auf FPGA- & Digitaldesign, Embedded Systems, Signalverarbeitung, Radarsensorik, Robotik und Bodenradar (GPR).",
+    "og_title": "ETROYL | Fundiert in der Wissenschaft. Umgesetzt durch Ingenieurkunst.",
+    "og_description": "Präzision | Zuverlässigkeit | Innovation"
+  },
+  "a11y": {
+    "skip_link": "Zum Hauptinhalt springen",
+    "nav_label": "Hauptnavigation",
+    "lang_switcher_label": "Sprache auswählen",
+    "theme_toggle": "Farbschema wechseln"
+  },
+  "nav": {
+    "services": "Leistungen",
+    "projects": "Projekte",
+    "education": "Wissen",
+    "about": "Über uns",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "wordmark": "",
+    "tagline": "Fundiert in der Wissenschaft. Umgesetzt durch Ingenieurkunst.",
+    "precision": "Präzision",
+    "reliability": "Zuverlässigkeit",
+    "innovation": "Innovation"
+  },
+  "services": {
+    "eyebrow": "Unsere Expertise",
+    "heading": "Ingenieurlösungen für komplexe Herausforderungen",
+    "cta": "Leistungen entdecken",
+    "card1_title": "FPGA- & Digitaldesign",
+    "card1_desc": "Hochleistungsfähige digitale Systeme von der Idee bis zur Implementierung.",
+    "card2_title": "Embedded Systems",
+    "card2_desc": "Robuste Firmware und Software für missionskritische Plattformen.",
+    "card3_title": "Signalverarbeitung",
+    "card3_desc": "Fortgeschrittene DSP-Algorithmen für Radar, Bildverarbeitung und Kommunikation.",
+    "card4_title": "Radar & Sensorik",
+    "card4_desc": "Vom Wellenformdesign bis hin zu Echtzeitverarbeitung und Visualisierung.",
+    "card5_title": "Robotik",
+    "card5_desc": "Wahrnehmung, Steuerung und intelligente Autonomie für reale Systeme.",
+    "card6_title": "Systemintegration",
+    "card6_desc": "Durchgängige Gesamtlösungen von der Architektur bis zum Einsatz und Support."
+  },
+  "who": {
+    "eyebrow": "Zielbranchen",
+    "heading": "Fachwissen mit Wirkung im Praxiseinsatz.",
+    "item1": "Verteidigung & Sicherheit",
+    "item2": "Industrieautomatisierung",
+    "item3": "Medizintechnik & Gesundheit",
+    "item4": "Mobilität & Automobilindustrie",
+    "item5": "Luft- & Raumfahrt",
+    "item6": "Forschung & Wissenschaft"
+  },
+  "projects": {
+    "eyebrow": "Ausgewählte Projekte",
+    "heading": "Herausforderungen, für die wir gebaut sind",
+    "details_label": "Details",
+    "cta": "Alle Projekte anzeigen",
+    "card1_title": "Radar-Verarbeitungsplattform",
+    "card1_desc": "Echtzeit-Radarsignalverarbeitung auf FPGA für fortschrittliche Sensoranwendungen.",
+    "card2_title": "Embedded-Vision-System",
+    "card2_desc": "Latenzarme Video-Pipeline mit neuronaler Netzinferenz zur Erkennung, Identifizierung und Klassifizierung.",
+    "card3_title": "Bodenradar (GPR)",
+    "card3_desc": "Vom Antennendesign und der Nahfeld-Elektromagnetik-Modellierung bis zur Signalverarbeitung und Bodenanalyse.",
+    "card4_title": "Open-Source-IPs & Tools",
+    "card4_desc": "Wiederverwendbare HDL-Cores, Treiber und Werkzeuge zur Beschleunigung der Entwicklung."
+  },
+  "insights": {
+    "eyebrow": "Aktuelle Einblicke",
+    "heading": "Wissen, das wir teilen",
+    "cta": "Alle Beiträge anzeigen",
+    "item1_title": "Entwicklung latenzarmer FPGA-Video-Pipelines",
+    "item1_desc": "Schlüsseltechniken für deterministische Latenz in Echtzeit-Videosystemen.",
+    "item1_meta": "20. Mai 2025 &middot; Engineering",
+    "item2_title": "Schnelle Nahfeld-Modellierung für GPR-Systeme",
+    "item2_desc": "Ein neuartiger Ansatz zur Beschleunigung der elektromagnetischen Modellierung in GPR-Anwendungen.",
+    "item2_meta": "12. April 2024 &middot; Forschung",
+    "item3_title": "Optimierung von Embedded Linux für Echtzeit-Performance",
+    "item3_desc": "Praktische Tipps zur Reduzierung von Latenzzeiten und zur Verbesserung des Determinismus in Embedded Linux.",
+    "item3_meta": "6. Juli 2026 &middot; Embedded Systems"
+  },
+  "stats": {
+    "years_number": "25+",
+    "years_label": "Jahre Erfahrung im Engineering",
+    "countries_number": "5+",
+    "countries_label": "Länder mit Projekterfahrung",
+    "rnd_number": "20+",
+    "rnd_label": "Große R&D-Programme",
+    "systems_number": "50+",
+    "systems_label": "Ausgelieferte Systeme",
+    "callout_label": "Verpflichtet zu",
+    "callout_word": "Höchstleistung",
+    "callout_caption": "In jedem Projekt, das wir anpacken."
+  },
+  "about": {
+    "eyebrow": "Über ETROYL",
+    "heading": "Wo Wissenschaft auf Ingenieurkunst trifft",
+    "body": "ETROYL ist ein spezialisiertes Ingenieurbüro an der Schnittstelle zwischen Deep-Tech-Forschung und industrieller Zuverlässigkeit. Wir verwandeln komplexe Ideen in einsatzbereite Systeme, die im Praxiseinsatz überzeugen.",
+    "cta": "Mehr über uns erfahren"
+  },
+  "contact": {
+    "heading": "Lassen Sie uns gemeinsam das nächste intelligente System bauen",
+    "body": "Haben Sie ein konkretes Projekt geplant? Lassen Sie uns besprechen, wie wir Sie unterstützen können.",
+    "cta": "Kontakt aufnehmen"
+  }
+}

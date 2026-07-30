@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{meta.html_lang}}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ETROYL | GPR, FPGA, Embedded Systems, Signal Processing Engineering</title>
-    <meta name="description" content="ETROYL is an engineering firm specializing in FPGA & Digital design, embedded systems, signal processing, radar sensing, Robotics, and Ground Penetrating Radar.">
+    <title>{{meta.title}}</title>
+    <meta name="description" content="{{meta.description}}">
     <meta name="author" content="ETROYL">
 
-    <link rel="canonical" href="https://www.etroyl.com/">
+    <link rel="canonical" href="{{urls.canonical}}">
 
     <!-- ============================================
          HREFLANG ALTERNATES
@@ -18,24 +18,18 @@
          Only locales with meta.published = true (plus English,
          always) are included here.
     ============================================= -->
-    <link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/" />
-    <link rel="alternate" hreflang="en" href="https://www.etroyl.com/" />
-    <link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/" />
-    <link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/" />
-    <link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/" />
-    <link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" />
+{{hreflang_links}}
 
 	<meta property="og:type" content="website">
-    <meta property="og:title" content="ETROYL | Built on Science. Delivered through Engineering.">
-    <meta property="og:description" content="Precision | Reliability | Innovation">
+    <meta property="og:title" content="{{meta.og_title}}">
+    <meta property="og:description" content="{{meta.og_description}}">
     <meta property="og:image" content="https://www.etroyl.com/assets/img/og-preview.jpg">
-    <meta property="og:url" content="https://www.etroyl.com/">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="{{urls.og_url}}">
+    <meta property="og:locale" content="{{meta.og_locale}}">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ETROYL | Built on Science. Delivered through Engineering.">
-    <meta name="twitter:description" content="Precision | Reliability | Innovation">
+    <meta name="twitter:title" content="{{meta.og_title}}">
+    <meta name="twitter:description" content="{{meta.og_description}}">
     <meta name="twitter:image" content="https://www.etroyl.com/assets/img/og-preview.jpg">
 
     <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
@@ -55,7 +49,7 @@
 </head>
 <body>
 
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#main-content">{{a11y.skip_link}}</a>
 
     <header class="site-header">
         <div class="container">
@@ -68,17 +62,17 @@
                     class="logo-mark">
             </a>
 
-            <nav class="main-nav" aria-label="Primary">
+            <nav class="main-nav" aria-label="{{a11y.nav_label}}">
                 <ul>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#services">{{nav.services}}</a></li>
+                    <li><a href="#projects">{{nav.projects}}</a></li>
                     <!-- These two still point at the English-only
                          pages, since About/Education aren't part of
                          this pilot yet — see README note on extending
                          the template pattern to other pages. -->
-                    <li><a href="/education.html">Education</a></li>
-                    <li><a href="/about/about.html">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/education.html">{{nav.education}}</a></li>
+                    <li><a href="/about/about.html">{{nav.about}}</a></li>
+                    <li><a href="#contact">{{nav.contact}}</a></li>
                 </ul>
             </nav>
 
@@ -100,21 +94,16 @@
                     class="lang-switcher__toggle"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    aria-label="Choose language">
+                    aria-label="{{a11y.lang_switcher_label}}">
                     <i data-lucide="languages" aria-hidden="true"></i>
-                    <span class="lang-switcher__current">EN</span>
+                    <span class="lang-switcher__current">{{meta.code_upper}}</span>
                 </button>
                 <ul class="lang-switcher__menu" hidden>
-                    <li><a href="/de/" title="Deutsch" aria-label="Deutsch">DE</a></li>
-                    <li><a href="/" aria-current="true" title="English" aria-label="English">EN</a></li>
-                    <li><a href="/es/" title="Español" aria-label="Español">ES</a></li>
-                    <li><a href="/fr/" title="Français" aria-label="Français">FR</a></li>
-                    <li><a href="/it/" title="Italiano" aria-label="Italiano">IT</a></li>
-                    <li><a href="/nl/" title="Nederlands" aria-label="Nederlands">NL</a></li>
+                    {{lang_switcher}}
                 </ul>
             </div>
 
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
+            <button id="theme-toggle" class="theme-btn" aria-label="{{a11y.theme_toggle}}">
                 <i data-lucide="sun-moon"></i>
             </button>
         </div>
@@ -139,118 +128,118 @@
                  translate pixels. Keep this block in the DOM even
                  if it's visually understated next to the banner. -->
             <div class="container hero-content">
-                <p class="hero-wordmark"></p>
-                <h1 id="hero-heading">Built on Science. Delivered through Engineering.</h1>
-                <p class="hero-subline">Precision <span aria-hidden="true">|</span> Reliability <span aria-hidden="true">|</span> Innovation</p>
+                <p class="hero-wordmark">{{hero.wordmark}}</p>
+                <h1 id="hero-heading">{{hero.tagline}}</h1>
+                <p class="hero-subline">{{hero.precision}} <span aria-hidden="true">|</span> {{hero.reliability}} <span aria-hidden="true">|</span> {{hero.innovation}}</p>
             </div>
         </section>
 
         <section id="services" class="services" aria-labelledby="services-heading">
             <div class="container">
-                <p class="eyebrow">What We Build</p>
-                <h2 id="services-heading">Engineering solutions for complex challenges</h2>
+                <p class="eyebrow">{{services.eyebrow}}</p>
+                <h2 id="services-heading">{{services.heading}}</h2>
 
                 <div class="card-grid">
                     <article class="service-card">
                         <i data-lucide="cpu" aria-hidden="true"></i>
-                        <h3>FPGA & Digital Design</h3>
-                        <p>High-performance digital systems from concept to implementation.</p>
+                        <h3>{{services.card1_title}}</h3>
+                        <p>{{services.card1_desc}}</p>
                     </article>
                     <article class="service-card">
                         <i data-lucide="code-2" aria-hidden="true"></i>
-                        <h3>Embedded Systems</h3>
-                        <p>Robust firmware and software for mission-critical platforms.</p>
+                        <h3>{{services.card2_title}}</h3>
+                        <p>{{services.card2_desc}}</p>
                     </article>
                     <article class="service-card">
                         <i data-lucide="activity" aria-hidden="true"></i>
-                        <h3>Signal Processing</h3>
-                        <p>Advanced DSP algorithms for radar, imaging, and communications.</p>
+                        <h3>{{services.card3_title}}</h3>
+                        <p>{{services.card3_desc}}</p>
                     </article>
                     <article class="service-card">
                         <i data-lucide="radar" aria-hidden="true"></i>
-                        <h3>Radar & Sensing</h3>
-                        <p>From waveform design to real-time processing and visualization.</p>
+                        <h3>{{services.card4_title}}</h3>
+                        <p>{{services.card4_desc}}</p>
                     </article>
                     <article class="service-card">
                         <i data-lucide="bot" aria-hidden="true"></i>
-                        <h3>Robotics</h3>
-                        <p>Perception, control, and intelligent autonomy for real-world systems.</p>
+                        <h3>{{services.card5_title}}</h3>
+                        <p>{{services.card5_desc}}</p>
                     </article>
                     <article class="service-card">
                         <i data-lucide="settings-2" aria-hidden="true"></i>
-                        <h3>System Integration</h3>
-                        <p>End-to-end solutions from architecture to deployment and support.</p>
+                        <h3>{{services.card6_title}}</h3>
+                        <p>{{services.card6_desc}}</p>
                     </article>
                 </div>
 
-                <a href="#contact" class="btn btn-outline">Explore Services</a>
+                <a href="#contact" class="btn btn-outline">{{services.cta}}</a>
             </div>
         </section>
 
         <section class="who-we-help" aria-labelledby="who-heading">
             <div class="container">
-                <p class="eyebrow">Who We Help</p>
-                <h2 id="who-heading">Domain expertise. Real-world impact.</h2>
+                <p class="eyebrow">{{who.eyebrow}}</p>
+                <h2 id="who-heading">{{who.heading}}</h2>
 
                 <ul class="domain-row">
-                    <li><i data-lucide="shield" aria-hidden="true"></i><span>Defense & Security</span></li>
-                    <li><i data-lucide="factory" aria-hidden="true"></i><span>Industrial Automation</span></li>
-                    <li><i data-lucide="heart-pulse" aria-hidden="true"></i><span>Medical & Healthcare</span></li>
-                    <li><i data-lucide="car" aria-hidden="true"></i><span>Mobility & Automotive</span></li>
-                    <li><i data-lucide="satellite" aria-hidden="true"></i><span>Space & Aerospace</span></li>
-                    <li><i data-lucide="graduation-cap" aria-hidden="true"></i><span>Research & Academia</span></li>
+                    <li><i data-lucide="shield" aria-hidden="true"></i><span>{{who.item1}}</span></li>
+                    <li><i data-lucide="factory" aria-hidden="true"></i><span>{{who.item2}}</span></li>
+                    <li><i data-lucide="heart-pulse" aria-hidden="true"></i><span>{{who.item3}}</span></li>
+                    <li><i data-lucide="car" aria-hidden="true"></i><span>{{who.item4}}</span></li>
+                    <li><i data-lucide="satellite" aria-hidden="true"></i><span>{{who.item5}}</span></li>
+                    <li><i data-lucide="graduation-cap" aria-hidden="true"></i><span>{{who.item6}}</span></li>
                 </ul>
             </div>
         </section>
 
         <section id="projects" class="projects" aria-labelledby="projects-heading">
             <div class="container">
-                <p class="eyebrow">Featured Projects</p>
-                <h2 id="projects-heading">Problems we're built to solve</h2>
+                <p class="eyebrow">{{projects.eyebrow}}</p>
+                <h2 id="projects-heading">{{projects.heading}}</h2>
 
                 <div class="card-grid card-grid--projects">
                     <article class="project-card">
                         <div class="card-media-placeholder">
                             <img src="/assets/img/projects/radar-platform.jpg" alt="" width="1200" height="675" loading="lazy">
                         </div>
-                        <h3>Radar Processing Platform</h3>
-                        <p>Real-time radar signal processing on FPGA for advanced sensing applications.</p>
-                        <a href="#projects" class="card-link">Details <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                        <h3>{{projects.card1_title}}</h3>
+                        <p>{{projects.card1_desc}}</p>
+                        <a href="#projects" class="card-link">{{projects.details_label}} <i data-lucide="arrow-right" aria-hidden="true"></i></a>
                     </article>
                     <article class="project-card">
                         <div class="card-media-placeholder">
                             <img src="/assets/img/projects/embedded-vision.jpg" alt="" width="1200" height="675" loading="lazy">
                         </div>
-                        <h3>Embedded Vision System</h3>
-                        <p>Low-latency video pipeline with neural-network inference for detection, recognition & identification.</p>
-                        <a href="#projects" class="card-link">Details <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                        <h3>{{projects.card2_title}}</h3>
+                        <p>{{projects.card2_desc}}</p>
+                        <a href="#projects" class="card-link">{{projects.details_label}} <i data-lucide="arrow-right" aria-hidden="true"></i></a>
                     </article>
                     <article class="project-card">
                         <div class="card-media-placeholder">
                             <img src="/assets/img/projects/gpr.jpg" alt="" width="1200" height="675" loading="lazy">
                         </div>
-                        <h3>Ground Penetrating Radar (GPR)</h3>
-                        <p>From antenna design and near-field electromagnetic modeling to signal processing and soil characterization.</p>
-                        <a href="#projects" class="card-link">Details <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                        <h3>{{projects.card3_title}}</h3>
+                        <p>{{projects.card3_desc}}</p>
+                        <a href="#projects" class="card-link">{{projects.details_label}} <i data-lucide="arrow-right" aria-hidden="true"></i></a>
                     </article>
                     <article class="project-card">
                         <div class="card-media-placeholder">
                             <img src="/assets/img/projects/opensource-tools.jpg" alt="" width="1200" height="675" loading="lazy">
                         </div>
-                        <h3>Open-Source IP & Tools</h3>
-                        <p>Reusable HDL cores, drivers, and tools to accelerate development.</p>
-                        <a href="#projects" class="card-link">Details <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                        <h3>{{projects.card4_title}}</h3>
+                        <p>{{projects.card4_desc}}</p>
+                        <a href="#projects" class="card-link">{{projects.details_label}} <i data-lucide="arrow-right" aria-hidden="true"></i></a>
                     </article>
                 </div>
 
-                <a href="#projects" class="btn btn-outline">View All Projects</a>
+                <a href="#projects" class="btn btn-outline">{{projects.cta}}</a>
             </div>
         </section>
 
         <section id="insights" class="insights" aria-labelledby="insights-heading">
             <div class="container">
-                <p class="eyebrow">Selected Insights</p>
-                <h2 id="insights-heading">Knowledge we share</h2>
+                <p class="eyebrow">{{insights.eyebrow}}</p>
+                <h2 id="insights-heading">{{insights.heading}}</h2>
 
                 <ul class="insight-list">
                     <li class="insight-item">
@@ -258,9 +247,9 @@
                             <img src="/assets/img/labs/video-pipeline.webp" alt="" width="1200" height="675" loading="lazy">
                         </div>
                         <div class="insight-item__body">
-                            <h3><a href="#insights">Designing Low-Latency FPGA Video Pipelines</a></h3>
-                            <p>Key techniques for achieving deterministic latency in real-time video systems.</p>
-                            <p class="insight-item__meta">May 20, 2025 &middot; Engineering</p>
+                            <h3><a href="#insights">{{insights.item1_title}}</a></h3>
+                            <p>{{insights.item1_desc}}</p>
+                            <p class="insight-item__meta">{{insights.item1_meta}}</p>
                         </div>
                     </li>
                     <li class="insight-item">
@@ -268,9 +257,9 @@
                             <img src="/assets/img/labs/near-field-modeling.webp" alt="" width="1200" height="675" loading="lazy">
                         </div>
                         <div class="insight-item__body">
-                            <h3><a href="#insights">Fast Near-Field Modeling for GPR Systems</a></h3>
-                            <p>A novel approach for accelerating electromagnetic modeling in GPR applications.</p>
-                            <p class="insight-item__meta">April 12, 2024 &middot; Research</p>
+                            <h3><a href="#insights">{{insights.item2_title}}</a></h3>
+                            <p>{{insights.item2_desc}}</p>
+                            <p class="insight-item__meta">{{insights.item2_meta}}</p>
                         </div>
                     </li>
                     <li class="insight-item">
@@ -278,27 +267,27 @@
                             <img src="/assets/img/labs/embedded-linux.webp" alt="" width="1200" height="675" loading="lazy">
                         </div>
                         <div class="insight-item__body">
-                            <h3><a href="#insights">Optimizing Embedded Linux for Real-Time Performance</a></h3>
-                            <p>Practical tips for reducing latency and improving determinism in embedded Linux.</p>
-                            <p class="insight-item__meta">July 6, 2026 &middot; Embedded Systems</p>
+                            <h3><a href="#insights">{{insights.item3_title}}</a></h3>
+                            <p>{{insights.item3_desc}}</p>
+                            <p class="insight-item__meta">{{insights.item3_meta}}</p>
                         </div>
                     </li>
                 </ul>
 
-                <a href="#insights" class="btn btn-outline">View All Insights</a>
+                <a href="#insights" class="btn btn-outline">{{insights.cta}}</a>
             </div>
         </section>
 
         <section class="stats" aria-label="ETROYL by the numbers">
             <div class="container stats-grid">
-                <div class="stat"><span class="stat__number">25+</span><span class="stat__label">Years of Engineering Experience</span></div>
-                <div class="stat"><span class="stat__number">5+</span><span class="stat__label">Countries Worked In</span></div>
-                <div class="stat"><span class="stat__number">20+</span><span class="stat__label">Major R&D Programs</span></div>
-                <div class="stat"><span class="stat__number">50+</span><span class="stat__label">Systems Delivered</span></div>
+                <div class="stat"><span class="stat__number">{{stats.years_number}}</span><span class="stat__label">{{stats.years_label}}</span></div>
+                <div class="stat"><span class="stat__number">{{stats.countries_number}}</span><span class="stat__label">{{stats.countries_label}}</span></div>
+                <div class="stat"><span class="stat__number">{{stats.rnd_number}}</span><span class="stat__label">{{stats.rnd_label}}</span></div>
+                <div class="stat"><span class="stat__number">{{stats.systems_number}}</span><span class="stat__label">{{stats.systems_label}}</span></div>
                 <div class="stat stat--callout">
-                    <span class="stat__label">Committed to</span>
-                    <span class="stat__number stat__number--accent">Excellence</span>
-                    <span class="stat__caption">In every project we undertake.</span>
+                    <span class="stat__label">{{stats.callout_label}}</span>
+                    <span class="stat__number stat__number--accent">{{stats.callout_word}}</span>
+                    <span class="stat__caption">{{stats.callout_caption}}</span>
                 </div>
             </div>
         </section>
@@ -306,10 +295,10 @@
         <section id="about" class="about" aria-labelledby="about-heading">
             <div class="container about-grid">
                 <div class="about-copy">
-                    <p class="eyebrow">About ETROYL</p>
-                    <h2 id="about-heading">Where science meets engineering</h2>
-                    <p>ETROYL is a technical engineering firm at the intersection of deep-tech science and industrial reliability. We transform complex ideas into deployable systems that perform in the real world.</p>
-                    <a href="/about/about.html" class="btn btn-outline">Learn More About Us</a>
+                    <p class="eyebrow">{{about.eyebrow}}</p>
+                    <h2 id="about-heading">{{about.heading}}</h2>
+                    <p>{{about.body}}</p>
+                    <a href="/about/about.html" class="btn btn-outline">{{about.cta}}</a>
                 </div>
                 <div class="card-media-placeholder card-media-placeholder--lg">
                     <img src="/assets/img/labs/etroyl-labs.jpg" alt="" width="1200" height="900" loading="lazy">
@@ -319,9 +308,9 @@
 
         <section id="contact" class="contact" aria-labelledby="contact-heading">
             <div class="container">
-                <h2 id="contact-heading">Let's build the next intelligent system together</h2>
-                <p>Have a project in mind? Let's discuss how we can help.</p>
-                <a href="mailto:contact@etroyl.com" class="btn btn-primary">Get in Touch</a>
+                <h2 id="contact-heading">{{contact.heading}}</h2>
+                <p>{{contact.body}}</p>
+                <a href="mailto:contact@etroyl.com" class="btn btn-primary">{{contact.cta}}</a>
             </div>
         </section>
 

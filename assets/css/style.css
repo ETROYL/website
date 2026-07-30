@@ -823,3 +823,80 @@ section h2 {
         aspect-ratio: 16 / 9;
     }
 }
+
+/* -- Language switcher (dropdown) --
+   Replace the ENTIRE previous .lang-switcher block in style.css
+   with everything below — the markup changed from a flat <ul> to
+   a button + hidden menu, so the old flex-row CSS no longer
+   applies to anything. */
+
+.lang-switcher {
+    position: relative;
+}
+
+.lang-switcher__toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--text-sm);
+    letter-spacing: 0.05em;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.lang-switcher__toggle:hover,
+.lang-switcher__toggle:focus-visible,
+.lang-switcher__toggle[aria-expanded="true"] {
+    color: var(--color-text);
+    border-color: var(--color-accent);
+}
+
+.lang-switcher__toggle svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* [hidden] is what actually removes this from layout/accessibility
+   tree when closed — script.js toggles this attribute, not just a
+   visual class, so a closed menu is genuinely unreachable by
+   keyboard tab order, not just invisible. */
+.lang-switcher__menu {
+    position: absolute;
+    top: calc(100% + var(--space-xs));
+    right: 0;
+    z-index: 50;
+    min-width: 140px;
+    list-style: none;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-xs);
+}
+
+.lang-switcher__menu a {
+    display: block;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--border-radius);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    letter-spacing: 0.05em;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.lang-switcher__menu a:hover,
+.lang-switcher__menu a:focus-visible {
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+}
+
+.lang-switcher__menu a[aria-current="true"] {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+

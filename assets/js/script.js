@@ -57,53 +57,140 @@ const savedTheme = localStorage.getItem('theme');
  * runs setCurrentYear() below — which is why this class definition
  * sits above init() in this file, not after it.
  */
+const FOOTER_I18N = {
+    en: {
+        company: 'Company', about: 'About', leadership: 'Leadership', careers: 'Careers',
+        resources: 'Resources', education: 'Education', blog: 'Blog', documentation: 'Documentation',
+        connect: 'Connect', contact: 'Contact', linkedin: 'LinkedIn', youtube: 'YouTube',
+        rights: 'All rights reserved.'
+    },
+    fr: {
+        company: 'Société', about: 'À propos', leadership: 'Direction', careers: 'Carrières',
+        resources: 'Ressources', education: 'Formation', blog: 'Blog', documentation: 'Documentation',
+        connect: 'Nous suivre', contact: 'Contact', linkedin: 'LinkedIn', youtube: 'YouTube',
+        rights: 'Tous droits réservés.'
+    },
+    es: {
+        company: 'Empresa', about: 'Nosotros', leadership: 'Liderazgo', careers: 'Empleo',
+        resources: 'Recursos', education: 'Formación', blog: 'Blog', documentation: 'Documentación',
+        connect: 'Conectar', contact: 'Contacto', linkedin: 'LinkedIn', youtube: 'YouTube',
+        rights: 'Todos los derechos reservados.'
+    },
+    de: {
+        company: 'Unternehmen', about: 'Über uns', leadership: 'Führungsteam', careers: 'Karriere',
+        resources: 'Ressourcen', education: 'Wissen', blog: 'Blog', documentation: 'Dokumentation',
+        connect: 'Netzwerk', contact: 'Kontakt', linkedin: 'LinkedIn', youtube: 'YouTube',
+        rights: 'Alle Rechte vorbehalten.'
+    },
+    nl: {
+        company: 'Bedrijf', about: 'Over ons', leadership: 'Directie', careers: 'Carrière',
+        resources: 'Bronmateriaal', education: 'Kennis', blog: 'Blog', documentation: 'Documentatie',
+        connect: 'Volg ons', contact: 'Contact', linkedin: 'LinkedIn', youtube: 'YouTube',
+        rights: 'Alle rechten voorbehouden.'
+    },
+    it: {
+        company: 'Azienda', about: 'Chi siamo', leadership: 'Leadership', careers: 'Lavora con noi',
+        resources: 'Risorse', education: 'Formazione', blog: 'Blog', documentation: 'Documentazione',
+        connect: 'Contatti sociali', contact: 'Contatti', linkedin: 'LinkedIn', youtube: 'YouTube',
+        rights: 'Tutti i diritti riservati.'
+    }
+};
+
 class SiteFooter extends HTMLElement {
     connectedCallback() {
+        const lang = document.documentElement.getAttribute('lang') || 'en';
+        const t = FOOTER_I18N[lang] || FOOTER_I18N.en;
+
         this.innerHTML = `
             <div class="container footer-grid">
-		<div class="footer-brand">
-		        <img
-		            src="/assets/img/logo-icon.png"
-		            alt="ETROYL"
-		            width="408"
-		            height="289"
-		            class="footer-logo">
-		        <p>&copy; 2026&ndash;<span id="current-year"></span> ETROYL. All rights reserved.</p>
-		        <!--<address>Oorbeeksesteenweg 59, Tienen, Belgium</address>-->
-		    </div>
+                <div class="footer-brand">
+                    <img src="/assets/img/logo-icon.png" alt="ETROYL" width="408" height="289" class="footer-logo">
+                    <p>&copy; 2026&ndash;<span id="current-year"></span> ETROYL. ${t.rights}</p>
+                    <address>Oorbeeksesteenweg 59, Tienen, Belgium</address>
+                </div>
 
-		    <nav class="footer-nav" aria-label="Company">
-		        <h3>Company</h3>
-		        <ul>
-		            <li><a href="/about/about.html">About</a></li>
-		            <li><a href="/about/founder.html">Leadership</a></li>
-		            <li><a href="#contact">Careers</a></li>
-		        </ul>
-		    </nav>
+                <nav class="footer-nav" aria-label="${t.company}">
+                    <h3>${t.company}</h3>
+                    <ul>
+                        <li><a href="/about/about.html">${t.about}</a></li>
+                        <li><a href="/about/founder.html">${t.leadership}</a></li>
+                        <li><a href="#contact">${t.careers}</a></li>
+                    </ul>
+                </nav>
 
-		    <nav class="footer-nav" aria-label="Resources">
-		        <h3>Resources</h3>
-		        <ul>
-		            <li><a href="/education.html">Education</a></li>
-		            <li><a href="#insights">Blog</a></li>
-		            <li><a href="/education.html">Documentation</a></li>
-		        </ul>
-		    </nav>
+                <nav class="footer-nav" aria-label="${t.resources}">
+                    <h3>${t.resources}</h3>
+                    <ul>
+                        <li><a href="/education.html">${t.education}</a></li>
+                        <li><a href="#insights">${t.blog}</a></li>
+                        <li><a href="/education.html">${t.documentation}</a></li>
+                    </ul>
+                </nav>
 
-		    <nav class="footer-nav" aria-label="Connect">
-		        <h3>Connect</h3>
-		        <ul>
-		            <li><a href="mailto:contact@etroyl.com">Contact</a></li>
-		            <li><a href="tel:+32475302555">+32 475 30 25 55</a></li>
-		            <li><a href="https://www.linkedin.com/in/etroyl-labs-8990bb425/" target="_blank" rel="noopener">LinkedIn</a></li>
-		            <li><a href="https://www.youtube.com/@ETROYL-Labs" target="_blank" rel="noopener">YouTube</a></li>
-		        </ul>
-		    </nav>
-		</div>
+                <nav class="footer-nav" aria-label="${t.connect}">
+                    <h3>${t.connect}</h3>
+                    <ul>
+                        <li><a href="mailto:contact@etroyl.com">${t.contact}</a></li>
+                        <li><a href="tel:+32475302555">+32 475 30 25 55</a></li>
+                        <li><a href="https://www.linkedin.com/in/etroyl-labs-8990bb425/" target="_blank" rel="noopener">${t.linkedin}</a></li>
+                        <li><a href="https://www.youtube.com/@ETROYL-Labs" target="_blank" rel="noopener">${t.youtube}</a></li>
+                    </ul>
+                </nav>
+            </div>
         `;
     }
 }
 customElements.define('site-footer', SiteFooter);
+
+
+/**
+ * Wires up the language-switcher dropdown: toggles the hidden
+ * menu on button click, closes it on an outside click or Escape,
+ * and keeps aria-expanded in sync — same "one source of truth
+ * drives both the visual state and the accessible state" pattern
+ * used by aria-pressed on the Education page's filter buttons.
+ */
+function initLangSwitcher() {
+    const wrapper = document.querySelector('.lang-switcher');
+    if (!wrapper) return;
+
+    const toggle = wrapper.querySelector('.lang-switcher__toggle');
+    const menu = wrapper.querySelector('.lang-switcher__menu');
+    if (!toggle || !menu) return;
+
+    function closeMenu() {
+        menu.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function openMenu() {
+        menu.hidden = false;
+        toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    toggle.addEventListener('click', (event) => {
+        event.stopPropagation(); // prevents this same click from
+                                  // immediately re-triggering the
+                                  // document-level listener below
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        isOpen ? closeMenu() : openMenu();
+    });
+
+    // Clicking anywhere outside the dropdown closes it.
+    document.addEventListener('click', (event) => {
+        if (!wrapper.contains(event.target)) closeMenu();
+    });
+
+    // Escape closes it and returns focus to the toggle button,
+    // rather than leaving focus stranded on a now-hidden link —
+    // standard expected keyboard behavior for any dropdown/menu.
+    wrapper.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeMenu();
+            toggle.focus();
+        }
+    });
+}
 
 // 2. INITIAL THEME LOGIC
 if (savedTheme) {
@@ -146,22 +233,10 @@ function setCurrentYear() {
     yearElement.textContent = new Date().getFullYear();
 }
 
-function randomizeSlogan() {
-    const slogans = [
-    	"Built on Science. Delivered through Engineering."
-    ];
-    const randomIndex = Math.floor(Math.random() * slogans.length);
-    const heroHeading = document.getElementById('hero-heading');
-    
-    if (heroHeading) {
-        heroHeading.textContent = slogans[randomIndex];
-    }
-}
-
 // 5. INITIALIZATION
 function init() {
     setCurrentYear();
-    randomizeSlogan();
+    initLangSwitcher();
     renderIcons();
 }
 

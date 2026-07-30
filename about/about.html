@@ -6,7 +6,20 @@
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/variables.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+
     <title>About | ETROYL</title>
+    <meta name="description" content="ETROYL is a technical engineering firm dedicated to the intersection of deep-tech science and industrial reliability.">
+    <link rel="canonical" href="https://www.etroyl.com/about/about.html">
+
+    <!-- HREFLANG ALTERNATES -->
+    <link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/about/about.html" />
+    <link rel="alternate" hreflang="en" href="https://www.etroyl.com/about/about.html" />
+    <link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/about/about.html" />
+    <link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/about/about.html" />
+    <link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/about/about.html" />
+    <link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/about/about.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/about/about.html" />
+
     <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
@@ -20,18 +33,42 @@
                     height="289"
                     class="logo-mark">
             </a>
+
+            <div class="header-actions">
+                <div class="lang-switcher">
+                    <button
+                        type="button"
+                        class="lang-switcher__toggle"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-label="Choose language">
+                        <i data-lucide="languages" aria-hidden="true"></i>
+                        <span class="lang-switcher__current">EN</span>
+                    </button>
+                    <ul class="lang-switcher__menu" hidden>
+                        <li><a href="/de/about/about.html" title="Deutsch" aria-label="Deutsch">DE</a></li>
+                        <li><a href="/about/about.html" aria-current="true" title="English" aria-label="English">EN</a></li>
+                        <li><a href="/es/about/about.html" title="Español" aria-label="Español">ES</a></li>
+                        <li><a href="/fr/about/about.html" title="Français" aria-label="Français">FR</a></li>
+                        <li><a href="/it/about/about.html" title="Italiano" aria-label="Italiano">IT</a></li>
+                        <li><a href="/nl/about/about.html" title="Nederlands" aria-label="Nederlands">NL</a></li>
+                    </ul>
+                </div>
+
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
+                    <i data-lucide="sun-moon"></i>
+                </button>
+            </div>
+
             <nav class="main-nav" aria-label="Primary">
                 <ul>
-		    <li><a href="/index.html#services">Services</a></li>
+                    <li><a href="/index.html#services">Services</a></li>
                     <li><a href="/index.html#projects">Projects</a></li>
                     <li><a href="/education.html">Education</a></li>
-                    <li><a href="/about/founder.html">Leadership</a></li>
+                    <li><a href="/about/founder.html" aria-current="page">Leadership</a></li>
                     <li><a href="/index.html#contact">Contact</a></li>
                 </ul>
             </nav>
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
-                <i data-lucide="sun-moon"></i>
-            </button>
         </div>
     </header>
 
@@ -53,13 +90,13 @@
 		<h1>The ETROYL Commitment</h1>
 		<p>We believe that engineering is not just about writing code; it is about architectural integrity and strategic technical roadmap definition. Our goal is to be the silent engine behind the next generation of high-reliability technologies.</p>
 		<hr>
-		<p><em>Precision. Reliability. Innovation. That is the ETROYL standard.</em></p>
+			<p><em>Precision. Reliability. Innovation. That is the ETROYL standard.</em></p>
         </section>
     </main>
 
-	<footer class="site-footer">
-	    <site-footer></site-footer>
-	</footer>
+    <footer class="site-footer">
+        <site-footer></site-footer>
+    </footer>
     <script src="/assets/js/script.js" defer></script>
 </body>
 </html>

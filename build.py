@@ -129,11 +129,14 @@ def build_sitemap(locales):
     for code in live:
         loc = BASE_URL + locale_path(code)
         alt_links = '\n'.join(
-            f'      <xhtml:link rel="alternate" hreflang="{alt_code}" '
+            f'	<xhtml:link rel="alternate" hreflang="{alt_code}" '
             f'href="{BASE_URL}{locale_path(alt_code)}" />'
             for alt_code in live
         )
-        url_blocks.append(f'  <url>\n    <loc>{loc}</loc>\n{alt_links}\n  </url>')
+        url_blocks.append(f'  <url>\n'
+        f'	<lastmod>2026-07-30</lastmod>\n'
+        f'	<xhtml:link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" />\n'
+        f'	<loc>{loc}</loc>\n{alt_links}\n  </url>')
 
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -170,6 +173,7 @@ def main():
             tokens['hreflang_links'] = build_hreflang_block(locales)
             tokens['lang_switcher'] = build_lang_switcher(locales, code)
             path = locale_path(code)
+            tokens['root_dir'] = path
             tokens['urls.canonical'] = BASE_URL + path
             tokens['urls.og_url'] = BASE_URL + path
 

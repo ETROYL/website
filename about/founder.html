@@ -6,7 +6,20 @@
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/variables.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+
     <title>About | ETROYL</title>
+    <meta name="description" content="ETROYL was established to bridge the gap between frontier scientific research and industrial-grade product deployment.">
+    <link rel="canonical" href="https://www.etroyl.com/about/founder.html">
+
+    <!-- HREFLANG ALTERNATES -->
+    <link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/about/founder.html" />
+    <link rel="alternate" hreflang="en" href="https://www.etroyl.com/about/founder.html" />
+    <link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/about/founder.html" />
+    <link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/about/founder.html" />
+    <link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/about/founder.html" />
+    <link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/about/founder.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/about/founder.html" />
+
     <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
@@ -20,43 +33,67 @@
                     height="289"
                     class="logo-mark">
             </a>
+
+            <div class="header-actions">
+                <div class="lang-switcher">
+                    <button
+                        type="button"
+                        class="lang-switcher__toggle"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-label="Choose language">
+                        <i data-lucide="languages" aria-hidden="true"></i>
+                        <span class="lang-switcher__current">EN</span>
+                    </button>
+                    <ul class="lang-switcher__menu" hidden>
+                        <li><a href="/de/about/founder.html" title="Deutsch" aria-label="Deutsch">DE</a></li>
+                        <li><a href="/about/founder.html" aria-current="true" title="English" aria-label="English">EN</a></li>
+                        <li><a href="/es/about/founder.html" title="Español" aria-label="Español">ES</a></li>
+                        <li><a href="/fr/about/founder.html" title="Français" aria-label="Français">FR</a></li>
+                        <li><a href="/it/about/founder.html" title="Italiano" aria-label="Italiano">IT</a></li>
+                        <li><a href="/nl/about/founder.html" title="Nederlands" aria-label="Nederlands">NL</a></li>
+                    </ul>
+                </div>
+
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
+                    <i data-lucide="sun-moon"></i>
+                </button>
+            </div>
+
             <nav class="main-nav" aria-label="Primary">
                 <ul>
-		    <li><a href="/index.html#services">Services</a></li>
+                    <li><a href="/index.html#services">Services</a></li>
                     <li><a href="/index.html#projects">Projects</a></li>
                     <li><a href="/education.html">Education</a></li>
                     <li><a href="/about/about.html">About</a></li>
                     <li><a href="/index.html#contact">Contact</a></li>
                 </ul>
             </nav>
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
-                <i data-lucide="sun-moon"></i>
-            </button>
         </div>
     </header>
 
     <main id="main-content">
         <section class="container" style="padding-top: 100px;">
-		<h1>ETROYL Founder</h1>
-		<p>ETROYL was established to bridge the gap between frontier scientific research and industrial-grade product deployment. Our leadership is defined by over 25 years of experience in high-reliability engineering, spanning international defense projects, semiconductor R&D, and complex radar sensing systems.</p>
-		<br></br>
-		<h1>Engineering Provenance</h1>
-		<p>The foundation of ETROYL is built upon a dual-expertise framework:</p>
-		<ul>
-		    <li><strong>Scientific Depth:</strong> Our technical foundation is rooted in decades of advanced research, including electromagnetic modeling, radar signal processing, and inverse problem theory.</li>
-		    <li><strong>Industrial Execution:</strong> We bring extensive experience in architecting high-speed embedded systems, including FPGA-based signal chains, low-latency video pipelines, and complex driver development for defense-grade platforms.</li>
-		</ul>
-		<br></br>
-		<h1>A Commitment to Excellence</h1>
-		<p>The founder provides the strategic vision that guides ETROYL, having managed multi-million dollar engineering portfolios and coordinated large-scale R&D programs involving multidisciplinary teams across more than 5 countries. This background ensures that ETROYL operates not just as a service provider, but as a technical partner that understands the realities of cost, risk, and reliability in mission-critical environments.</p>
+            <h1>ETROYL Founder</h1>
+            <p>ETROYL was established to bridge the gap between frontier scientific research and industrial-grade product deployment. Our leadership is defined by over 25 years of experience in high-reliability engineering, covering international defense projects, semiconductor R&amp;D, and complex radar sensing systems.</p>
+            <br><br>
+            <h1>Engineering Provenance</h1>
+            <p>The foundation of ETROYL is built upon a dual-expertise framework:</p>
+            <ul>
+                <li><strong>Scientific Depth:</strong> Our technical foundation is rooted in decades of advanced research, including electromagnetic modeling, radar signal processing, and inverse problem theory.</li>
+                <li><strong>Industrial Execution:</strong> We bring extensive experience in architecting high-speed embedded systems, including FPGA-based signal chains, low-latency video pipelines, and driver development for defense-grade platforms.</li>
+            </ul>
+            <br><br>
+            <h1>A Commitment to Excellence</h1>
+            <p>The founder provides the strategic vision that guides ETROYL, having managed multi-million dollar engineering portfolios and coordinated large-scale R&amp;D programs involving multidisciplinary teams across 5+ countries. This history ensures ETROYL acts not just as a contractor, but as a technical partner aware of cost, risk, and reliability realities in critical environments.</p>
 
-		<p>Our philosophy is simple: Technical solutions must be grounded in physics, architected for robustness, and managed for strategic success.</p>		
+            <p>Our philosophy is simple: Technical solutions must be grounded in physics, architected for robustness, and managed for strategic success.</p>
         </section>
     </main>
 
-	<footer class="site-footer">
-	    <site-footer></site-footer>
-	</footer>
+    <footer class="site-footer">
+        <site-footer></site-footer>
+    </footer>
     <script src="/assets/js/script.js" defer></script>
 </body>
 </html>

@@ -8,6 +8,15 @@
     <meta name="description" content="Technical training videos, reference documents, and diagrams from ETROYL covering FPGA design, embedded systems, and signal processing.">
     <link rel="canonical" href="https://www.etroyl.com/education.html">
 
+    <!-- HREFLANG ALTERNATES -->
+    <link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/education.html" />
+    <link rel="alternate" hreflang="en" href="https://www.etroyl.com/education.html" />
+    <link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/education.html" />
+    <link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/education.html" />
+    <link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/education.html" />
+    <link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/education.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/education.html" />
+
     <meta name="theme-color" content="#0d0d0d">
 
     <!-- Same three-file loading order as index.html: reset,
@@ -42,6 +51,32 @@
                     class="logo-mark">
             </a>
 
+            <div class="header-actions">
+                <div class="lang-switcher">
+                    <button
+                        type="button"
+                        class="lang-switcher__toggle"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-label="Choose language">
+                        <i data-lucide="languages" aria-hidden="true"></i>
+                        <span class="lang-switcher__current">EN</span>
+                    </button>
+                    <ul class="lang-switcher__menu" hidden>
+                        <li><a href="/de/education.html" title="Deutsch" aria-label="Deutsch">DE</a></li>
+                        <li><a href="/education.html" aria-current="true" title="English" aria-label="English">EN</a></li>
+                        <li><a href="/es/education.html" title="Español" aria-label="Español">ES</a></li>
+                        <li><a href="/fr/education.html" title="Français" aria-label="Français">FR</a></li>
+                        <li><a href="/it/education.html" title="Italiano" aria-label="Italiano">IT</a></li>
+                        <li><a href="/nl/education.html" title="Nederlands" aria-label="Nederlands">NL</a></li>
+                    </ul>
+                </div>
+
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
+                    <i data-lucide="sun-moon"></i>
+                </button>
+            </div>
+
             <nav class="main-nav" aria-label="Primary">
                 <ul>
                     <li><a href="/index.html#services">Services</a></li>
@@ -52,9 +87,6 @@
                 </ul>
             </nav>
 
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
-                <i data-lucide="sun-moon"></i>
-            </button>
         </div>
     </header>
 
@@ -104,9 +136,9 @@
 
     </main>
 
-	<footer class="site-footer">
-	    <site-footer></site-footer>
-	</footer>
+    <footer class="site-footer">
+        <site-footer></site-footer>
+    </footer>
 
     <script src="/assets/js/script.js" defer></script>
     <script src="/assets/js/education.js" defer></script>

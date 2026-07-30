@@ -172,6 +172,13 @@ def main():
             path = locale_path(code)
             tokens['urls.canonical'] = BASE_URL + path
             tokens['urls.og_url'] = BASE_URL + path
+            # Locale-aware absolute URLs for template links (keeps users
+            # on the same language when they navigate from the localized
+            # index pages). See templates/index.template.html for usage.
+            tokens['urls.home']      = BASE_URL + path
+            tokens['urls.education'] = BASE_URL + path + 'education.html'
+            tokens['urls.about']     = BASE_URL + path + 'about/about.html'
+            tokens['urls.founder']   = BASE_URL + path + 'about/founder.html'
 
             output_html = render(template_text, tokens)
 

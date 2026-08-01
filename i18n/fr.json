@@ -7,7 +7,7 @@
     "published": true,
     "title": "ETROYL | GPR, FPGA, Systèmes Embarqués & Traitement du Signal",
     "description": "ETROYL est un bureau d'études spécialisé en conception FPGA et digitale, systèmes embarqués, traitement du signal, détection radar, robotique et radar à pénétration de sol (GPR).",
-    "og_title": "ETROYL | Fondé sur la science. Concrétisé par l'ingénierie.",
+    "og_title": "ETROYL | Fondé sur la science. Transformé par l'ingénierie.",
     "og_description": "Précision | Fiabilité | Innovation"
   },
   "a11y": {
@@ -25,7 +25,7 @@
   },
   "hero": {
     "wordmark": "",
-    "tagline": "Fondé sur la science. Concrétisé par l'ingénierie.",
+    "tagline": "Fondé sur la science. Transformé par l'ingénierie.",
     "precision": "Précision",
     "reliability": "Fiabilité",
     "innovation": "Innovation"
@@ -34,10 +34,10 @@
     "eyebrow": "Nos Réalisations",
     "heading": "Des solutions d'ingénierie pour relever des défis complexes",
     "cta": "Explorer nos services",
-    "card1_title": "Conception FPGA & Digitale",
+    "card1_title": "Conception FPGA & numérique",
     "card1_desc": "Systèmes numériques haute performance, du concept à la mise en œuvre.",
     "card2_title": "Systèmes Embarqués",
-    "card2_desc": "Lois logicielles et firmware robustes pour plateformes critiques.",
+    "card2_desc": "Logiciels et micrologiciels robustes pour plateformes critiques.",
     "card3_title": "Traitement du Signal",
     "card3_desc": "Algorithmes DSP avancés pour le radar, l'imagerie et les communications.",
     "card4_title": "Radar & Détection",
@@ -51,24 +51,24 @@
     "eyebrow": "Qui Nous Accompagnons",
     "heading": "Expertise sectorielle. Impact concret.",
     "item1": "Défense & Sécurité",
-    "item2": "Automation Industrielle",
+    "item2": "Automatisation industriellee",
     "item3": "Médical & Santé",
     "item4": "Mobilité & Automobile",
-    "item5": "Spatiale & Aéronautique",
-    "item6": "Recherche & Enseignement"
+    "item5": "Secteur spatial et aéronautique",
+    "item6": "Recherche & Innovation"
   },
   "projects": {
     "eyebrow": "Projets À La Une",
     "heading": "Les problèmes que nous sommes armés pour résoudre",
     "details_label": "Détails",
     "cta": "Voir tous les projets",
-    "card1_title": "Plateforme de Traitement Radar",
+    "card1_title": "Plateforme de traitement radar",
     "card1_desc": "Traitement du signal radar en temps réel sur FPGA pour applications de détection avancées.",
     "card2_title": "Système de Vision Embarquée",
     "card2_desc": "Pipeline vidéo à très faible latence avec inférence par réseau de neurones pour la détection, la reconnaissance et l'identification.",
-    "card3_title": "Radar à Pénétration de Sol (GPR)",
+    "card3_title": "Radar à pénétration de sol (GPR)",
     "card3_desc": "De la conception d'antennes et la modélisation électromagnétique en champ proche jusqu'au traitement du signal et la caractérisation des sols.",
-    "card4_title": "IPs & Outils Open-Source",
+    "card4_title": "Cœurs IP & outils open source",
     "card4_desc": "Cœurs HDL réutilisables, pilotes et outils pour accélérer le développement."
   },
   "insights": {

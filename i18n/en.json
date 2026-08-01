@@ -72,18 +72,18 @@
     "card4_desc": "Reusable HDL cores, drivers, and tools to accelerate development."
   },
   "insights": {
-    "eyebrow": "Selected Insights",
-    "heading": "Knowledge we share",
+    "eyebrow": "Selected Engineering Insights",
+    "heading": "How we approach complex challenges through science and engineering",
     "cta": "View All Insights",
     "item1_title": "Designing Low-Latency FPGA Video Pipelines",
     "item1_desc": "Key techniques for achieving deterministic latency in real-time video systems.",
-    "item1_meta": "May 20, 2025 &middot; Engineering",
+    "item1_meta": "Engineering & Development",
     "item2_title": "Fast Near-Field Modeling for GPR Systems",
-    "item2_desc": "A novel approach for accelerating electromagnetic modeling in GPR applications.",
-    "item2_meta": "April 12, 2024 &middot; Research",
+    "item2_desc": "Accurate near-field electromagnetic modeling of GPR systems, combining physical fidelity with computational efficiency for advanced subsurface sensing.",
+    "item2_meta": "Research & Innovation",
     "item3_title": "Optimizing Embedded Linux for Real-Time Performance",
     "item3_desc": "Practical tips for reducing latency and improving determinism in embedded Linux.",
-    "item3_meta": "July 6, 2026 &middot; Embedded Systems"
+    "item3_meta": "Engineering & Development"
   },
   "stats": {
     "years_number": "25+",

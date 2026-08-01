@@ -72,18 +72,18 @@
     "card4_desc": "Cœurs HDL réutilisables, pilotes et outils pour accélérer le développement."
   },
   "insights": {
-    "eyebrow": "Dernières Publications",
-    "heading": "Le savoir que nous partageons",
-    "cta": "Voir toutes les publications",
+    "eyebrow": "Perspectives techniques sélectionnées",
+    "heading": "Notre approche des défis complexes par la science et l’ingénierie",
+    "cta": "Voir toutes les perspectives techniques",
     "item1_title": "Conception de pipelines vidéo FPGA à faible latence",
     "item1_desc": "Techniques clés pour garantir une latence déterministe dans les systèmes vidéo en temps réel.",
-    "item1_meta": "20 mai 2025 &middot; Ingénierie",
-    "item2_title": "Modélisation rapide en champ proche pour systèmes GPR",
-    "item2_desc": "Une approche novatrice pour accélérer la modélisation électromagnétique dans les applications GPR.",
-    "item2_meta": "12 avril 2024 &middot; Recherche",
+    "item1_meta": "Ingénierie & Développement",
+    "item2_title": "Modélisation rapide en champ proche pour les systèmes GPR",
+    "item2_desc": "Une modélisation électromagnétique précise en champ proche des systèmes GPR, combinant fidélité physique et efficacité de calcul pour des applications avancées de détection du sous-sol.",
+    "item2_meta": "Recherche & Innovation appliquée",
     "item3_title": "Optimisation de Linux embarqué pour des performances temps réel",
     "item3_desc": "Conseils pratiques pour réduire la latence et améliorer le déterminisme sous Linux embarqué.",
-    "item3_meta": "6 juillet 2026 &middot; Systèmes embarqués"
+    "item3_meta": "Ingénierie & Développement"
   },
   "stats": {
     "years_number": "25+",

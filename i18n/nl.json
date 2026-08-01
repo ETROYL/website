@@ -72,18 +72,18 @@
     "card4_desc": "Herbruikbare HDL-cores, drivers en tools om de ontwikkeling te versnellen."
   },
   "insights": {
-    "eyebrow": "Laatste Inzichten",
-    "heading": "Kennis die we delen",
-    "cta": "Bekijk Alle Inzichten",
+    "eyebrow": "Geselecteerde technische inzichten",
+    "heading": "Hoe wij complexe uitdagingen benaderen vanuit wetenschap en techniek",
+    "cta": "Bekijk alle technische inzichten",
     "item1_title": "Ontwerpen van FPGA-videopijplijnen met lage latentie",
     "item1_desc": "Belangrijke technieken voor het bereiken van deterministische latentie in realtime videosystemen.",
-    "item1_meta": "20 mei 2025 &middot; Engineering",
-    "item2_title": "Snelle nabijveldmodellering voor GPR-systemen",
-    "item2_desc": "Een vernieuwende aanpak voor het versnellen van elektromagnetische modellering in GPR-toepassingen.",
-    "item2_meta": "12 april 2024 &middot; Onderzoek",
+    "item1_meta": "Engineering & Ontwikkeling",
+    "item2_title": "Snelle nabije-veldmodellering voor GPR-systemen",
+    "item2_desc": "Nauwkeurige elektromagnetische nabije-veldmodellering van GPR-systemen, waarbij fysische nauwkeurigheid wordt gecombineerd met computationele efficiëntie voor geavanceerde ondergrondse detectietoepassingen.",
+    "item2_meta": "Onderzoek & Toegepaste Innovatie",
     "item3_title": "Embedded Linux optimaliseren voor realtime prestaties",
     "item3_desc": "Praktische tips voor het verminderen van latentie en het verbeteren van determinisme in embedded Linux.",
-    "item3_meta": "6 juli 2026 &middot; Embedded Systems"
+    "item3_meta": "Engineering & Ontwikkeling"
   },
   "stats": {
     "years_number": "25+",

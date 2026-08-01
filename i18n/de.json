@@ -72,18 +72,18 @@
     "card4_desc": "Wiederverwendbare HDL-Cores, Treiber und Werkzeuge zur Beschleunigung der Entwicklung."
   },
   "insights": {
-    "eyebrow": "Aktuelle Einblicke",
-    "heading": "Wissen, das wir teilen",
-    "cta": "Alle Beiträge anzeigen",
+    "eyebrow": "Ausgewählte technische Einblicke",
+    "heading": "Wie wir komplexe Herausforderungen durch Wissenschaft und Ingenieurwesen angehen",
+    "cta": "Alle technischen Einblicke anzeigen",
     "item1_title": "Entwicklung latenzarmer FPGA-Video-Pipelines",
     "item1_desc": "Schlüsseltechniken für deterministische Latenz in Echtzeit-Videosystemen.",
-    "item1_meta": "20. Mai 2025 &middot; Engineering",
-    "item2_title": "Schnelle Nahfeld-Modellierung für GPR-Systeme",
-    "item2_desc": "Ein neuartiger Ansatz zur Beschleunigung der elektromagnetischen Modellierung in GPR-Anwendungen.",
-    "item2_meta": "12. April 2024 &middot; Forschung",
+    "item1_meta": "Ingenieurwesen & Entwicklung",
+    "item2_title": "Schnelle Nahfeldmodellierung für GPR-Systeme",
+    "item2_desc": "Präzise elektromagnetische Nahfeldmodellierung von GPR-Systemen, die physikalische Genauigkeit mit rechnerischer Effizienz für fortschrittliche Untergrunderkundung verbindet.",
+    "item2_meta": "Forschung & Angewandte Innovation",
     "item3_title": "Optimierung von Embedded Linux für Echtzeit-Performance",
     "item3_desc": "Praktische Tipps zur Reduzierung von Latenzzeiten und zur Verbesserung des Determinismus in Embedded Linux.",
-    "item3_meta": "6. Juli 2026 &middot; Embedded Systems"
+    "item3_meta": "Ingenieurwesen & Entwicklung"
   },
   "stats": {
     "years_number": "25+",

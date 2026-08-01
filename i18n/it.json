@@ -72,18 +72,18 @@
     "card4_desc": "Core HDL riutilizzabili, driver e strumenti per accelerare lo sviluppo."
   },
   "insights": {
-    "eyebrow": "Ultime Pubblicazioni",
-    "heading": "Il sapere che condividiamo",
-    "cta": "Vedi Tutte le Pubblicazioni",
+    "eyebrow": "Approfondimenti tecnici selezionati",
+    "heading": "Come affrontiamo sfide complesse attraverso scienza e ingegneria",
+    "cta": "Visualizza tutti gli approfondimenti tecnici",
     "item1_title": "Progettazione di pipeline video FPGA a bassa latenza",
     "item1_desc": "Tecniche chiave per ottenere una latenza deterministica nei sistemi video in tempo reale.",
-    "item1_meta": "20 maggio 2025 &middot; Ingegneria",
-    "item2_title": "Modellazione rapida in campo vicino per sistemi GPR",
-    "item2_desc": "Un approccio innovativo per accelerare la modellazione elettromagnetica nelle applicazioni GPR.",
-    "item2_meta": "12 aprile 2024 &middot; Ricerca",
+    "item1_meta": "Ingegneria & Sviluppo",
+    "item2_title": "Modellazione rapida del campo vicino per sistemi GPR",
+    "item2_desc": "Modellazione elettromagnetica accurata in campo vicino dei sistemi GPR, combinando fedeltà fisica ed efficienza computazionale per applicazioni avanzate di rilevamento del sottosuolo.",
+    "item2_meta": "Ricerca & Innovazione applicata",
     "item3_title": "Ottimizzazione di Linux Embedded per prestazioni in tempo reale",
     "item3_desc": "Consigli pratici per ridurre la latenza e migliorare il determinismo in Linux embedded.",
-    "item3_meta": "6 luglio 2026 &middot; Sistemi Embedded"
+    "item3_meta": "Ingegneria & Sviluppo"
   },
   "stats": {
     "years_number": "25+",

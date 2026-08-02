@@ -271,24 +271,32 @@ a {
 }
 
 .hero::after{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     background:
-
     linear-gradient(
-
         rgba(255,255,255,0.00),
-
         rgba(255,255,255,0.15)
-
     );
 
     pointer-events:none;
+}
+
+.hero-tagline{
+    font-size:clamp(0.75rem, 2.5vw, 1.5rem);
+    white-space:nowrap;
+}
+
+.hero-title{
+    font-size:clamp(1.4rem, 4vw, 3rem);
+    line-height:1.15;
+}
+
+@media(max-width:380px){
+    .hero-tagline{
+        font-size:0.7rem;
+    }
 }
 
 /*.hero-banner {

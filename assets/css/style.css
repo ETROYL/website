@@ -252,12 +252,52 @@ a {
     mask-image: linear-gradient(to bottom, black 0%, transparent 90%);
 }
 
-.hero-banner {
+.hero-banner{
+    display:block;
+    width:100%;
+    height:clamp(280px,42vw,560px);
+    object-fit:cover;
+    margin-bottom: var(--space-xs);
+    mask-image:
+	linear-gradient(
+	to bottom,
+
+	transparent 0%,
+
+	black 10%,
+
+	black 90%,
+
+	transparent 100%);
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        rgba(255,255,255,0.00),
+
+        rgba(255,255,255,0.15)
+
+    );
+
+    pointer-events:none;
+}
+
+/*.hero-banner {
     width: 100%;
     display:block;
     margin:0 auto;
     margin-bottom: var(--space-xs);
-}
+}*/
 
 .hero-banner img {
     width: 100%;

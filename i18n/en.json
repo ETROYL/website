@@ -8,7 +8,7 @@
     "title": "ETROYL | GPR, FPGA, Embedded Systems, Signal Processing Engineering",
     "description": "ETROYL is an engineering firm specializing in FPGA & Digital design, embedded systems, signal processing, radar sensing, Robotics, and Ground Penetrating Radar.",
     "og_title": "ETROYL | Built on Science. Delivered through Engineering.",
-    "og_description": "Precision | Reliability | Innovation"
+    "og_description": "Science | Engineering | Deployment"
   },
   "a11y": {
     "skip_link": "Skip to main content",
@@ -26,9 +26,9 @@
   "hero": {
     "wordmark": "",
     "tagline": "Built on Science. Delivered through Engineering.",
-    "precision": "Precision",
-    "reliability": "Reliability",
-    "innovation": "Innovation"
+    "precision": "Science",
+    "reliability": "Engineering",
+    "innovation": "Deployment"
   },
   "services": {
     "eyebrow": "What We Build",

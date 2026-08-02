@@ -8,7 +8,7 @@
     "title": "ETROYL | GPR, FPGA, Embedded Systems & Signaalverwerking",
     "description": "ETROYL is een ingenieursbureau gespecialiseerd in FPGA- & digitaal ontwerp, embedded systems, signaalverwerking, radarsensoren, robotica en grondradar (GPR).",
     "og_title": "ETROYL | Gebaseerd op wetenschap. Gerealiseerd door engineering.",
-    "og_description": "Precisie | Betrouwbaarheid | Innovatie"
+    "og_description": "Wetenschap | Engineering | Implementatie"
   },
   "a11y": {
     "skip_link": "Overslaan en naar hoofdinhoud gaan",
@@ -26,9 +26,9 @@
   "hero": {
     "wordmark": "",
     "tagline": "Gebaseerd op wetenschap. Gerealiseerd door engineering.",
-    "precision": "Precisie",
-    "reliability": "Betrouwbaarheid",
-    "innovation": "Innovatie"
+    "precision": "Wetenschap",
+    "reliability": "Engineering",
+    "innovation": "Implementatie"
   },
   "services": {
     "eyebrow": "Wat Wij Bouwen",

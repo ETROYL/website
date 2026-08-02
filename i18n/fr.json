@@ -8,7 +8,7 @@
     "title": "ETROYL | GPR, FPGA, Systèmes Embarqués & Traitement du Signal",
     "description": "ETROYL est un bureau d'études spécialisé en conception FPGA et digitale, systèmes embarqués, traitement du signal, détection radar, robotique et radar à pénétration de sol (GPR).",
     "og_title": "ETROYL | Fondé sur la science. Transformé par l'ingénierie.",
-    "og_description": "Précision | Fiabilité | Innovation"
+    "og_description": "Science | Ingénierie | Déploiement"
   },
   "a11y": {
     "skip_link": "Aller au contenu principal",
@@ -26,9 +26,9 @@
   "hero": {
     "wordmark": "",
     "tagline": "Fondé sur la science. Transformé par l'ingénierie.",
-    "precision": "Précision",
-    "reliability": "Fiabilité",
-    "innovation": "Innovation"
+    "precision": "Science",
+    "reliability": "Ingénierie",
+    "innovation": "Déploiement"
   },
   "services": {
     "eyebrow": "Nos Réalisations",

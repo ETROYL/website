@@ -8,7 +8,7 @@
     "title": "ETROYL | Ingeniería en GPR, FPGA, Sistemas Embebidos y Tratamiento de Señal",
     "description": "ETROYL es una empresa de ingeniería especializada en diseño digital y FPGA, sistemas embebidos, tratamiento de señal, sensores radar, robótica y radar de penetración terrestre (GPR).",
     "og_title": "ETROYL | Basado en la ciencia. Realizado mediante la ingeniería.",
-    "og_description": "Precisión | Fiabilidad | Innovación"
+    "og_description": "Ciencia | Ingeniería | Implementación"
   },
   "a11y": {
     "skip_link": "Ir al contenido principal",
@@ -26,9 +26,9 @@
   "hero": {
     "wordmark": "",
     "tagline": "Basado en la ciencia. Realizado mediante la ingeniería.",
-    "precision": "Precisión",
-    "reliability": "Fiabilidad",
-    "innovation": "Innovación"
+    "precision": "Ciencia",
+    "reliability": "Ingeniería",
+    "innovation": "Implementación"
   },
   "services": {
     "eyebrow": "Lo Que Desarrollamos",

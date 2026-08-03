@@ -283,21 +283,25 @@ a {
     pointer-events:none;
 }
 
-.hero-tagline{
-    font-size:clamp(0.75rem, 2.5vw, 1.5rem);
+/*.hero-tagline{
+    font-size:clamp(0.75rem, 2.2vw, 1.6rem);
     white-space:nowrap;
-}
+}*/
 
 .hero-title{
     font-size:clamp(1.4rem, 4vw, 3rem);
     line-height:1.15;
 }
 
-@media(max-width:380px){
+.hero-content{
+    padding:clamp(1rem,4vw,3rem);
+}
+
+/*@media(max-width:380px){
     .hero-tagline{
         font-size:0.7rem;
     }
-}
+}*/
 
 /*.hero-banner {
     width: 100%;
@@ -329,15 +333,17 @@ a {
 }
 
 .hero h1 {
-    font-size: var(--text-4xl);
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    /*font-size: var(--text-4xl);*/
     max-width: 20ch;
     margin-inline: auto;
     margin-bottom: var(--space-sm);
 }
 
 .hero-subline {
-    font-size: var(--text-lg);
+    font-size: clamp(0.75rem, 2.0vw, 1.4rem);
     color: var(--color-text-muted);
+    white-space: nowrap;
 }
 
 .hero-subline span {
@@ -831,9 +837,9 @@ section h2 {
         justify-content: center;
     }
 
-    .hero h1 {
+   /* .hero h1 {
         font-size: var(--text-3xl);
-    }
+    }*/
 
     /* About teaser: the two-column grid only makes sense once
        there's enough width for copy and image to sit side by

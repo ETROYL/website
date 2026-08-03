@@ -334,10 +334,10 @@ a {
 
 .hero h1 {
     font-size: clamp(1.5rem, 4vw, 3rem);
-    /*font-size: var(--text-4xl);*/
-    max-width: 20ch;
+    max-width: 50ch;
     margin-inline: auto;
     margin-bottom: var(--space-sm);
+    text-align: center;
 }
 
 .hero-subline {

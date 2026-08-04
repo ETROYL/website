@@ -26,6 +26,7 @@
 
 body {
     background-color: var(--color-background);
+    padding-top:90px;
     color: var(--color-text);
     font-family: var(--font-body);
     font-size: var(--text-base);
@@ -111,6 +112,12 @@ a {
 
 /* -- Site Header -- */
 .site-header {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    background:var(--color-background);
     border-bottom: 1px solid var(--color-border);
     padding-block: var(--space-sm);
 }
@@ -256,18 +263,25 @@ a {
     display:block;
     width:100%;
     max-width:100%;
-    height:clamp(180px,42vw,560px);
+    height:clamp(180px,42vw,620px);
     object-fit:cover;
     object-position:center;
-    margin-bottom:var(--space-xs);
+    margin-bottom:var(--space-9xs);
 
     mask-image:
-    linear-gradient(
-        to bottom,
-        transparent 0%,
-        black 10%,
-        black 90%,
-        transparent 100%);
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent 100%),
+        linear-gradient(
+            to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent 100%);
+     mask-composite: intersect;
 }
 
 .hero::after{

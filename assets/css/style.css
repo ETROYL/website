@@ -43,6 +43,15 @@ h1, h2, h3, h4 {
     font-weight: 600;
 }
 
+h1 {
+    margin-bottom: 24px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -364,6 +373,57 @@ a {
     color: var(--color-accent);
     margin-inline: var(--space-xs);
 }
+
+
+.founder-hero {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 30px;
+}
+
+.founder-portrait {
+    width: 100%;
+    max-width: 300px;
+    overflow: hidden;
+    border-radius: 0;
+    margin: 0 auto;
+}
+
+.founder-portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.founder-intro h1 {
+    margin-bottom: 12px;
+}
+
+.founder-role {
+    margin-bottom: 28px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 680px) {
+    .founder-hero {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        align-items: start;
+        margin-bottom: 20px;
+    }
+
+    .founder-portrait {
+    	width: 75%;
+        max-width: 220px;
+        overflow: hidden;
+	border-radius: 0;
+        margin: 0 auto;
+    }
+}
+
+
 
 /* -- Generic Content Sections --
    Shared rhythm/border for every full-width section below the

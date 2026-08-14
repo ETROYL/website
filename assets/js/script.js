@@ -99,21 +99,22 @@ const FOOTER_I18N = {
 class SiteFooter extends HTMLElement {
     connectedCallback() {
         const lang = document.documentElement.getAttribute('lang') || 'en';
+        const rootDir = lang === 'en' ? '/' : `/${lang}/`;
         const t = FOOTER_I18N[lang] || FOOTER_I18N.en;
 
         this.innerHTML = `
             <div class="container footer-grid">
                 <div class="footer-brand">
                     <img src="/assets/img/logo.webp" alt="ETROYL" width="778" height="399" class="footer-logo">
-                    <p>&copy; 2026&ndash;<span id="current-year"></span> ETROYL. ${t.rights}</p>
+                    <p>&copy; <span id="current-year"></span> ETROYL. ${t.rights}</p>
                     <address>Oorbeeksesteenweg 59, Tienen, Belgium</address>
                 </div>
 
                 <nav class="footer-nav" aria-label="${t.company}">
                     <h3>${t.company}</h3>
                     <ul>
-                        <li><a href="/about/about.html">${t.about}</a></li>
-                        <li><a href="/about/founder.html">${t.leadership}</a></li>
+                        <li><a href="${rootDir}about/about.html">${t.about}</a></li>
+                        <li><a href="${rootDir}about/founder.html">${t.leadership}</a></li>
                         <li><a href="#contact">${t.careers}</a></li>
                     </ul>
                 </nav>
@@ -121,9 +122,9 @@ class SiteFooter extends HTMLElement {
                 <nav class="footer-nav" aria-label="${t.resources}">
                     <h3>${t.resources}</h3>
                     <ul>
-                        <li><a href="/education.html">${t.education}</a></li>
+                        <li><a href="${rootDir}education.html">${t.education}</a></li>
                         <li><a href="#insights">${t.blog}</a></li>
-                        <li><a href="/education.html">${t.documentation}</a></li>
+                        <li><a href="${rootDir}education.html">${t.documentation}</a></li>
                     </ul>
                 </nav>
 

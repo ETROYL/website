@@ -154,7 +154,7 @@ a {
     color: var(--color-text-muted);
     cursor: pointer;
     transition: border-color var(--transition-fast), color var(--transition-fast);
-    border-radius: 50%;
+    border-radius: var(--border-radius);
     flex-shrink: 0;
 }
 
@@ -966,6 +966,8 @@ section h2 {
    a button + hidden menu, so the old flex-row CSS no longer
    applies to anything. */
 
+/* -- Language switcher (dropdown) -- */
+
 .lang-switcher {
     position: relative;
 }
@@ -997,16 +999,29 @@ section h2 {
     height: 16px;
 }
 
-/* [hidden] is what actually removes this from layout/accessibility
-   tree when closed — script.js toggles this attribute, not just a
-   visual class, so a closed menu is genuinely unreachable by
-   keyboard tab order, not just invisible. */
+/* Language flag */
+.lang-flag {
+    width: 20px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Current language inside the switcher button */
+.lang-switcher__current {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+/* Dropdown */
 .lang-switcher__menu {
     position: absolute;
     top: calc(100% + var(--space-xs));
     right: 0;
     z-index: 50;
-    min-width: 140px;
+    min-width: 150px;
     list-style: none;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -1018,24 +1033,13 @@ section h2 {
 .lang-switcher__menu a {
     display: flex;
     align-items: center;
-    gap: 0.55rem;
+    gap: var(--space-xs);
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--border-radius);
     color: var(--color-text-muted);
     font-size: var(--text-sm);
     letter-spacing: 0.05em;
     transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-.lang-switcher__menu .lang-flag {
-    width: 20px;
-    height: auto;
-    flex: 0 0 auto;
-    display: block;
-}
-
-.lang-switcher__menu .lang-code {
-    min-width: 2rem;
 }
 
 .lang-switcher__menu a:hover,
@@ -1048,4 +1052,3 @@ section h2 {
     color: var(--color-accent);
     font-weight: 600;
 }
-

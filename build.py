@@ -108,6 +108,10 @@ def build_hreflang_block(locales):
 def build_lang_switcher(locales, current_code):
     items = []
 
+    # ---------------------------------------------------------
+    # Dropdown entries
+    # ---------------------------------------------------------
+
     for code, data in locales.items():
         if not is_live(data, code):
             continue
@@ -193,6 +197,12 @@ def main():
             tokens['meta.code_upper'] = code.upper()
             tokens['hreflang_links'] = build_hreflang_block(locales)
             tokens['lang_switcher'] = build_lang_switcher(locales, code)
+            flag_file = LANG_FLAGS.get(code)
+            tokens['current_lang_flag'] = (
+            	f'<img src="/assets/img/flags/{flag_file}" '
+            	f'alt="" class="lang-flag" aria-hidden="true">'
+            	if flag_file else ''
+            	)
             path = locale_path(code)
             tokens['root_dir'] = path
             tokens['urls.canonical'] = BASE_URL + path

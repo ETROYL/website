@@ -145,7 +145,7 @@ class SiteFooter extends HTMLElement {
                     <h3>${t.connect}</h3>
                     <ul>
                         <li><a href="mailto:contact@etroyl.com">${t.contact}</a></li>
-                        <li><a href="tel:+32475302555">+32 475 30 25 55</a></li>
+                        <li><a href="tel:+32475302555" dir="ltr">+32 475 30 25 55</a></li>
                         <li><a href="https://www.linkedin.com/in/etroyl-labs-8990bb425/" target="_blank" rel="noopener">${t.linkedin}</a></li>
                         <li><a href="https://www.youtube.com/@ETROYL-Labs" target="_blank" rel="noopener">${t.youtube}</a></li>
                     </ul>

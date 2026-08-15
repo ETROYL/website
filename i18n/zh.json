@@ -1,0 +1,113 @@
+ {
+  "meta": {
+    "code": "zh",
+    "name": "简体中文",
+    "html_lang": "zh",
+    "og_locale": "zh_CN",
+    "direction": "ltr",
+    "published": true,
+    "title": "ETROYL | GPR、FPGA、嵌入式系统与信号处理工程",
+    "description": "ETROYL 是一家专注于 FPGA 与数字设计、嵌入式系统、信号处理、雷达感知、机器人以及地质雷达（GPR）的工程公司。",
+    "og_title": "ETROYL | 以科学为基础，以工程实现",
+    "og_description": "科学 | 工程 | 应用"
+  },
+  "a11y": {
+    "skip_link": "跳转到主要内容",
+    "nav_label": "主导航",
+    "lang_switcher_label": "选择语言",
+    "theme_toggle": "切换主题"
+  },
+  "nav": {
+    "services": "服务",
+    "projects": "项目",
+    "education": "教育",
+    "about": "关于 ETROYL",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "wordmark": "",
+    "tagline": "以科学为基础，以工程实现。",
+    "precision": "科学",
+    "reliability": "工程",
+    "innovation": "应用"
+  },
+  "services": {
+    "eyebrow": "我们构建什么",
+    "heading": "面向复杂挑战的工程解决方案",
+    "cta": "探索我们的服务",
+    "card1_title": "FPGA 与数字设计",
+    "card1_desc": "从概念到实现的高性能数字系统。",
+    "card2_title": "嵌入式系统",
+    "card2_desc": "面向关键任务平台的可靠固件与软件。",
+    "card3_title": "信号处理",
+    "card3_desc": "用于雷达、成像和通信的先进数字信号处理算法。",
+    "card4_title": "雷达与感知",
+    "card4_desc": "从波形设计到实时处理与可视化。",
+    "card5_title": "机器人",
+    "card5_desc": "面向真实世界系统的感知、控制与智能自主能力。",
+    "card6_title": "系统集成",
+    "card6_desc": "从系统架构到部署与支持的端到端解决方案。"
+  },
+  "who": {
+    "eyebrow": "我们的服务对象",
+    "heading": "专业领域经验，创造真实世界的价值。",
+    "item1": "国防与安全",
+    "item2": "工业自动化",
+    "item3": "医疗与健康",
+    "item4": "智能出行与汽车",
+    "item5": "航天与航空",
+    "item6": "科研与学术"
+  },
+  "projects": {
+    "eyebrow": "精选项目",
+    "heading": "我们致力于解决的复杂问题",
+    "details_label": "详情",
+    "cta": "查看全部项目",
+    "card1_title": "雷达信号处理平台",
+    "card1_desc": "基于 FPGA 的实时雷达信号处理平台，用于先进感知应用。",
+    "card2_title": "嵌入式视觉系统",
+    "card2_desc": "低延迟视频处理流水线，结合神经网络推理，实现检测、识别与辨识。",
+    "card3_title": "地质雷达（GPR）",
+    "card3_desc": "从天线设计和近场电磁建模，到信号处理与土壤特性分析。",
+    "card4_title": "开源 IP 与工具",
+    "card4_desc": "可复用的 HDL 核、驱动程序和工具，加速工程开发。"
+  },
+  "insights": {
+    "eyebrow": "精选工程洞察",
+    "heading": "通过科学与工程应对复杂挑战的方法",
+    "cta": "查看全部洞察",
+    "item1_title": "低延迟 FPGA 视频处理流水线设计",
+    "item1_desc": "实现实时视频系统确定性低延迟的关键技术。",
+    "item1_meta": "工程与开发",
+    "item2_title": "GPR 系统的快速近场建模",
+    "item2_desc": "针对 GPR 系统的高精度近场电磁建模，在先进地下探测应用中兼顾物理准确性与计算效率。",
+    "item2_meta": "研究与创新",
+    "item3_title": "优化嵌入式 Linux 以实现实时性能",
+    "item3_desc": "降低延迟并提高嵌入式 Linux 系统确定性的实用方法。",
+    "item3_meta": "工程与开发"
+  },
+  "stats": {
+    "years_number": "25+",
+    "years_label": "年工程经验",
+    "countries_number": "5+",
+    "countries_label": "工作涉及的国家",
+    "rnd_number": "20+",
+    "rnd_label": "重大研发项目",
+    "systems_number": "50+",
+    "systems_label": "已交付系统",
+    "callout_label": "始终致力于",
+    "callout_word": "卓越",
+    "callout_caption": "贯穿我们承担的每一个项目。"
+  },
+  "about": {
+    "eyebrow": "关于 ETROYL",
+    "heading": "科学与工程的交汇",
+    "body": "ETROYL 是一家专注于技术工程的公司，处于深科技科学与工业可靠性的交汇点。我们将复杂的理念转化为可部署、能够在真实环境中可靠运行的系统。",
+    "cta": "进一步了解 ETROYL"
+  },
+  "contact": {
+    "heading": "让我们共同构建下一代智能系统",
+    "body": "您有项目构想吗？让我们一起讨论 ETROYL 如何提供帮助。",
+    "cta": "联系我们"
+  }
+}

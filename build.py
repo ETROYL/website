@@ -4,9 +4,8 @@ build.py — static multi-language page generator for etroyl.com
 
 WHY THIS EXISTS:
 The site's philosophy (see README.md) is zero-dependency, no build
-step, plain files served exactly as written. Adding six languages by
-hand-copying each HTML file six times would violate that principle
-immediately — six chances to forget to update a shared change, times
+step, plain files served exactly as written. Adding multiple languages by hand-copying each HTML file for every
+locale would violate that principle immediately — six chances to forget to update a shared change, times
 however many pages exist.
 
 This script is the compromise that keeps the *deployed* site exactly
@@ -34,6 +33,17 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 I18N_DIR = os.path.join(ROOT, 'i18n')
 TEMPLATES_DIR = os.path.join(ROOT, 'templates')
 BASE_URL = 'https://www.etroyl.com'
+
+LANG_FLAGS = {
+    'en': 'us.svg',
+    'fr': 'fr.svg',
+    'de': 'de.svg',
+    'es': 'es.svg',
+    'it': 'it.svg',
+    'nl': 'nl.svg',
+    'ar': 'sa.svg',
+    'zh': 'cn.svg',
+}
 
 # Each entry in this template registry is one page. Right now only the
 # homepage is templated (see README for why) — add an entry here (and
@@ -97,19 +107,30 @@ def build_hreflang_block(locales):
 
 def build_lang_switcher(locales, current_code):
     items = []
+
     for code, data in locales.items():
         if not is_live(data, code):
             continue
+
         path = locale_path(code)
         full_name = data['meta']['name']
         current = ' aria-current="true"' if code == current_code else ''
-        # Abbreviation shown (EN, FR, IT...), full name kept as a
-        # title="" tooltip and in the accessible name via aria-label —
-        # so a screen reader still announces "Français", not just "FR".
+
+        flag_file = LANG_FLAGS.get(code)
+        flag_html = (
+            f'<img src="/assets/img/flags/{flag_file}" '
+            f'alt="" class="lang-flag" aria-hidden="true">'
+            if flag_file else ''
+        )
+
         items.append(
             f'<li><a href="{path}"{current} title="{full_name}" '
-            f'aria-label="{full_name}">{code.upper()}</a></li>'
+            f'aria-label="{full_name}">'
+            f'{flag_html}'
+            f'<span class="lang-code">{code.upper()}</span>'
+            f'</a></li>'
         )
+
     return '\n                    '.join(items)
 
 

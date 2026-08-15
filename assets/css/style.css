@@ -1016,13 +1016,26 @@ section h2 {
 }
 
 .lang-switcher__menu a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--border-radius);
     color: var(--color-text-muted);
     font-size: var(--text-sm);
     letter-spacing: 0.05em;
     transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.lang-switcher__menu .lang-flag {
+    width: 20px;
+    height: auto;
+    flex: 0 0 auto;
+    display: block;
+}
+
+.lang-switcher__menu .lang-code {
+    min-width: 2rem;
 }
 
 .lang-switcher__menu a:hover,

@@ -4,6 +4,7 @@
     "name": "Italiano",
     "html_lang": "it",
     "og_locale": "it_IT",
+    "direction": "ltr",
     "published": true,
     "title": "ETROYL | Ingegneria GPR, FPGA, Sistemi Embedded e Elaborazione Segnali",
     "description": "ETROYL è uno studio di ingegneria specializzato in progettazione FPGA e digitale, sistemi embedded, elaborazione dei segnali, sensori radar, robotica e radar di penetrazione del suolo (GPR).",

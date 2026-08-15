@@ -57,6 +57,7 @@ const savedTheme = localStorage.getItem('theme');
  * runs setCurrentYear() below — which is why this class definition
  * sits above init() in this file, not after it.
  */
+
 const FOOTER_I18N = {
     en: {
         company: 'Company', about: 'About', leadership: 'Leadership', careers: 'Careers',
@@ -93,6 +94,18 @@ const FOOTER_I18N = {
         resources: 'Risorse', education: 'Formazione', blog: 'Blog', documentation: 'Documentazione',
         connect: 'Contatti sociali', contact: 'Contatti', linkedin: 'LinkedIn', youtube: 'YouTube',
         rights: 'Tutti i diritti riservati.'
+    },
+    ar: {
+        company: 'الشركة', about: 'عن ETROYL', leadership: 'القيادة', careers: 'الوظائف',
+        resources: 'الموارد', education: 'التعليم', blog: 'المدونة', documentation: 'التوثيق',
+        connect: 'تواصل معنا', contact: 'اتصل بنا', linkedin: 'LinkedIn', youtube: 'YouTube',
+        rights: 'جميع الحقوق محفوظة.'
+    },
+    zh: {
+        company: '公司', about: '关于 ETROYL', leadership: '领导团队', careers: '职业机会',
+        resources: '资源', education: '教育', blog: '博客', documentation: '技术文档',
+        connect: '联系我们', contact: '联系', linkedin: 'LinkedIn', youtube: 'YouTube',
+        rights: '版权所有。'
     }
 };
 

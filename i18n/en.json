@@ -4,6 +4,7 @@
     "name": "English",
     "html_lang": "en",
     "og_locale": "en_US",
+    "direction": "ltr",
     "published": true,
     "title": "ETROYL | GPR, FPGA, Embedded Systems, Signal Processing Engineering",
     "description": "ETROYL is an engineering firm specializing in FPGA & Digital design, embedded systems, signal processing, radar sensing, Robotics, and Ground Penetrating Radar.",

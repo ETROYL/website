@@ -146,8 +146,43 @@ class SiteFooter extends HTMLElement {
                     <ul>
                         <li><a href="mailto:contact@etroyl.com">${t.contact}</a></li>
                         <li><a href="tel:+32475302555" dir="ltr">+32 475 30 25 55</a></li>
-                        <li><a href="https://www.linkedin.com/in/etroyl-labs-8990bb425/" target="_blank" rel="noopener">${t.linkedin}</a></li>
-                        <li><a href="https://www.youtube.com/@ETROYL-Labs" target="_blank" rel="noopener">${t.youtube}</a></li>
+			<li class="footer-social">
+			    <a
+				href="https://www.linkedin.com/in/etroyl-labs-8990bb425/"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="ETROYL on LinkedIn"
+				title="LinkedIn">
+				<img src="/assets/img/social/linkedin.svg" alt="">
+			    </a>
+
+			    <a
+				href="https://www.youtube.com/@ETROYL-Labs"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="ETROYL Labs on YouTube"
+				title="YouTube">
+				<img src="/assets/img/social/youtube.svg" alt="">
+			    </a>
+
+			    <a
+				href="https://github.com/ETROYL"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="ETROYL on GitHub"
+				title="GitHub">
+				<img src="/assets/img/social/github.svg" alt="">
+			    </a>
+
+			    <a
+				href="https://x.com/ETROYL"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="ETROYL on X"
+				title="X">
+				<img src="/assets/img/social/x.svg" alt="">
+			    </a>
+			</li>                        
                     </ul>
                 </nav>
             </div>

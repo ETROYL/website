@@ -108,6 +108,22 @@
   "contact": {
     "heading": "Costruiamo insieme il prossimo sistema intelligente",
     "body": "Hai un progetto in mente? Parliamo di come possiamo aiutarti.",
-    "cta": "Mettiti in Contatto"
+    "cta": "Contattaci",
+    "form": "Modulo di contatto",
+    "call": "Chiamaci",
+    "whatsapp": "WhatsApp",
+    "email": "E-mail",
+    "telegram": "Telegram",
+    "fields": {
+	    "name": "Nome",
+	    "email": "E-mail",
+	    "company": "Azienda",
+	    "subject": "Oggetto",
+	    "message": "Messaggio",
+	    "submit": "Invia messaggio",
+	    "required": "Obbligatorio",
+	    "success": "Grazie. Il tuo messaggio è stato inviato con successo.",
+	    "error": "Si è verificato un errore. Riprova."
+	}
   }
 }

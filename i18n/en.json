@@ -105,9 +105,25 @@
     "body": "ETROYL is a technical engineering firm at the intersection of deep-tech science and industrial reliability. We transform complex ideas into deployable systems that perform in the real world.",
     "cta": "Learn More About Us"
   },
-  "contact": {
+ "contact": {
     "heading": "Let's build the next intelligent system together",
     "body": "Have a project in mind? Let's discuss how we can help.",
-    "cta": "Get in Touch"
-  }
+    "cta": "Get in Touch",
+    "form": "Contact Form",
+    "call": "Call Us",
+    "whatsapp": "WhatsApp",
+    "email": "Email Us",
+    "telegram": "Telegram",
+    "fields": {
+	    "name": "Name",
+	    "email": "Email",
+	    "company": "Company",
+	    "subject": "Subject",
+	    "message": "Message",
+	    "submit": "Send Message",
+	    "required": "Required",
+	    "success": "Thank you. Your message has been sent successfully.",
+	    "error": "Something went wrong. Please try again."
+	}
+ }
 }

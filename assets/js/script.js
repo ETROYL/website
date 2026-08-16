@@ -144,8 +144,8 @@ class SiteFooter extends HTMLElement {
                 <nav class="footer-nav" aria-label="${t.connect}">
                     <h3>${t.connect}</h3>
                     <ul>
-                        <li><a href="mailto:contact@etroyl.com">${t.contact}</a></li>
-                        <li><a href="tel:+32475302555" dir="ltr">+32 475 30 25 55</a></li>
+                        <li><a href="mailto:${ETROYL_CONFIG.contact.email}">${t.contact}</a></li>
+			<li><a href="tel:${ETROYL_CONFIG.contact.mobile}" dir="ltr">${ETROYL_CONFIG.contact.mobile}</a></li>
 			<li class="footer-social">
 			    <a
 				href="https://www.linkedin.com/in/etroyl-labs-8990bb425/"

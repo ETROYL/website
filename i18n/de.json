@@ -106,8 +106,24 @@
     "cta": "Mehr über uns erfahren"
   },
   "contact": {
-    "heading": "Lassen Sie uns gemeinsam das nächste intelligente System bauen",
-    "body": "Haben Sie ein konkretes Projekt geplant? Lassen Sie uns besprechen, wie wir Sie unterstützen können.",
-    "cta": "Kontakt aufnehmen"
+    "heading": "Lassen Sie uns gemeinsam das nächste intelligente System entwickeln",
+    "body": "Sie haben ein Projekt im Sinn? Lassen Sie uns darüber sprechen, wie wir Sie unterstützen können.",
+    "cta": "Kontakt aufnehmen",
+    "form": "Kontaktformular",
+    "call": "Rufen Sie uns an",
+    "whatsapp": "WhatsApp",
+    "email": "E-Mail",
+    "telegram": "Telegram",
+    "fields": {
+	    "name": "Name",
+	    "email": "E-Mail",
+	    "company": "Unternehmen",
+	    "subject": "Betreff",
+	    "message": "Nachricht",
+	    "submit": "Nachricht senden",
+	    "required": "Erforderlich",
+	    "success": "Vielen Dank. Ihre Nachricht wurde erfolgreich gesendet.",
+	    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+	}
   }
 }

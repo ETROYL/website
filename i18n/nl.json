@@ -107,7 +107,23 @@
   },
   "contact": {
     "heading": "Laten we samen het volgende intelligente systeem bouwen",
-    "body": "Heeft u een project in gedachten? Laten we bespreken hoe we u kunnen helpen.",
-    "cta": "Neem Contact Op"
+    "body": "Heb je een project in gedachten? Laten we bespreken hoe we je kunnen helpen.",
+    "cta": "Neem contact op",
+    "form": "Contactformulier",
+    "call": "Bel ons",
+    "whatsapp": "WhatsApp",
+    "email": "E-mail",
+    "telegram": "Telegram",
+    "fields": {
+	    "name": "Naam",
+	    "email": "E-mail",
+	    "company": "Bedrijf",
+	    "subject": "Onderwerp",
+	    "message": "Bericht",
+	    "submit": "Bericht verzenden",
+	    "required": "Verplicht",
+	    "success": "Bedankt. Je bericht is succesvol verzonden.",
+	    "error": "Er is iets misgegaan. Probeer het opnieuw."
+	}
   }
 }

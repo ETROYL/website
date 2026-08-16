@@ -106,8 +106,24 @@
     "cta": "进一步了解 ETROYL"
   },
   "contact": {
-    "heading": "让我们共同构建下一代智能系统",
-    "body": "您有项目构想吗？让我们一起讨论 ETROYL 如何提供帮助。",
-    "cta": "联系我们"
+    "heading": "让我们共同打造下一代智能系统",
+    "body": "您有一个项目构想吗？让我们聊聊如何为您提供帮助。",
+    "cta": "联系我们",
+    "form": "联系表单",
+    "call": "致电我们",
+    "whatsapp": "WhatsApp",
+    "email": "电子邮件",
+    "telegram": "Telegram",
+    "fields": {
+	    "name": "姓名",
+	    "email": "电子邮件",
+	    "company": "公司",
+	    "subject": "主题",
+	    "message": "留言",
+	    "submit": "发送留言",
+	    "required": "必填",
+	    "success": "感谢您。您的留言已成功发送。",
+	    "error": "出现了一些问题。请重试。"
+	}
   }
 }

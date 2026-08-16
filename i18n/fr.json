@@ -106,8 +106,24 @@
     "cta": "En savoir plus sur nous"
   },
   "contact": {
-    "heading": "Construisons ensemble votre prochain système intelligent",
-    "body": "Vous avez un projet en tête ? Discutons de la manière dont nous pouvons vous accompagner.",
-    "cta": "Prendre contact"
-  }
+    "heading": "Construisons ensemble le prochain système intelligent",
+    "body": "Vous avez un projet en tête ? Parlons de la manière dont nous pouvons vous aider.",
+    "cta": "Nous contacter",
+    "form": "Formulaire de contact",
+    "call": "Appelez-nous",
+    "whatsapp": "WhatsApp",
+    "email": "E-mail",
+    "telegram": "Telegram",
+    "fields": {
+	    "name": "Nom",
+	    "email": "E-mail",
+	    "company": "Entreprise",
+	    "subject": "Objet",
+	    "message": "Message",
+	    "submit": "Envoyer le message",
+	    "required": "Obligatoire",
+	    "success": "Merci. Votre message a été envoyé avec succès.",
+	    "error": "Une erreur s'est produite. Veuillez réessayer."
+	}
+   }
 }

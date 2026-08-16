@@ -107,7 +107,23 @@
   },
   "contact": {
     "heading": "Construyamos juntos el próximo sistema inteligente",
-    "body": "¿Tienes un proyecto en mente? Hablemos de cómo podemos ayudarte.",
-    "cta": "Ponte en Contacto"
+    "body": "¿Tiene un proyecto en mente? Hablemos sobre cómo podemos ayudarle.",
+    "cta": "Ponerse en contacto",
+    "form": "Formulario de contacto",
+    "call": "Llámenos",
+    "whatsapp": "WhatsApp",
+    "email": "Correo electrónico",
+    "telegram": "Telegram",
+    "fields": {
+	    "name": "Nombre",
+	    "email": "Correo electrónico",
+	    "company": "Empresa",
+	    "subject": "Asunto",
+	    "message": "Mensaje",
+	    "submit": "Enviar mensaje",
+	    "required": "Obligatorio",
+	    "success": "Gracias. Su mensaje se ha enviado correctamente.",
+	    "error": "Algo salió mal. Por favor, inténtelo de nuevo."
+	}
   }
 }

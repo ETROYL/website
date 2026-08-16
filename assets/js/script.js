@@ -282,11 +282,164 @@ function setCurrentYear() {
     yearElement.textContent = new Date().getFullYear();
 }
 
+function initContactFormToggle() {
+    const toggle = document.getElementById('contact-form-toggle');
+    const form = document.getElementById('contact-form');
+
+    if (!toggle || !form) return;
+
+    toggle.addEventListener('click', () => {
+        const isOpen = !form.hidden;
+
+        form.hidden = isOpen;
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        toggle.classList.toggle('is-active', !isOpen);
+
+        if (!isOpen) {
+            form.querySelector('input, textarea, button')?.focus();
+        }
+    });
+}
+
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    const successMessage = form.querySelector('.form-success');
+    const errorMessage = form.querySelector('.form-error-global');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const fields = [
+            document.getElementById('contact-name'),
+            document.getElementById('contact-email'),
+            document.getElementById('contact-subject'),
+            document.getElementById('contact-message')
+        ];
+
+        let firstInvalidField = null;
+
+        fields.forEach((field) => {
+            if (!field) return;
+
+            field.removeAttribute('aria-invalid');
+
+            const existingError =
+                field.parentElement.querySelector('.form-error');
+
+            if (existingError) {
+                existingError.remove();
+            }
+
+            const emailIsValid =
+                field.id !== 'contact-email' ||
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim());
+
+            if (!field.checkValidity() || !emailIsValid) {
+                field.setAttribute('aria-invalid', 'true');
+
+                const error = document.createElement('span');
+                error.className = 'form-error';
+                error.setAttribute('role', 'alert');
+                error.textContent = field.dataset.validation || '';
+
+                field.parentElement.appendChild(error);
+
+                if (!firstInvalidField) {
+                    firstInvalidField = field;
+                }
+            }
+        });
+
+        if (firstInvalidField) {
+            firstInvalidField.focus();
+            return;
+        }
+
+        if (successMessage) {
+            successMessage.hidden = true;
+        }
+
+        if (errorMessage) {
+            errorMessage.hidden = true;
+        }
+
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent =
+                submitButton.dataset.status || '';
+        }
+
+        const formData = new FormData(form);
+        formData.append(
+            'access_key',
+            ETROYL_CONFIG.web3forms.accessKey
+        );
+
+        try {
+            const response = await fetch(
+                ETROYL_CONFIG.web3forms.endpoint,
+                {
+                    method: 'POST',
+                    body: formData
+                }
+            );
+
+            const result = await response.json();
+
+            if (result.success) {
+                form.reset();
+
+                if (successMessage) {
+                    successMessage.hidden = false;
+                }
+
+                form.querySelectorAll('.form-error').forEach((error) => {
+                    error.remove();
+                });
+
+                fields.forEach((field) => {
+                    if (field) {
+                        field.removeAttribute('aria-invalid');
+                    }
+                });
+
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent =
+                        submitButton.dataset.submit || '';
+                }
+
+                return;
+            }
+
+            throw new Error('Web3Forms submission failed.');
+
+        } catch (error) {
+            console.error('Contact form submission failed:', error);
+
+            if (errorMessage) {
+                errorMessage.hidden = false;
+            }
+
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent =
+                    submitButton.dataset.submit || '';
+            }
+        }
+    });
+}
+
 // 5. INITIALIZATION
 function init() {
     setCurrentYear();
     initLangSwitcher();
     renderIcons();
+    initContactFormToggle();
+    initContactForm();
 }
 
 init();

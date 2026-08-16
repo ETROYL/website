@@ -121,9 +121,16 @@
 	    "subject": "Asunto",
 	    "message": "Mensaje",
 	    "submit": "Enviar mensaje",
+	    "status": "Enviando...",
 	    "required": "Obligatorio",
 	    "success": "Gracias. Su mensaje se ha enviado correctamente.",
 	    "error": "Algo salió mal. Por favor, inténtelo de nuevo."
+	},
+    "validation": {
+	"name": "Introduzca su nombre.",
+	"email": "Introduzca una dirección de correo electrónico válida.",
+	"subject": "Introduzca un asunto.",
+	"message": "Introduzca su mensaje."
 	}
   }
 }

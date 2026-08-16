@@ -121,9 +121,16 @@
 	    "subject": "主题",
 	    "message": "留言",
 	    "submit": "发送留言",
+	    "status": "正在发送...",
 	    "required": "必填",
 	    "success": "感谢您。您的留言已成功发送。",
 	    "error": "出现了一些问题。请重试。"
+	},
+   "validation": {
+	"name": "请输入您的姓名。",
+	"email": "请输入有效的电子邮件地址。",
+	"subject": "请输入主题。",
+	"message": "请输入留言内容。"
 	}
   }
 }

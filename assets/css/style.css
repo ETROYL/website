@@ -837,6 +837,117 @@ section h2 {
     margin-bottom: var(--space-md);
 }
 
+/* -- Contact form -- */
+.contact-form {
+    max-width: 900px;
+    margin: var(--space-lg) auto 0;
+    text-align: left;
+}
+
+.contact-form__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.form-field--full {
+    grid-column: 1 / -1;
+}
+
+.form-field label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.form-field label span {
+    color: var(--color-accent);
+    margin-inline-start: var(--space-9xs);
+}
+
+.form-error {
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+}
+
+.form-field input[aria-invalid="true"],
+.form-field textarea[aria-invalid="true"] {
+    border-color: var(--color-accent);
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background: var(--color-background);
+    color: var(--color-text);
+    font: inherit;
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.form-field textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.form-success,
+.form-error-global {
+    margin-bottom: var(--space-md);
+    font-size: var(--text-sm);
+}
+
+.form-success {
+    color: var(--color-accent);
+}
+
+.form-error-global {
+    color: var(--color-accent);
+}
+
+.contact-form > .btn {
+    margin-top: var(--space-md);
+}
+
+/* -- Contact form mobile layout -- */
+@media (max-width: 640px) {
+    .contact-form__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-field--full {
+        grid-column: auto;
+    }
+}
+
+/* -- Contact form toggle -- */
+#contact-form-toggle.is-active {
+    background: var(--color-accent);
+    color: var(--color-background);
+    border-color: var(--color-accent);
+}
+
 /* -- Site Footer --
    Now a genuine 2D layout (brand block + 3 nav columns across
    a row that stacks on mobile), so this moves from the flex

@@ -121,9 +121,16 @@
 	    "subject": "Onderwerp",
 	    "message": "Bericht",
 	    "submit": "Bericht verzenden",
+	    "status": "Verzenden...",
 	    "required": "Verplicht",
 	    "success": "Bedankt. Je bericht is succesvol verzonden.",
 	    "error": "Er is iets misgegaan. Probeer het opnieuw."
+	},
+   "validation": {
+	"name": "Vul je naam in.",
+	"email": "Vul een geldig e-mailadres in.",
+	"subject": "Vul een onderwerp in.",
+	"message": "Vul je bericht in."
 	}
   }
 }

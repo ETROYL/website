@@ -121,9 +121,16 @@
 	    "subject": "Objet",
 	    "message": "Message",
 	    "submit": "Envoyer le message",
+	    "status": "Envoi en cours...",
 	    "required": "Obligatoire",
 	    "success": "Merci. Votre message a été envoyé avec succès.",
 	    "error": "Une erreur s'est produite. Veuillez réessayer."
+	},
+    "validation": {
+	"name": "Veuillez saisir votre nom.",
+	"email": "Veuillez saisir une adresse e-mail valide.",
+	"subject": "Veuillez saisir un objet.",
+	"message": "Veuillez saisir votre message."
 	}
    }
 }

@@ -324,9 +324,14 @@
 		<p>您有一个项目构想吗？让我们聊聊如何为您提供帮助。</p>
 
 		<div class="contact-options">
-		    <a href="#contact-form" class="btn btn-primary">
-		        联系表单
-		    </a>
+		    <button
+			type="button"
+			class="btn btn-outline"
+			id="contact-form-toggle"
+			aria-expanded="false"
+			aria-controls="contact-form">
+			联系表单
+		    </button>
 
 		    <a href="tel:+32475302555" class="btn btn-outline" dir="ltr">
 		        致电我们
@@ -344,6 +349,98 @@
 		        Telegram
 		    </a>
 		</div>
+
+		<form id="contact-form" class="contact-form" novalidate hidden>
+		    <div class="contact-form__grid">
+
+		        <div class="form-field">
+		            <label for="contact-name">
+		                姓名
+		                <span aria-hidden="true">*</span>
+		            </label>
+		            <input
+		                type="text"
+		                id="contact-name"
+		                name="name"
+		                autocomplete="name"
+		                data-validation="请输入您的姓名。"
+		                required>
+		        </div>
+
+		        <div class="form-field">
+		            <label for="contact-email">
+		                电子邮件
+		                <span aria-hidden="true">*</span>
+		            </label>
+		            <input
+		                type="email"
+		                id="contact-email"
+		                name="email"
+		                autocomplete="email"
+		                data-validation="请输入有效的电子邮件地址。"
+		                required>
+		        </div>
+
+		        <div class="form-field">
+		            <label for="contact-company">
+		                公司
+		            </label>
+		            <input
+		                type="text"
+		                id="contact-company"
+		                name="company"
+		                autocomplete="organization">
+		        </div>
+
+		        <div class="form-field">
+		            <label for="contact-subject">
+		                主题
+		                <span aria-hidden="true">*</span>
+		            </label>
+		            <input
+		                type="text"
+		                id="contact-subject"
+		                name="subject"
+		                data-validation="请输入主题。"
+		                required>
+		        </div>
+
+		        <div class="form-field form-field--full">
+		            <label for="contact-message">
+		                留言
+		                <span aria-hidden="true">*</span>
+		            </label>
+		            <textarea
+		                id="contact-message"
+		                name="message"
+		                rows="7"
+		                data-validation="请输入留言内容。"
+		                required></textarea>
+		        </div>
+
+		    </div>
+			<div
+			    class="form-success"
+			    role="status"
+			    hidden>
+			    感谢您。您的留言已成功发送。
+			</div>
+
+			<div
+			    class="form-error-global"
+			    role="alert"
+			    hidden>
+			    出现了一些问题。请重试。
+			</div>
+			<button
+			    type="submit"
+			    class="btn btn-primary"
+			    data-form-submit
+			    data-submit="发送留言"
+			    data-status="正在发送...">
+			    发送留言
+			</button>
+		</form>
 	    </div>
 	</section>
 

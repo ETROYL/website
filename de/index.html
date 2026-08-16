@@ -324,9 +324,14 @@
 		<p>Sie haben ein Projekt im Sinn? Lassen Sie uns darüber sprechen, wie wir Sie unterstützen können.</p>
 
 		<div class="contact-options">
-		    <a href="#contact-form" class="btn btn-primary">
-		        Kontaktformular
-		    </a>
+		    <button
+			type="button"
+			class="btn btn-outline"
+			id="contact-form-toggle"
+			aria-expanded="false"
+			aria-controls="contact-form">
+			Kontaktformular
+		    </button>
 
 		    <a href="tel:+32475302555" class="btn btn-outline" dir="ltr">
 		        Rufen Sie uns an
@@ -344,6 +349,98 @@
 		        Telegram
 		    </a>
 		</div>
+
+		<form id="contact-form" class="contact-form" novalidate hidden>
+		    <div class="contact-form__grid">
+
+		        <div class="form-field">
+		            <label for="contact-name">
+		                Name
+		                <span aria-hidden="true">*</span>
+		            </label>
+		            <input
+		                type="text"
+		                id="contact-name"
+		                name="name"
+		                autocomplete="name"
+		                data-validation="Bitte geben Sie Ihren Namen ein."
+		                required>
+		        </div>
+
+		        <div class="form-field">
+		            <label for="contact-email">
+		                E-Mail
+		                <span aria-hidden="true">*</span>
+		            </label>
+		            <input
+		                type="email"
+		                id="contact-email"
+		                name="email"
+		                autocomplete="email"
+		                data-validation="Bitte geben Sie eine gültige E-Mail-Adresse ein."
+		                required>
+		        </div>
+
+		        <div class="form-field">
+		            <label for="contact-company">
+		                Unternehmen
+		            </label>
+		            <input
+		                type="text"
+		                id="contact-company"
+		                name="company"
+		                autocomplete="organization">
+		        </div>
+
+		        <div class="form-field">
+		            <label for="contact-subject">
+		                Betreff
+		                <span aria-hidden="true">*</span>
+		            </label>
+		            <input
+		                type="text"
+		                id="contact-subject"
+		                name="subject"
+		                data-validation="Bitte geben Sie einen Betreff ein."
+		                required>
+		        </div>
+
+		        <div class="form-field form-field--full">
+		            <label for="contact-message">
+		                Nachricht
+		                <span aria-hidden="true">*</span>
+		            </label>
+		            <textarea
+		                id="contact-message"
+		                name="message"
+		                rows="7"
+		                data-validation="Bitte geben Sie Ihre Nachricht ein."
+		                required></textarea>
+		        </div>
+
+		    </div>
+			<div
+			    class="form-success"
+			    role="status"
+			    hidden>
+			    Vielen Dank. Ihre Nachricht wurde erfolgreich gesendet.
+			</div>
+
+			<div
+			    class="form-error-global"
+			    role="alert"
+			    hidden>
+			    Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.
+			</div>
+			<button
+			    type="submit"
+			    class="btn btn-primary"
+			    data-form-submit
+			    data-submit="Nachricht senden"
+			    data-status="Wird gesendet...">
+			    Nachricht senden
+			</button>
+		</form>
 	    </div>
 	</section>
 

@@ -45,10 +45,6 @@ LANG_FLAGS = {
     'zh': 'cn.svg',
 }
 
-# Each entry in this template registry is one page. Right now only the
-# homepage is templated (see README for why) — add an entry here (and
-# a matching {name}.template.html in templates/) once about.html or
-# education.html get the same treatment.
 PAGES = {
     'index': {'template': 'index.template.html', 'output_name': 'index.html'},
 }
@@ -69,10 +65,7 @@ TOKEN_PATTERN = re.compile(r'\{\{\s*([\w.]+)\s*\}\}')
 
 
 def flatten(d, parent_key=''):
-    """Turns nested JSON like {"hero": {"tagline": "..."}} into a flat
-    dict keyed "hero.tagline" — matching the {{hero.tagline}} tokens
-    used in the templates. Recurses on nested objects only; leaves
-    (strings) become the flat dict's values."""
+    """Turns nested JSON into a flat dict matching template tokens."""
     items = {}
     for key, value in d.items():
         flat_key = f'{parent_key}.{key}' if parent_key else key
@@ -96,10 +89,6 @@ def load_locales():
 
 
 def is_live(locale_data, code):
-    """English is always live (it's the existing, already-indexed
-    default). Every other locale only goes live once a human has
-    translated it and flipped meta.published to true — see the
-    _translation_status note auto-written into each draft file."""
     return code == 'en' or locale_data['meta'].get('published', False)
 
 
@@ -119,34 +108,23 @@ def build_hreflang_block(locales):
 
 def build_lang_switcher(locales, current_code):
     items = []
-
-    # ---------------------------------------------------------
-    # Dropdown entries
-    # ---------------------------------------------------------
-
     for code, data in locales.items():
         if not is_live(data, code):
             continue
-
         path = locale_path(code)
         full_name = data['meta']['name']
         current = ' aria-current="true"' if code == current_code else ''
-
         flag_file = LANG_FLAGS.get(code)
         flag_html = (
             f'<img src="/assets/img/flags/{flag_file}" '
             f'alt="" class="lang-flag" aria-hidden="true">'
             if flag_file else ''
         )
-
         items.append(
             f'<li><a href="{path}"{current} title="{full_name}" '
-            f'aria-label="{full_name}">'
-            f'{flag_html}'
-            f'<span class="lang-code">{code.upper()}</span>'
-            f'</a></li>'
+            f'aria-label="{full_name}">{flag_html}'
+            f'<span class="lang-code">{code.upper()}</span></a></li>'
         )
-
     return '\n                    '.join(items)
 
 
@@ -160,11 +138,36 @@ def render(template_text, tokens):
     return TOKEN_PATTERN.sub(replace, template_text)
 
 
+def add_technical_links(output_html, tokens):
+    """Add crawlable, contextual links to the homepage service cards.
+
+    The landing pages remain out of the primary navigation. The service
+    cards are the natural contextual entry points for the corresponding
+    technical capability pages. Links are injected after localization so
+    the visible card titles remain translated in every homepage locale.
+    """
+    links = {
+        'services.card1_title': '/fpga-design/',
+        'services.card2_title': '/embedded-linux/',
+        'services.card3_title': '/radar-signal-processing/',
+        'services.card4_title': '/ground-penetrating-radar/',
+        'services.card6_title': '/real-time-video-processing/',
+    }
+    for token, href in links.items():
+        title = str(tokens.get(token, ''))
+        if title:
+            output_html = output_html.replace(
+                f'<h3>{title}</h3>',
+                f'<h3><a href="{href}">{title}</a></h3>',
+                1,
+            )
+    return output_html
+
+
 def build_sitemap(locales):
     live = {code: data for code, data in locales.items() if is_live(data, code)}
     url_blocks = []
 
-    # Multilingual homepage URLs.
     for code in live:
         loc = BASE_URL + locale_path(code)
         alt_links = '\n'.join(
@@ -172,13 +175,13 @@ def build_sitemap(locales):
             f'href="{BASE_URL}{locale_path(alt_code)}" />'
             for alt_code in live
         )
-        url_blocks.append(f'  <url>\n'
-        f'\t<lastmod>2026-07-30</lastmod>\n'
-        f'\t<xhtml:link rel="alternate" hreflang="x-default" href="{BASE_URL}/" />\n'
-        f'\t<loc>{loc}</loc>\n{alt_links}\n  </url>')
+        url_blocks.append(
+            f'  <url>\n'
+            f'\t<lastmod>2026-07-30</lastmod>\n'
+            f'\t<xhtml:link rel="alternate" hreflang="x-default" href="{BASE_URL}/" />\n'
+            f'\t<loc>{loc}</loc>\n{alt_links}\n  </url>'
+        )
 
-    # Top-level SEO landing pages are static, English-only pages. They
-    # must remain in the sitemap whenever build.py regenerates it.
     for slug in SEO_LANDING_PAGES:
         loc = f'{BASE_URL}/{slug}/'
         url_blocks.append(
@@ -224,16 +227,17 @@ def main():
             tokens['lang_switcher'] = build_lang_switcher(locales, code)
             flag_file = LANG_FLAGS.get(code)
             tokens['current_lang_flag'] = (
-            	f'<img src="/assets/img/flags/{flag_file}" '
-            	f'alt="" class="lang-flag" aria-hidden="true">'
-            	if flag_file else ''
-            	)
+                f'<img src="/assets/img/flags/{flag_file}" '
+                f'alt="" class="lang-flag" aria-hidden="true">'
+                if flag_file else ''
+            )
             path = locale_path(code)
             tokens['root_dir'] = path
             tokens['urls.canonical'] = BASE_URL + path
             tokens['urls.og_url'] = BASE_URL + path
 
             output_html = render(template_text, tokens)
+            output_html = add_technical_links(output_html, tokens)
 
             if code == 'en':
                 out_dir = ROOT

@@ -27,11 +27,12 @@
 .technical-links a { color: var(--color-accent); text-decoration: none; }
 .technical-links a:hover, .technical-links a:focus-visible { text-decoration: underline; }
 .technical-footer { border-top: 1px solid var(--color-border); padding: var(--space-lg) 0; color: var(--color-text-muted); font-size: var(--text-sm); }
-.technical-language-note { padding: var(--space-xs) 0; color: var(--color-text-muted); font-size: var(--text-sm); text-align: center; border-bottom: 1px solid var(--color-border); }
+.technical-language-note { margin-top: 78px; padding: var(--space-xs) var(--space-sm); color: var(--color-text-muted); font-size: var(--text-sm); text-align: center; border-bottom: 1px solid var(--color-border); background: var(--color-background); }
 @media (max-width: 760px) {
     .technical-header .container { grid-template-columns: 1fr auto; padding-block: var(--space-sm); }
     .technical-nav { order: 3; }
     .technical-nav ul { justify-content: flex-start; gap: var(--space-sm); overflow-x: auto; flex-wrap: nowrap; padding-bottom: 0.2rem; }
     .technical-list { grid-template-columns: 1fr; }
     .technical-hero { padding-top: var(--space-2xl); }
+    .technical-language-note { margin-top: 118px; }
 }

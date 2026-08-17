@@ -68,6 +68,10 @@ function localizeInternalLinks(language) {
     ]);
 
     document.querySelectorAll('a[href]').forEach((link) => {
+        // Language-selector links must remain untouched so English can
+        // always be explicitly selected, even when another language is saved.
+        if (link.closest('.lang-switcher')) return;
+
         const rawHref = link.getAttribute('href');
         if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:')) return;
 

@@ -1,9 +1,5 @@
 /* ==================================================
    TECHNICAL-PAGES.CSS — SHARED TECHNICAL PAGE LAYOUT
-   ==================================================
-   These pages use the same ETROYL design tokens and header
-   controls as the main site, with a focused technical-page
-   layout layered on top.
    ================================================== */
 
 .technical-page {
@@ -11,8 +7,6 @@
     background: var(--color-background);
     color: var(--color-text);
 }
-
-/* ---------- HEADER ---------- */
 
 .technical-header {
     position: fixed;
@@ -52,11 +46,6 @@
     gap: 0.5rem;
 }
 
-/* The theme button is intentionally NOT redefined here.
-   style.css owns the site's shared .theme-btn component. */
-
-/* ---------- NAVIGATION ---------- */
-
 .technical-nav {
     grid-column: 1 / -1;
     width: 100%;
@@ -83,20 +72,16 @@
     color: var(--color-text);
 }
 
-/* ---------- LANGUAGE NOTE ---------- */
-
 .technical-language-note {
-    margin-top: 72px;
-    padding: 0.35rem var(--space-sm);
+    margin-top: 54px;
+    padding: 0.2rem var(--space-sm);
     color: var(--color-text-muted);
     font-size: var(--text-sm);
-    line-height: 1.4;
+    line-height: 1.35;
     text-align: center;
     border-bottom: 1px solid var(--color-border);
     background: var(--color-background);
 }
-
-/* ---------- MAIN CONTENT ---------- */
 
 .technical-main {
     padding-bottom: var(--space-2xl);
@@ -176,16 +161,12 @@
     text-decoration: underline;
 }
 
-/* ---------- FOOTER ---------- */
-
 .technical-footer {
     border-top: 1px solid var(--color-border);
     padding: var(--space-lg) 0;
     color: var(--color-text-muted);
     font-size: var(--text-sm);
 }
-
-/* ---------- RESPONSIVE ---------- */
 
 @media (max-width: 760px) {
     .technical-header .container {
@@ -214,6 +195,7 @@
     }
 
     .technical-language-note {
-        margin-top: 76px;
+        margin-top: 58px;
+        padding-block: 0.15rem;
     }
 }

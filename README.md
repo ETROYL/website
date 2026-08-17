@@ -1,144 +1,309 @@
-# ETROYL — Foundational Website
+# ETROYL Website
 
-Engineering firm specializing in **FPGA & SoC design, embedded systems,
-digital signal processing (DSP), radar sensing, AI & robotics, and Ground
-Penetrating Radar (GPR) / electromagnetic modeling.**
+The public website for **ETROYL — Enjoy The Rest Of Your Life**.
 
-**Live:** [etroyl.com](https://www.etroyl.com) — see [Domains](#domains-hosting) below for `.be` / `.eu`.
+ETROYL is an engineering company built around three connected stages:
 
-## Philosophy
+**SCIENCE → ENGINEERING → DEPLOYMENT**
 
-Zero-dependency by design. No frameworks, no build steps, no `node_modules`.
-Plain HTML5, CSS3, and vanilla JavaScript — served exactly as written. This
-keeps the site performant, auditable, and resilient to dependency-rot over
-time.
+The website reflects that identity: scientific depth, practical engineering,
+and solutions that are ultimately intended for real-world use.
 
-**One deliberate exception:** the icon set (Lucide, via CDN — see
-`<script src="https://unpkg.com/lucide@latest">` in each page's `<head>`).
-Hand-drawing and hand-maintaining ~15 inline SVGs was judged not worth the
-tradeoff against a maintained, tree-shaken icon library. Everything else —
-layout, theming, interactivity, the resource library, the shared footer
-component — remains hand-written with zero external runtime code.
+**Production:** https://www.etroyl.com
 
-## Directory Structure
+---
 
-The repository separates global assets from page-specific content, keeping
-the codebase flat and easy to reason about at this stage.
+## Engineering Focus
 
-```
-etroyl/
-├── assets/
-│   ├── css/          # reset.css, variables.css (design tokens), style.css, education.css
-│   ├── js/           # script.js (shared behavior + <site-footer> component), education.js
-│   ├── img/          # logos, favicons, hero banner, project/insight thumbnails
-│   └── fonts/        # self-hosted Inter variable font
+ETROYL's current technical focus includes:
+
+- FPGA and digital design
+- Embedded systems and embedded Linux
+- Digital signal processing (DSP)
+- Radar signal processing and sensing
+- Ground-Penetrating Radar (GPR)
+- Electromagnetic and near-field modeling
+- Real-time video processing
+- Robotics and intelligent systems
+- Hardware/software co-design and system integration
+
+The site deliberately uses **technical capabilities** as first-class landing
+pages. These pages describe areas of engineering expertise; they are not project
+case studies and therefore live at the top level of the website rather than
+under `/projects/`.
+
+---
+
+## Website Structure
+
+```text
+/
+├── index.html                         # Main multilingual homepage
 ├── about/
-│   ├── about.html
-│   └── founder.html
-├── index.html         # homepage: hero, services, who-we-help, projects, insights, stats, about, contact
-├── education.html      # resource library — manifest-driven, populated by education.js
+│   ├── about.html                     # About ETROYL
+│   └── founder.html                   # Founder & Technical Director
+├── education.html                     # ETROYL Academy / engineering resources
+│
+├── fpga-design/
+│   └── index.html                     # FPGA design capability
+├── embedded-linux/
+│   └── index.html                     # Embedded Linux capability
+├── radar-signal-processing/
+│   └── index.html                     # Radar DSP capability
+├── ground-penetrating-radar/
+│   └── index.html                     # GPR capability
+├── electromagnetic-modeling/
+│   └── index.html                     # EM modeling capability
+├── real-time-video-processing/
+│   └── index.html                     # Real-time video capability
+│
+├── ar/ de/ es/ fr/ it/ nl/ zh/        # Published language versions
+├── assets/
+│   ├── css/                           # Site styles and design tokens
+│   ├── js/                            # Shared behavior and components
+│   ├── img/                           # Logos, photography, graphics, icons
+│   └── fonts/                          # Self-hosted Inter variable font
+│
+├── i18n/                               # Source translations (JSON)
+├── templates/
+│   └── index.template.html             # Homepage template
+├── build.py                            # Local multilingual build + sitemap generator
+├── robots.txt
+├── sitemap.xml
+├── CNAME
 └── README.md
 ```
 
-`/projects/` and `/blog/` are **not yet real subdirectories.** Featured
-Projects and Latest Insights currently live as anchor sections on the
-homepage (`#projects`, `#insights`) with placeholder links pointing back at
-themselves. They become real subdirectories with individual case-study and
-article pages in a later phase — see [Phase Roadmap](#phase-roadmap).
+### Projects and Insights
 
-`robots.txt` and `sitemap.xml` are referenced here as intended repo-root
-files for SEO crawling, but are **not confirmed present yet** — verify
-they exist (or add them) before leaning on search-engine discovery.
+The homepage currently contains the **Featured Projects** and **Selected
+Engineering Insights** sections. Dedicated project case studies and insight
+articles are part of the future content expansion.
 
-## Conventions
+When those pages are introduced, they should follow this separation:
 
-- **Design Tokens**: Colors, spacing, and typography are defined in
-  `variables.css` using CSS custom properties and referenced via
-  `var(--token-name)`. Hardcoded values in `style.css` are prohibited.
-- **Semantic HTML**: Structure is defined by meaning (`<nav>`, `<section>`,
-  `<header>`) rather than presentation.
-- **Layout Engines**: Flexbox is used for one-dimensional alignment
-  (rows/columns, including wrapping label rows); CSS Grid is reserved for
-  genuinely two-dimensional arrangements (card grids, the footer's
-  brand+nav-columns layout).
-- **Shared markup, not copy-paste**: Repeated cross-page structure (the
-  footer) is defined once as a native Web Component (`<site-footer>`,
-  registered in `script.js`) and referenced by every page, rather than
-  duplicated HTML that has to be kept in sync by hand across four+ files.
-- **Accessibility (A11y)**: Every interactive element is keyboard-navigable.
-  Focus states (`:focus-visible`) are strictly maintained for keyboard
-  users. Empty/placeholder states (e.g. the Education library before real
-  content exists) always explain themselves in plain language rather than
-  rendering a silent blank space.
-- **Performance**: Assets are self-hosted to avoid third-party latency
-  (aside from the Lucide exception above), and `font-display: swap` is used
-  to ensure instant text rendering.
-- **Placeholders are explicit, never silent**: Where real photography,
-  case-study pages, or a blog don't exist yet, the site uses clearly-marked
-  placeholder graphics or self-referencing anchor links — never a broken
-  image or a dead-end click — so the site never looks unfinished by
-  accident.
+- `/projects/<project>/` — a concrete ETROYL project or case study
+- `/insights/<topic>/` — a technical insight, research note, or engineering article
+- `/<technical-capability>/` — a durable technical capability / SEO landing page
 
-## Domains & Hosting
+A capability page should not be placed under `/projects/` simply because the
+subject may also appear in a project. The URL hierarchy should communicate the
+role of the page clearly.
 
-The site is hosted via **GitHub Pages**, fronted by **Cloudflare** (DNS,
-CDN caching, and automatic `mailto:` obfuscation on published email
-addresses).
+---
 
-Three domains are associated with the brand:
+## Multilingual Architecture
 
-- **etroyl.com** — canonical, production domain. All internal links,
-  `canonical` tags, and Open Graph URLs point here.
-- **etroyl.be** — Belgian regional domain.
-- **etroyl.eu** — EU regional domain.
+The homepage is maintained from a shared HTML template and JSON translation
+sources.
 
-**Important for SEO**: search engines penalize duplicate content served
-identically across multiple domains. `.be` and `.eu` should each either
-(a) redirect to `etroyl.com`, or (b) serve their own content with a
-`<link rel="canonical" href="https://www.etroyl.com/...">` tag pointing
-back at the `.com` version. Verify this is configured before relying on
-either domain for marketing — right now the canonical tags in this repo
-only account for `.com`.
+```text
+templates/index.template.html
+          +
+      i18n/*.json
+          │
+          ▼
+       build.py
+          │
+          ├── index.html
+          ├── ar/index.html
+          ├── de/index.html
+          ├── es/index.html
+          ├── fr/index.html
+          ├── it/index.html
+          ├── nl/index.html
+          └── zh/index.html
+```
 
-- **Absolute vs. relative paths**: Internal navigation uses root-relative
-  links (`/index.html`, `/assets/css/style.css`). Open Graph metadata
-  (`og:image`) uses absolute URLs, since social-media crawlers need a
-  fully-qualified path to reliably fetch preview assets.
-- **Social preview caching**: To refresh a stale preview card after
-  changing `og:image` or `og:title`, force a re-scrape via the LinkedIn
-  Post Inspector or the relevant platform's own debugger/inspector tool —
-  platforms cache these aggressively and won't pick up changes on their
-  own for a while.
+`build.py` is intentionally a **local build tool**, not a runtime framework.
+The deployed website remains plain static HTML, CSS and JavaScript.
 
-## SEO Notes
+A locale is included in the generated homepage only when it is published in
+its corresponding `i18n/<language>.json` file. English is always live.
 
-The meta description and page `<title>` already lead with the core keyword
-set (FPGA, embedded systems, DSP, GPR, radar sensing, AI/robotics) —
-keep any future page additions consistent with that same vocabulary rather
-than introducing new terminology per-page, so search engines associate all
-of it with one coherent topic cluster.
+The generated pages include canonical URLs and `hreflang` alternates for the
+published language set.
 
-Two low-effort, high-value additions worth prioritizing once the site is
-otherwise stable:
+---
 
-- **`robots.txt` + `sitemap.xml`** at the repo root (see note above) — the
-  minimum needed for search engines to reliably discover and re-crawl every
-  page as new ones are added.
-- **JSON-LD structured data** (`schema.org/Organization`) in `index.html`,
-  including `sameAs` links to the LinkedIn and YouTube profiles already in
-  the footer. This is what lets Google associate the brand name with a
-  knowledge-panel-style entity rather than treating it as plain text — a
-  meaningful step up for a firm whose name (ETROYL) has no existing search
-  presence to compete against.
+## Build
 
-Neither is implemented yet in this repo; both are natural next steps once
-the current content pass is finished.
+Requirements: **Python 3 standard library only.** No package installation is
+required.
 
-## Phase Roadmap
+From the repository root:
 
-- **Phase 1**: Structure, semantics, accessibility, and theming scaffold. **[Complete]**
-- **Phase 2**: Visual identity — typography, color tokens, and branding. **[Complete]**
-- **Phase 3**: Active interaction — dark/light mode, system-preference detection, shared `<site-footer>` component. **[Complete]**
-- **Phase 4**: Front-page content build-out — services, who-we-help, featured projects, insights, stats, about teaser, contact CTA. **[Complete]**
-- **Phase 5**: Real content — populate the Education library manifest, replace remaining placeholder project/insight links with dedicated `/projects/` and `/blog/` pages. **[In Progress]**
-- **Phase 6**: Search & discoverability — `robots.txt`, `sitemap.xml`, structured data, multi-domain canonical/redirect setup, analytics. **[Planned]**
+```bash
+python3 build.py
+```
+
+The build regenerates the multilingual homepage files and `sitemap.xml`.
+
+### Important
+
+Generated HTML and `sitemap.xml` are committed to the repository because the
+production site is deployed as static files. After changing `i18n/*.json` or
+the homepage template, run the build and review the generated files before
+committing them.
+
+The six technical SEO landing pages are **static pages** and are intentionally
+not generated from the homepage template. `build.py` preserves their sitemap
+entries whenever it regenerates `sitemap.xml`.
+
+---
+
+## Design & Engineering Principles
+
+### Zero-dependency by design
+
+The website avoids frameworks, package managers, bundlers and runtime build
+systems. This keeps the deployed site small, transparent, auditable and
+resilient over time.
+
+The site currently uses Lucide icons through its CDN distribution as a
+conscious, limited exception. Core layout, styling, navigation behavior and
+shared components remain hand-written.
+
+### Semantic HTML
+
+HTML structure should describe meaning rather than presentation. Use semantic
+landmarks, headings, lists, buttons and links appropriately.
+
+### Design tokens
+
+Global colors, spacing and typography are defined in `variables.css` and
+consumed through CSS custom properties. Avoid introducing arbitrary values in
+component styles when an existing design token is appropriate.
+
+### Accessibility
+
+Interactive elements should remain keyboard accessible, retain visible
+`:focus-visible` states, and expose meaningful labels to assistive technology.
+Decorative images should use empty `alt` text; informative images should have
+descriptive alternatives.
+
+### Performance
+
+Prefer lightweight, static assets, appropriate image dimensions and modern
+formats. Keep JavaScript limited to behavior that genuinely requires it.
+
+### Consistency
+
+ETROYL's current brand language is:
+
+> **Built on Science. Delivered through Engineering.**
+>
+> **Science | Engineering | Deployment**
+
+New pages should reinforce this identity rather than reintroducing the older
+**Precision | Reliability | Innovation** positioning.
+
+---
+
+## SEO & Discoverability
+
+SEO is treated as part of the information architecture rather than as a layer
+of keywords added after the design is finished.
+
+Current foundations include:
+
+- Canonical URLs on the main pages
+- `hreflang` handling for published language versions
+- Root-level `robots.txt`
+- Root-level `sitemap.xml`
+- Six dedicated technical capability landing pages
+- Internal linking between the homepage and technical capability pages
+- Unique titles and descriptions for the capability pages
+- Open Graph metadata on the main pages
+
+`robots.txt` points crawlers to the production sitemap:
+
+```text
+https://www.etroyl.com/sitemap.xml
+```
+
+### Canonical domain
+
+`https://www.etroyl.com/` is the canonical production domain.
+
+The `.be` and `.eu` domains are brand/regional domains and should not create
+competing duplicate versions of the same content. Their final redirect or
+canonical configuration is an infrastructure concern and should be verified
+separately from the repository.
+
+### Future SEO work
+
+Potential future improvements include:
+
+- Organization / WebSite JSON-LD structured data
+- Dedicated project case studies
+- Dedicated technical insight articles
+- Stronger internal topic clustering as content grows
+- Search-performance monitoring and analytics
+- Further technical SEO validation across Google and Bing
+
+SEO should remain aligned with the actual engineering content of ETROYL; the
+site should not create thin pages solely to target search queries.
+
+---
+
+## Hosting & Domains
+
+The production site is hosted through **GitHub Pages** with **Cloudflare**
+providing DNS and CDN-related infrastructure.
+
+- **etroyl.com** — canonical production domain
+- **etroyl.be** — Belgian regional domain
+- **etroyl.eu** — European regional domain
+
+All production canonical and Open Graph URLs should use `www.etroyl.com`.
+
+---
+
+## Content Roadmap
+
+### Current
+
+- Multilingual homepage architecture
+- About and founder pages
+- ETROYL Academy / Education foundation
+- Technical SEO landing pages
+- Search-engine discovery infrastructure
+- Responsive visual system and accessibility foundations
+
+### Next
+
+1. Complete and validate the technical landing-page content.
+2. Build real project case-study pages under `/projects/`.
+3. Build the technical insight library under `/insights/`.
+4. Continue developing the ETROYL Academy as a curated engineering knowledge
+   repository.
+5. Add stronger structured data and measurement once the content structure is
+   stable.
+
+### Longer term
+
+ETROYL's broader roadmap includes an engineering knowledge platform, original
+research and technical publications where disclosure permits, open-source
+engineering material, and the development of ETROYL hardware and sensing
+projects.
+
+---
+
+## Repository Philosophy
+
+This repository should remain understandable to an engineer opening it for
+the first time.
+
+Prefer:
+
+- simple files over hidden tooling
+- explicit structure over abstraction for its own sake
+- static output over runtime complexity
+- reusable source templates where repetition becomes expensive
+- technical accuracy over SEO-driven filler
+- clear commits and reviewable changes
+
+The website is not intended to become a generic web application. It is a
+technical engineering website that should remain fast, durable and easy to
+maintain.

@@ -10,12 +10,11 @@
         const note = document.getElementById('language-note');
         if (!note) return;
 
-        const currentPageLanguage = window.ETROYL_SITE?.getCurrentPageLanguage?.() || 'en';
         const savedLanguage = window.ETROYL_SITE?.getSavedLanguage?.() || 'en';
 
-        // The notice is for visitors whose selected site language is
-        // not English while viewing an English-only technical page.
-        note.hidden = currentPageLanguage === 'en' && savedLanguage === 'en';
+        // Technical pages are English-only. Show the notice only when
+        // the visitor has explicitly selected a non-English language.
+        note.hidden = savedLanguage === 'en';
     }
 
     initTechnicalLanguageNote();

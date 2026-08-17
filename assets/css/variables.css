@@ -75,7 +75,9 @@
        component. This is the same discipline as using
        a fixed set of register widths in hardware design
        rather than arbitrary bit widths per signal. */
+    --space-20xs:  0.01rem;
     --space-9xs:  0.05rem;
+    --space-2xs:  0.2rem;
     --space-xs:  0.5rem;
     --space-sm:  1rem;
     --space-md:  1.5rem;

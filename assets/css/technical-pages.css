@@ -168,10 +168,10 @@
     font-size: var(--text-sm);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 680px) {
     .technical-header .container {
         grid-template-columns: 1fr auto;
-        padding-block: var(--space-sm);
+        padding-block: var(--space-9xs);
     }
 
     .technical-nav {
@@ -179,10 +179,10 @@
     }
 
     .technical-nav ul {
-        justify-content: flex-start;
-        gap: var(--space-sm);
-        overflow-x: auto;
-        flex-wrap: nowrap;
+        justify-content: center;
+        gap: var(--space-xs);
+        overflow-x: visible;
+        flex-wrap: wrap;
         padding-bottom: 0.2rem;
     }
 
@@ -195,7 +195,71 @@
     }
 
     .technical-language-note {
-        margin-top: 58px;
+        margin-top: 38px;
+        padding-block: 0.15rem;
+    }
+}
+
+@media (max-width: 410px) {
+    .technical-header .container {
+        grid-template-columns: 1fr auto;
+        padding-block: var(--space-20xs);
+    }
+
+    .technical-nav {
+        order: 3;
+    }
+
+    .technical-nav ul {
+        justify-content: center;
+        gap: var(--space-xs);
+        overflow-x: visible;
+        flex-wrap: wrap;
+        padding-bottom: var(--space-20xs);
+    }
+
+    .technical-list {
+        grid-template-columns: 1fr;
+    }
+
+    .technical-hero {
+        padding-top: var(--space-2xl);
+    }
+
+    .technical-language-note {
+        margin-top: 38px;
+        padding-block: 0.15rem;
+    }
+}
+
+@media (max-width: 370px) {
+    .technical-header .container {
+        grid-template-columns: 1fr auto;
+        padding-block: var(--space-20xs);
+    }
+
+    .technical-nav {
+        order: 3;
+    }
+
+    .technical-nav ul {
+        justify-content: center;
+        gap: var(--space-xs);
+        overflow-x: visible;
+        flex-wrap: wrap;
+        padding-bottom: var(--space-20xs);
+    }
+
+    .technical-list {
+        grid-template-columns: 1fr;
+    }
+
+    .technical-hero {
+        padding-top: var(--space-2xl);
+    }
+
+    .technical-language-note {
+        margin-top: 68px;
         padding-block: 0.15rem;
     }
 }

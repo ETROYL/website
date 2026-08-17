@@ -40,18 +40,18 @@ function getCurrentPageLanguage() {
 }
 
 function getSavedLanguage() {
-    const cookieLanguage = getSiteCookie(LANGUAGE_COOKIE);
-    if (SUPPORTED_LANGUAGES.includes(cookieLanguage) || cookieLanguage === 'en') {
-        return cookieLanguage;
-    }
-
     try {
         const localLanguage = localStorage.getItem(LANGUAGE_COOKIE);
         if (SUPPORTED_LANGUAGES.includes(localLanguage) || localLanguage === 'en') {
             return localLanguage;
         }
     } catch {
-        // Cookie is the primary persistence mechanism.
+        // Fall through to cookie.
+    }
+
+    const cookieLanguage = getSiteCookie(LANGUAGE_COOKIE);
+    if (SUPPORTED_LANGUAGES.includes(cookieLanguage) || cookieLanguage === 'en') {
+        return cookieLanguage;
     }
 
     return 'en';
@@ -78,8 +78,11 @@ function localizeInternalLinks(language) {
             return;
         }
 
-        const isSameSite = url.hostname === 'etroyl.com' || url.hostname === 'www.etroyl.com';
-        if (!isSameSite) return;
+        // Production uses etroyl.com/www.etroyl.com; local development
+        // must also work, so same-origin links are accepted as well.
+        const isSameOrigin = url.origin === window.location.origin;
+        const isETROYLDomain = url.hostname === 'etroyl.com' || url.hostname === 'www.etroyl.com';
+        if (!isSameOrigin && !isETROYLDomain) return;
 
         const localized = localizedPaths.get(url.pathname);
         if (!localized) return;

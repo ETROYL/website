@@ -1,117 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <url>
-    <loc>https://www.etroyl.com/</loc>
-    <lastmod>2026-07-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.etroyl.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" />
-  </url>
-
-  <url>
-    <loc>https://www.etroyl.com/ar/</loc>
-    <lastmod>2026-07-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.etroyl.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" />
-  </url>
-
-  <url>
-    <loc>https://www.etroyl.com/de/</loc>
-    <lastmod>2026-07-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.etroyl.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" />
-  </url>
-
-  <url>
-    <loc>https://www.etroyl.com/es/</loc>
-    <lastmod>2026-07-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.etroyl.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" />
-  </url>
-
-  <url>
-    <loc>https://www.etroyl.com/fr/</loc>
-    <lastmod>2026-07-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.etroyl.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" />
-  </url>
-
-  <url>
-    <loc>https://www.etroyl.com/it/</loc>
-    <lastmod>2026-07-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.etroyl.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" />
-  </url>
-
-  <url>
-    <loc>https://www.etroyl.com/nl/</loc>
-    <lastmod>2026-07-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.etroyl.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" />
-  </url>
-
-  <url>
-    <loc>https://www.etroyl.com/zh/</loc>
-    <lastmod>2026-07-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.etroyl.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" />
-  </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://www.etroyl.com/</loc><lastmod>2026-08-17</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://www.etroyl.com/" /><xhtml:link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/" /><xhtml:link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/" /><xhtml:link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/" /><xhtml:link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/" /><xhtml:link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/" /><xhtml:link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/" /><xhtml:link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/" /><xhtml:link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/" /></url>
+  <url><loc>https://www.etroyl.com/ar/</loc></url>
+  <url><loc>https://www.etroyl.com/de/</loc></url>
+  <url><loc>https://www.etroyl.com/es/</loc></url>
+  <url><loc>https://www.etroyl.com/fr/</loc></url>
+  <url><loc>https://www.etroyl.com/it/</loc></url>
+  <url><loc>https://www.etroyl.com/nl/</loc></url>
+  <url><loc>https://www.etroyl.com/zh/</loc></url>
+  <url><loc>https://www.etroyl.com/fpga-design/</loc><lastmod>2026-08-17</lastmod></url>
+  <url><loc>https://www.etroyl.com/embedded-linux/</loc><lastmod>2026-08-17</lastmod></url>
+  <url><loc>https://www.etroyl.com/radar-signal-processing/</loc><lastmod>2026-08-17</lastmod></url>
+  <url><loc>https://www.etroyl.com/ground-penetrating-radar/</loc><lastmod>2026-08-17</lastmod></url>
+  <url><loc>https://www.etroyl.com/electromagnetic-modeling/</loc><lastmod>2026-08-17</lastmod></url>
+  <url><loc>https://www.etroyl.com/real-time-video-processing/</loc><lastmod>2026-08-17</lastmod></url>
 </urlset>

@@ -78,8 +78,6 @@ function localizeInternalLinks(language) {
             return;
         }
 
-        // Production uses etroyl.com/www.etroyl.com; local development
-        // must also work, so same-origin links are accepted as well.
         const isSameOrigin = url.origin === window.location.origin;
         const isETROYLDomain = url.hostname === 'etroyl.com' || url.hostname === 'www.etroyl.com';
         if (!isSameOrigin && !isETROYLDomain) return;
@@ -87,7 +85,8 @@ function localizeInternalLinks(language) {
         const localized = localizedPaths.get(url.pathname);
         if (!localized) return;
 
-        link.setAttribute('href', localized);
+        // Preserve an existing fragment such as #services, #projects or #contact.
+        link.setAttribute('href', `${localized}${url.search}${url.hash}`);
     });
 }
 

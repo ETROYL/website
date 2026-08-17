@@ -20,67 +20,41 @@ function getSiteCookie(name) {
     return match ? decodeURIComponent(match[1]) : null;
 }
 
+/* ==================================================
+   LANGUAGE — ONE SOURCE OF TRUTH
+   ================================================== */
+
 function saveLanguage(language) {
     if (!SUPPORTED_LANGUAGES.includes(language) && language !== 'en') return;
     setSiteCookie(LANGUAGE_COOKIE, language);
-    localStorage.setItem(LANGUAGE_COOKIE, language);
+    try {
+        localStorage.setItem(LANGUAGE_COOKIE, language);
+    } catch {
+        // Cookie remains the persistent fallback.
+    }
 }
 
-function getLanguageFromPath(pathname) {
-    const match = pathname.match(/^\/(ar|de|es|fr|it|nl|zh)(?:\/|$)/);
+function getCurrentPageLanguage() {
+    const match = window.location.pathname.match(/^\/(ar|de|es|fr|it|nl|zh)(?:\/|$)/);
     return match ? match[1] : 'en';
 }
 
-function getSiteLanguage() {
-    const pathLanguage = getLanguageFromPath(window.location.pathname);
-    if (pathLanguage !== 'en') {
-        saveLanguage(pathLanguage);
-        return pathLanguage;
-    }
-
+function getSavedLanguage() {
     const cookieLanguage = getSiteCookie(LANGUAGE_COOKIE);
-    if (SUPPORTED_LANGUAGES.includes(cookieLanguage)) return cookieLanguage;
-
-    const localLanguage = localStorage.getItem(LANGUAGE_COOKIE);
-    return SUPPORTED_LANGUAGES.includes(localLanguage) ? localLanguage : 'en';
-}
-
-function rememberLanguageFromClick(event) {
-    const link = event.target.closest?.('a[href]');
-    if (!link) return;
-
-    const rawHref = link.getAttribute('href');
-    if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:')) return;
-
-    let url;
-    try {
-        url = new URL(rawHref, window.location.href);
-    } catch {
-        return;
+    if (SUPPORTED_LANGUAGES.includes(cookieLanguage) || cookieLanguage === 'en') {
+        return cookieLanguage;
     }
 
-    const isSameSite = url.hostname === 'etroyl.com' || url.hostname === 'www.etroyl.com';
-    if (!isSameSite) return;
+    try {
+        const localLanguage = localStorage.getItem(LANGUAGE_COOKIE);
+        if (SUPPORTED_LANGUAGES.includes(localLanguage) || localLanguage === 'en') {
+            return localLanguage;
+        }
+    } catch {
+        // Cookie is the primary persistence mechanism.
+    }
 
-    const language = getLanguageFromPath(url.pathname);
-    if (language !== 'en' || url.pathname === '/') saveLanguage(language);
-}
-
-function initLanguageMemory() {
-    const wrapper = document.querySelector('.lang-switcher');
-    if (!wrapper) return;
-
-    wrapper.querySelectorAll('.lang-switcher__menu a[href]').forEach((link) => {
-        link.addEventListener('click', () => {
-            try {
-                const url = new URL(link.getAttribute('href'), window.location.href);
-                const language = getLanguageFromPath(url.pathname);
-                saveLanguage(language);
-            } catch {
-                // Ignore malformed language links; normal navigation remains intact.
-            }
-        });
-    });
+    return 'en';
 }
 
 function localizeInternalLinks(language) {
@@ -110,13 +84,34 @@ function localizeInternalLinks(language) {
         const localized = localizedPaths.get(url.pathname);
         if (!localized) return;
 
-        if (rawHref.startsWith('/')) {
-            link.setAttribute('href', localized);
-        } else {
-            link.setAttribute('href', new URL(localized, window.location.origin).pathname);
-        }
+        link.setAttribute('href', localized);
     });
 }
+
+function initLanguageMemory() {
+    const wrapper = document.querySelector('.lang-switcher');
+    if (!wrapper) return;
+
+    wrapper.querySelectorAll('.lang-switcher__menu a[href]').forEach((link) => {
+        link.addEventListener('click', () => {
+            try {
+                const url = new URL(link.getAttribute('href'), window.location.href);
+                saveLanguage(getCurrentLanguageFromPath(url.pathname));
+            } catch {
+                // Ignore malformed language links; normal navigation remains intact.
+            }
+        });
+    });
+}
+
+function getCurrentLanguageFromPath(pathname) {
+    const match = pathname.match(/^\/(ar|de|es|fr|it|nl|zh)(?:\/|$)/);
+    return match ? match[1] : 'en';
+}
+
+/* ==================================================
+   THEME — DO NOT CHANGE WITHOUT REVIEW
+   ================================================== */
 
 function setTheme(theme) {
     const normalized = theme === 'light' ? 'light' : 'dark';
@@ -299,9 +294,11 @@ function initContactForm() {
 }
 
 function init() {
-    const language = getSiteLanguage();
-    localizeInternalLinks(language);
-    document.addEventListener('click', rememberLanguageFromClick);
+    const currentLanguage = getCurrentPageLanguage();
+    const savedLanguage = getSavedLanguage();
+
+    // The language selector is the only place that changes the saved preference.
+    localizeInternalLinks(savedLanguage);
     initLanguageMemory();
     initTheme();
     setCurrentYear();
@@ -309,13 +306,15 @@ function init() {
     renderIcons();
     initContactFormToggle();
     initContactForm();
-}
 
-window.ETROYL_SITE = {
-    getLanguage: getSiteLanguage,
-    getTheme: getSavedTheme,
-    setTheme,
-    saveLanguage
-};
+    window.ETROYL_SITE = {
+        getLanguage: getSavedLanguage,
+        getCurrentPageLanguage: () => currentLanguage,
+        getSavedLanguage,
+        getTheme: getSavedTheme,
+        setTheme,
+        saveLanguage
+    };
+}
 
 init();

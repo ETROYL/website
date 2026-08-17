@@ -20,6 +20,12 @@ function getSiteCookie(name) {
     return match ? decodeURIComponent(match[1]) : null;
 }
 
+function saveLanguage(language) {
+    if (!SUPPORTED_LANGUAGES.includes(language) && language !== 'en') return;
+    setSiteCookie(LANGUAGE_COOKIE, language);
+    localStorage.setItem(LANGUAGE_COOKIE, language);
+}
+
 function getLanguageFromPath(pathname) {
     const match = pathname.match(/^\/(ar|de|es|fr|it|nl|zh)(?:\/|$)/);
     return match ? match[1] : 'en';
@@ -28,8 +34,7 @@ function getLanguageFromPath(pathname) {
 function getSiteLanguage() {
     const pathLanguage = getLanguageFromPath(window.location.pathname);
     if (pathLanguage !== 'en') {
-        setSiteCookie(LANGUAGE_COOKIE, pathLanguage);
-        localStorage.setItem(LANGUAGE_COOKIE, pathLanguage);
+        saveLanguage(pathLanguage);
         return pathLanguage;
     }
 
@@ -41,20 +46,41 @@ function getSiteLanguage() {
 }
 
 function rememberLanguageFromClick(event) {
-    const link = event.target.closest('a[href]');
+    const link = event.target.closest?.('a[href]');
     if (!link) return;
 
     const rawHref = link.getAttribute('href');
     if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:')) return;
 
-    const url = new URL(rawHref, window.location.href);
-    if (url.origin !== window.location.origin) return;
+    let url;
+    try {
+        url = new URL(rawHref, window.location.href);
+    } catch {
+        return;
+    }
+
+    const isSameSite = url.hostname === 'etroyl.com' || url.hostname === 'www.etroyl.com';
+    if (!isSameSite) return;
 
     const language = getLanguageFromPath(url.pathname);
-    if (language !== 'en' || url.pathname === '/') {
-        setSiteCookie(LANGUAGE_COOKIE, language);
-        localStorage.setItem(LANGUAGE_COOKIE, language);
-    }
+    if (language !== 'en' || url.pathname === '/') saveLanguage(language);
+}
+
+function initLanguageMemory() {
+    const wrapper = document.querySelector('.lang-switcher');
+    if (!wrapper) return;
+
+    wrapper.querySelectorAll('.lang-switcher__menu a[href]').forEach((link) => {
+        link.addEventListener('click', () => {
+            try {
+                const url = new URL(link.getAttribute('href'), window.location.href);
+                const language = getLanguageFromPath(url.pathname);
+                saveLanguage(language);
+            } catch {
+                // Ignore malformed language links; normal navigation remains intact.
+            }
+        });
+    });
 }
 
 function localizeInternalLinks(language) {
@@ -68,9 +94,27 @@ function localizeInternalLinks(language) {
     ]);
 
     document.querySelectorAll('a[href]').forEach((link) => {
-        const href = link.getAttribute('href');
-        if (!href || !localizedPaths.has(href)) return;
-        link.setAttribute('href', localizedPaths.get(href));
+        const rawHref = link.getAttribute('href');
+        if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:')) return;
+
+        let url;
+        try {
+            url = new URL(rawHref, window.location.href);
+        } catch {
+            return;
+        }
+
+        const isSameSite = url.hostname === 'etroyl.com' || url.hostname === 'www.etroyl.com';
+        if (!isSameSite) return;
+
+        const localized = localizedPaths.get(url.pathname);
+        if (!localized) return;
+
+        if (rawHref.startsWith('/')) {
+            link.setAttribute('href', localized);
+        } else {
+            link.setAttribute('href', new URL(localized, window.location.origin).pathname);
+        }
     });
 }
 
@@ -258,6 +302,7 @@ function init() {
     const language = getSiteLanguage();
     localizeInternalLinks(language);
     document.addEventListener('click', rememberLanguageFromClick);
+    initLanguageMemory();
     initTheme();
     setCurrentYear();
     initLangSwitcher();
@@ -269,7 +314,8 @@ function init() {
 window.ETROYL_SITE = {
     getLanguage: getSiteLanguage,
     getTheme: getSavedTheme,
-    setTheme
+    setTheme,
+    saveLanguage
 };
 
 init();

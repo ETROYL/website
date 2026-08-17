@@ -60,7 +60,7 @@ under `/projects/`.
 ├── ar/ de/ es/ fr/ it/ nl/ zh/        # Published language versions
 ├── assets/
 │   ├── css/                           # Site styles and design tokens
-│   ├── js/                            # Shared behavior and components
+│   ├── js/                            # Shared behavior and page-specific behavior
 │   ├── img/                           # Logos, photography, graphics, icons
 │   └── fonts/                          # Self-hosted Inter variable font
 │
@@ -123,6 +123,54 @@ its corresponding `i18n/<language>.json` file. English is always live.
 
 The generated pages include canonical URLs and `hreflang` alternates for the
 published language set.
+
+### Runtime language preference
+
+Language preference is handled centrally by `assets/js/script.js`.
+
+- The language selector is the only mechanism that changes the saved language.
+- The selected language is persisted in `localStorage`, with a cookie fallback.
+- Internal links are localized according to the saved preference.
+- English can always be explicitly selected and clears the non-English behavior.
+- Local development uses same-origin detection, so language behavior can be
+  tested without deploying first.
+- Section anchors such as `#services`, `#projects`, and `#contact` are preserved
+  when links are localized.
+
+Technical pages are English-only. `assets/js/technical-pages.js` contains only
+technical-page-specific behavior and uses the shared language state from
+`script.js` to display the English-only notice when a non-English language is
+selected.
+
+---
+
+## Shared JavaScript Architecture
+
+The site follows a simple shared-behavior model:
+
+- **`assets/js/script.js`** — single shared runtime for site-wide behavior,
+  including theme handling, language preference, navigation localization,
+  footer component, language switcher, icons, and contact-form behavior.
+- **`assets/js/config.js`** — configuration only (for example contact details
+  and service credentials). It should not contain site behavior or functions.
+- **`assets/js/technical-pages.js`** — optional page-specific behavior for the
+  six technical capability pages. It must rely on `script.js` for shared
+  language and theme state.
+- **`assets/js/education.js`** — page-specific behavior for Education/Academy.
+
+Do not introduce a second implementation of a shared feature when extending
+the site. In particular, theme and language behavior should remain centralized
+in `script.js`.
+
+### Theme architecture
+
+The light/dark theme is a **single site-wide preference**. All pages, including
+localized pages and technical capability pages, use the same shared theme state
+from `script.js`.
+
+Changes to the theme implementation should therefore be treated as a site-wide
+change and tested across the main, localized, Education, About, Founder and
+technical pages.
 
 ---
 

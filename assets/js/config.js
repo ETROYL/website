@@ -1,4 +1,6 @@
-
+/* ==================================================
+   CONFIG.JS — SITE CONFIGURATION ONLY
+   ================================================== */
 
 const ETROYL_CONFIG = {
     contact: {
@@ -9,7 +11,7 @@ const ETROYL_CONFIG = {
         telegram: "ETROYL"
     },
     web3forms: {
-	endpoint: 'https://api.web3forms.com/submit',
-	accessKey: 'f6bd6c39-d3dd-4124-8ef7-c8afba732037'
-   }
+        endpoint: "https://api.web3forms.com/submit",
+        accessKey: "f6bd6c39-d3dd-4124-8ef7-c8afba732037"
+    }
 };

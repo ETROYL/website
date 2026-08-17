@@ -1,0 +1,201 @@
+/* ==================================================
+   TECHNICAL-PAGES.CSS — SHARED TECHNICAL PAGE LAYOUT
+   ================================================== */
+
+.technical-page {
+    min-height: 100vh;
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+.technical-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+    padding-block: var(--space-sm);
+}
+
+.technical-header .container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.technical-header .logo {
+    grid-column: 1 / 2;
+    justify-self: start;
+    display: flex;
+}
+
+.technical-header .logo-mark {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+
+.technical-tools {
+    grid-column: 2 / 3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.technical-nav {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.technical-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.technical-nav a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: inherit;
+}
+
+.technical-nav a:hover,
+.technical-nav a:focus-visible {
+    color: var(--color-text);
+}
+
+.technical-language-note {
+    margin-top: 20px;
+    padding: 0.2rem var(--space-sm);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.35;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-background);
+}
+
+.technical-main {
+    padding-bottom: var(--space-2xl);
+}
+
+.technical-hero {
+    padding: clamp(5rem, 10vw, 9rem) 0 var(--space-2xl);
+}
+
+.technical-hero .container {
+    max-width: 920px;
+}
+
+.technical-hero h1 {
+    max-width: 850px;
+    margin: 0 0 var(--space-md);
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    line-height: 1.05;
+}
+
+.technical-hero .lead {
+    max-width: 760px;
+    color: var(--color-text-muted);
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.7;
+}
+
+.technical-section {
+    padding: var(--space-2xl) 0;
+}
+
+.technical-section--surface {
+    background: var(--color-surface);
+    border-block: 1px solid var(--color-border);
+}
+
+.technical-section h2 {
+    margin-bottom: var(--space-md);
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+.technical-section p {
+    max-width: 800px;
+    line-height: 1.75;
+}
+
+.technical-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm) var(--space-lg);
+    margin: var(--space-lg) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.technical-list li {
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background: var(--color-surface-raised);
+}
+
+.technical-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.technical-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.technical-links a:hover,
+.technical-links a:focus-visible {
+    text-decoration: underline;
+}
+
+.technical-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-lg) 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+}
+
+@media (max-width: 760px) {
+    .technical-header .container {
+        grid-template-columns: 1fr auto;
+        padding-block: var(--space-sm);
+    }
+
+    .technical-nav {
+        order: 3;
+    }
+
+    .technical-nav ul {
+        justify-content: flex-start;
+        gap: var(--space-sm);
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.2rem;
+    }
+
+    .technical-list {
+        grid-template-columns: 1fr;
+    }
+
+    .technical-hero {
+        padding-top: var(--space-2xl);
+    }
+
+    .technical-language-note {
+        margin-top: 58px;
+        padding-block: 0.15rem;
+    }
+}

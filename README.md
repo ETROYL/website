@@ -1,6 +1,6 @@
 # ETROYL Website
 
-The public website for **ETROYL — Enjoy The Rest Of Your Life**.
+The public website for **ETROYL — E.... T.. R... O. Y... L...**.
 
 ETROYL is an engineering company built around three connected stages:
 

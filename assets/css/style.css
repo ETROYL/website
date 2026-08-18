@@ -1171,6 +1171,39 @@ section h2 {
     font-weight: 600;
 }
 
+.founder-external-links {
+    margin-top: 28px;
+}
+
+.founder-external-links-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.founder-external-links-items {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+}
+
+.founder-external-links-items a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+}
+
+.founder-external-links-items img {
+    width: 22px;
+    height: 22px;
+}
+
+.founder-external-links-items span {
+    font-size: 0.9rem;
+}
+
 .footer-social {
     display: flex;
     align-items: center;

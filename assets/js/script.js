@@ -301,7 +301,7 @@ function initContactForm() {
 
 function init() {
     const currentLanguage = getCurrentPageLanguage();
-    const savedLanguage = getSavedLanguage();
+    const savedLanguage = getSavedLanguage() || 'en';
 
     // The language selector is the only place that changes the saved preference.
     localizeInternalLinks(savedLanguage);

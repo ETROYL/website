@@ -1,0 +1,60 @@
+name: Prepare Selected Insights
+
+on:
+  push:
+    branches:
+      - agent/selected-insights
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v6
+
+      - name: Update insight links and sitemap sources
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          template = Path('templates/index.template.html')
+          text = template.read_text(encoding='utf-8')
+          replacements = {
+              'href="#insights">{{insights.item2_title}}': 'href="/insights/near-field-gpr-modeling/">{{insights.item2_title}}',
+              'href="#insights">{{insights.item1_title}}': 'href="/insights/fpga-video-pipelines/">{{insights.item1_title}}',
+              'href="#insights">{{insights.item3_title}}': 'href="/insights/embedded-linux-real-time/">{{insights.item3_title}}',
+              'href="#insights">{{insights.cta}}': 'href="/insights/">{{insights.cta}}',
+          }
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'Missing expected template fragment: {old}')
+              text = text.replace(old, new, 1)
+          template.write_text(text, encoding='utf-8')
+
+          build = Path('build.py')
+          text = build.read_text(encoding='utf-8')
+          marker = "    'real-time-video-processing',\n]"
+          addition = "    'real-time-video-processing',\n    'insights',\n    'insights/fpga-video-pipelines',\n    'insights/near-field-gpr-modeling',\n    'insights/embedded-linux-real-time',\n]"
+          if marker not in text:
+              raise SystemExit('Missing expected sitemap marker in build.py')
+          build.write_text(text.replace(marker, addition, 1), encoding='utf-8')
+          PY
+
+      - name: Regenerate multilingual homepage and sitemap
+        run: python3 build.py
+
+      - name: Commit generated pages and source updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add templates/index.template.html build.py sitemap.xml index.html ar/index.html de/index.html es/index.html fr/index.html it/index.html nl/index.html zh/index.html
+          git rm .github/workflows/build-selected-insights.yml
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Wire homepage to Selected Insights"
+          git push

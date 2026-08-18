@@ -4,8 +4,7 @@ build.py — static multi-language page generator for etroyl.com
 
 WHY THIS EXISTS:
 The site's philosophy (see README.md) is zero-dependency, no build
-step, plain files served exactly as written. Adding multiple languages by hand-copying each HTML file for every
-locale would violate that principle immediately — six chances to forget to update a shared change, times
+step, plain files served exactly as written. Adding multiple languages by hand-copying each HTML file for every locale would violate that principle immediately — six chances to forget to update a shared change, times
 however many pages exist.
 
 This script is the compromise that keeps the *deployed* site exactly
@@ -55,9 +54,12 @@ PAGES = {
 SEO_LANDING_PAGES = [
     'fpga-design',
     'embedded-linux',
+    'signal-processing',
     'radar-signal-processing',
     'ground-penetrating-radar',
     'electromagnetic-modeling',
+    'robotics-automation',
+    'system-integration',
     'real-time-video-processing',
 ]
 
@@ -149,9 +151,11 @@ def add_technical_links(output_html, tokens):
     links = {
         'services.card1_title': '/fpga-design/',
         'services.card2_title': '/embedded-linux/',
-        'services.card3_title': '/radar-signal-processing/',
+        'services.card3_title': '/signal-processing/',
         'services.card4_title': '/ground-penetrating-radar/',
-        'services.card6_title': '/real-time-video-processing/',
+        'services.card5_title': '/robotics-automation/',
+        'services.card6_title': '/system-integration/',
+        'services.card7_title': '/real-time-video-processing/',
     }
     for token, href in links.items():
         title = str(tokens.get(token, ''))
@@ -186,7 +190,7 @@ def build_sitemap(locales):
         loc = f'{BASE_URL}/{slug}/'
         url_blocks.append(
             f'  <url>\n'
-            f'\t<lastmod>2026-08-17</lastmod>\n'
+            f'\t<lastmod>2026-08-18</lastmod>\n'
             f'\t<loc>{loc}</loc>\n'
             f'  </url>'
         )

@@ -11,26 +11,9 @@
     "og_title": "ETROYL | Built on Science. Delivered through Engineering.",
     "og_description": "Science | Engineering | Deployment"
   },
-  "a11y": {
-    "skip_link": "Skip to main content",
-    "nav_label": "Primary",
-    "lang_switcher_label": "Choose language",
-    "theme_toggle": "Toggle color theme"
-  },
-  "nav": {
-    "services": "Services",
-    "projects": "Projects",
-    "education": "Education",
-    "about": "About",
-    "contact": "Contact"
-  },
-  "hero": {
-    "wordmark": "",
-    "tagline": "Built on Science. Delivered through Engineering.",
-    "precision": "Science",
-    "reliability": "Engineering",
-    "innovation": "Deployment"
-  },
+  "a11y": {"skip_link": "Skip to main content", "nav_label": "Primary", "lang_switcher_label": "Choose language", "theme_toggle": "Toggle color theme"},
+  "nav": {"services": "Services", "projects": "Projects", "education": "Education", "about": "About", "contact": "Contact"},
+  "hero": {"wordmark": "", "tagline": "Built on Science. Delivered through Engineering.", "precision": "Science", "reliability": "Engineering", "innovation": "Deployment"},
   "services": {
     "eyebrow": "What We Build",
     "heading": "Engineering solutions for complex challenges",
@@ -40,97 +23,20 @@
     "card2_title": "Embedded Systems",
     "card2_desc": "Robust firmware and software for mission-critical platforms.",
     "card3_title": "Signal Processing",
-    "card3_desc": "Advanced DSP algorithms for radar, imaging, and communications.",
+    "card3_desc": "Advanced signal processing for radar, imaging, and real-time sensing systems.",
     "card4_title": "Radar & Sensing",
     "card4_desc": "From waveform design to real-time processing and visualization.",
-    "card5_title": "Robotics",
-    "card5_desc": "Perception, control, and intelligent autonomy for real-world systems.",
+    "card5_title": "Robotics & Automation",
+    "card5_desc": "Perception, sensor fusion, control, and automation for real-world systems.",
     "card6_title": "System Integration",
-    "card6_desc": "End-to-end solutions from architecture to deployment and support."
+    "card6_desc": "End-to-end solutions from architecture to deployment and support.",
+    "card7_title": "Vision",
+    "card7_desc": "Real-time image and video processing from acquisition to deployment."
   },
-  "who": {
-    "eyebrow": "Who We Help",
-    "heading": "Domain expertise. Real-world impact.",
-    "item1": "Defense & Security",
-    "item2": "Industrial Automation",
-    "item3": "Medical & Healthcare",
-    "item4": "Mobility & Automotive",
-    "item5": "Space & Aerospace",
-    "item6": "Research & Academia"
-  },
-  "projects": {
-    "eyebrow": "Featured Projects",
-    "heading": "Problems we're built to solve",
-    "details_label": "Details",
-    "cta": "View All Projects",
-    "card1_title": "Radar Processing Platform",
-    "card1_desc": "Real-time radar signal processing on FPGA for advanced sensing applications.",
-    "card2_title": "Embedded Vision System",
-    "card2_desc": "Low-latency video pipeline with neural-network inference for detection, recognition & identification.",
-    "card3_title": "Ground Penetrating Radar (GPR)",
-    "card3_desc": "From antenna design and near-field electromagnetic modeling to signal processing and soil characterization.",
-    "card4_title": "Open-Source IP & Tools",
-    "card4_desc": "Reusable HDL cores, drivers, and tools to accelerate development."
-  },
-  "insights": {
-    "eyebrow": "Selected Engineering Insights",
-    "heading": "How we approach complex challenges through science and engineering",
-    "cta": "View All Insights",
-    "item1_title": "Designing Low-Latency FPGA Video Pipelines",
-    "item1_desc": "Key techniques for achieving deterministic latency in real-time video systems.",
-    "item1_meta": "Engineering & Development",
-    "item2_title": "Fast Near-Field Modeling for GPR Systems",
-    "item2_desc": "Accurate near-field electromagnetic modeling of GPR systems, combining physical fidelity with computational efficiency for advanced subsurface sensing.",
-    "item2_meta": "Research & Innovation",
-    "item3_title": "Optimizing Embedded Linux for Real-Time Performance",
-    "item3_desc": "Practical tips for reducing latency and improving determinism in embedded Linux.",
-    "item3_meta": "Engineering & Development"
-  },
-  "stats": {
-    "years_number": "25+",
-    "years_label": "Years of Engineering Experience",
-    "countries_number": "5+",
-    "countries_label": "Countries Worked In",
-    "rnd_number": "20+",
-    "rnd_label": "Major R&D Programs",
-    "systems_number": "50+",
-    "systems_label": "Systems Delivered",
-    "callout_label": "Committed to",
-    "callout_word": "Excellence",
-    "callout_caption": "In every project we undertake."
-  },
-  "about": {
-    "eyebrow": "About ETROYL",
-    "heading": "Where science meets engineering",
-    "body": "ETROYL is a technical engineering firm at the intersection of deep-tech science and industrial reliability. We transform complex ideas into deployable systems that perform in the real world.",
-    "cta": "Learn More About Us"
-  },
- "contact": {
-    "heading": "Let's build the next intelligent system together",
-    "body": "Have a project in mind? Let's discuss how we can help.",
-    "cta": "Get in Touch",
-    "form": "Contact Form",
-    "call": "Call Us",
-    "whatsapp": "WhatsApp",
-    "email": "Email Us",
-    "telegram": "Telegram",
-    "fields": {
-	    "name": "Name",
-	    "email": "Email",
-	    "company": "Company",
-	    "subject": "Subject",
-	    "message": "Message",
-	    "submit": "Send Message",
-	    "status": "Sending...",
-	    "required": "Required",
-	    "success": "Thank you. Your message has been sent successfully.",
-	    "error": "Something went wrong. Please try again."
-	},
-   "validation": {
-	"name": "Please enter your name.",
-	"email": "Please enter a valid email address.",
-	"subject": "Please enter a subject.",
-	"message": "Please enter your message."
-   }
- }
+  "who": {"eyebrow": "Who We Help", "heading": "Domain expertise. Real-world impact.", "item1": "Defense & Security", "item2": "Industrial Automation", "item3": "Medical & Healthcare", "item4": "Mobility & Automotive", "item5": "Space & Aerospace", "item6": "Research & Academia"},
+  "projects": {"eyebrow": "Featured Projects", "heading": "Problems we're built to solve", "details_label": "Details", "cta": "View All Projects", "card1_title": "Radar Processing Platform", "card1_desc": "Real-time radar signal processing on FPGA for advanced sensing applications.", "card2_title": "Embedded Vision System", "card2_desc": "Low-latency video pipeline with neural-network inference for detection, recognition & identification.", "card3_title": "Ground Penetrating Radar (GPR)", "card3_desc": "From antenna design and near-field electromagnetic modeling to signal processing and soil characterization.", "card4_title": "Open-Source IP & Tools", "card4_desc": "Reusable HDL cores, drivers, and tools to accelerate development."},
+  "insights": {"eyebrow": "Selected Engineering Insights", "heading": "How we approach complex challenges through science and engineering", "cta": "View All Insights", "item1_title": "Designing Low-Latency FPGA Video Pipelines", "item1_desc": "Key techniques for achieving deterministic latency in real-time video systems.", "item1_meta": "Engineering & Development", "item2_title": "Fast Near-Field Modeling for GPR Systems", "item2_desc": "Accurate near-field electromagnetic modeling of GPR systems, combining physical fidelity with computational efficiency for advanced subsurface sensing.", "item2_meta": "Research & Innovation", "item3_title": "Optimizing Embedded Linux for Real-Time Performance", "item3_desc": "Practical tips for reducing latency and improving determinism in embedded Linux.", "item3_meta": "Engineering & Development"},
+  "stats": {"years_number": "25+", "years_label": "Years of Engineering Experience", "countries_number": "5+", "countries_label": "Countries Worked In", "rnd_number": "20+", "rnd_label": "Major R&D Programs", "systems_number": "50+", "systems_label": "Systems Delivered", "callout_label": "Committed to", "callout_word": "Excellence", "callout_caption": "In every project we undertake."},
+  "about": {"eyebrow": "About ETROYL", "heading": "Where science meets engineering", "body": "ETROYL is a technical engineering firm at the intersection of deep-tech science and industrial reliability. We transform complex ideas into deployable systems that perform in the real world.", "cta": "Learn More About Us"},
+  "contact": {"heading": "Let's build the next intelligent system together", "body": "Have a project in mind? Let's discuss how we can help.", "cta": "Get in Touch", "form": "Contact Form", "call": "Call Us", "whatsapp": "WhatsApp", "email": "Email Us", "telegram": "Telegram", "fields": {"name": "Name", "email": "Email", "company": "Company", "subject": "Subject", "message": "Message", "submit": "Send Message", "status": "Sending...", "required": "Required", "success": "Thank you. Your message has been sent successfully.", "error": "Something went wrong. Please try again."}, "validation": {"name": "Please enter your name.", "email": "Please enter a valid email address.", "subject": "Please enter a subject.", "message": "Please enter your message."}}
 }

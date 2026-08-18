@@ -106,27 +106,39 @@
 	<xhtml:link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/" />
   </url>
   <url>
-	<lastmod>2026-08-17</lastmod>
+	<lastmod>2026-08-18</lastmod>
 	<loc>https://www.etroyl.com/fpga-design/</loc>
   </url>
   <url>
-	<lastmod>2026-08-17</lastmod>
+	<lastmod>2026-08-18</lastmod>
 	<loc>https://www.etroyl.com/embedded-linux/</loc>
   </url>
   <url>
-	<lastmod>2026-08-17</lastmod>
+	<lastmod>2026-08-18</lastmod>
+	<loc>https://www.etroyl.com/signal-processing/</loc>
+  </url>
+  <url>
+	<lastmod>2026-08-18</lastmod>
 	<loc>https://www.etroyl.com/radar-signal-processing/</loc>
   </url>
   <url>
-	<lastmod>2026-08-17</lastmod>
+	<lastmod>2026-08-18</lastmod>
 	<loc>https://www.etroyl.com/ground-penetrating-radar/</loc>
   </url>
   <url>
-	<lastmod>2026-08-17</lastmod>
+	<lastmod>2026-08-18</lastmod>
 	<loc>https://www.etroyl.com/electromagnetic-modeling/</loc>
   </url>
   <url>
-	<lastmod>2026-08-17</lastmod>
+	<lastmod>2026-08-18</lastmod>
+	<loc>https://www.etroyl.com/robotics-automation/</loc>
+  </url>
+  <url>
+	<lastmod>2026-08-18</lastmod>
+	<loc>https://www.etroyl.com/system-integration/</loc>
+  </url>
+  <url>
+	<lastmod>2026-08-18</lastmod>
 	<loc>https://www.etroyl.com/real-time-video-processing/</loc>
   </url>
 </urlset>

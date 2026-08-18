@@ -172,6 +172,32 @@ def add_technical_links(output_html, tokens):
     return output_html
 
 
+def add_insight_links(output_html, tokens):
+    """Add crawlable links from homepage Selected Insights cards."""
+    links = {
+        'insights.item1_title': '/insights/fpga-video-pipelines/',
+        'insights.item2_title': '/insights/near-field-gpr-modeling/',
+        'insights.item3_title': '/insights/embedded-linux-real-time/',
+    }
+    for token, href in links.items():
+        title = str(tokens.get(token, ''))
+        if title:
+            output_html = output_html.replace(
+                f'<h3><a href="#insights">{title}</a></h3>',
+                f'<h3><a href="{href}">{title}</a></h3>',
+                1,
+            )
+
+    cta = str(tokens.get('insights.cta', ''))
+    if cta:
+        output_html = output_html.replace(
+            f'<a href="#insights" class="btn btn-outline">{cta}</a>',
+            f'<a href="/insights/" class="btn btn-outline">{cta}</a>',
+            1,
+        )
+    return output_html
+
+
 def build_sitemap(locales):
     live = {code: data for code, data in locales.items() if is_live(data, code)}
     url_blocks = []
@@ -246,6 +272,7 @@ def main():
 
             output_html = render(template_text, tokens)
             output_html = add_technical_links(output_html, tokens)
+            output_html = add_insight_links(output_html, tokens)
 
             if code == 'en':
                 out_dir = ROOT

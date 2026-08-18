@@ -17,8 +17,7 @@ what writes them for you.
 USAGE:
     python3 build.py
 
-Run this after editing any file in i18n/ or templates/, then commit
-the regenerated HTML/sitemap.xml files alongside your source changes.
+Run this after editing any file in i18n/ or templates/, then commit the regenerated HTML/sitemap.xml files alongside your source changes.
 
 REQUIREMENTS:
     Python 3 standard library only. No `pip install` needed.
@@ -61,10 +60,6 @@ SEO_LANDING_PAGES = [
     'robotics-automation',
     'system-integration',
     'real-time-video-processing',
-    'insights',
-    'insights/fpga-video-pipelines',
-    'insights/near-field-gpr-modeling',
-    'insights/embedded-linux-real-time',
 ]
 
 TOKEN_PATTERN = re.compile(r'\{\{\s*([\w.]+)\s*\}\}')
@@ -289,3 +284,4 @@ def main():
 
 
 if __name__ == '__main__':
+    main()

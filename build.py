@@ -61,6 +61,10 @@ SEO_LANDING_PAGES = [
     'robotics-automation',
     'system-integration',
     'real-time-video-processing',
+    'insights',
+    'insights/fpga-video-pipelines',
+    'insights/near-field-gpr-modeling',
+    'insights/embedded-linux-real-time',
 ]
 
 TOKEN_PATTERN = re.compile(r'\{\{\s*([\w.]+)\s*\}\}')
@@ -258,4 +262,3 @@ def main():
 
 
 if __name__ == '__main__':
-    main()

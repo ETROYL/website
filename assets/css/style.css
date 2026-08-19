@@ -180,12 +180,13 @@ a {
 }
 
 .logo-mark {
-    height: 36px;   /* Constrain by height, since the header
+    height: 64px;   /* Constrain by height, since the header
                         is a fixed-height horizontal bar — width
                         is left to "auto" (the browser's default)
                         so the image scales proportionally
                         instead of distorting. */
     width: auto;
+    opacity: 0.99;
 }
 
 .header-actions {
@@ -277,7 +278,7 @@ a {
     object-position:center;
     margin-bottom:var(--space-9xs);
 
-    mask-image:
+/*    mask-image:
         linear-gradient(
             to bottom,
             transparent,
@@ -290,7 +291,7 @@ a {
             black 10%,
             black 90%,
             transparent 100%);
-     mask-composite: intersect;
+     mask-composite: intersect;*/
 }
 
 .hero::after{
@@ -521,7 +522,7 @@ section h2 {
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     padding: var(--space-md);
-    text-align: left;
+    text-align: start;
     transition: border-color var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -674,7 +675,7 @@ section h2 {
 
 /* -- Project cards -- */
 .project-card {
-    text-align: left;
+    text-align: start;
 }
 
 .project-card h3 {
@@ -718,7 +719,7 @@ section h2 {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    text-align: left;
+    text-align: start;
     margin-block: var(--space-lg);
 }
 
@@ -848,7 +849,7 @@ section h2 {
 .contact-form {
     max-width: 900px;
     margin: var(--space-lg) auto 0;
-    text-align: left;
+    text-align: start;
 }
 
 .contact-form__grid {
@@ -979,7 +980,7 @@ section h2 {
 }
 
 .footer-logo {
-    height: 32px;
+    height: 38px;
     width: auto;
     opacity: 0.85;
 }

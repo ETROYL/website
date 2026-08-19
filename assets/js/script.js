@@ -166,7 +166,7 @@ class SiteFooter extends HTMLElement {
         this.innerHTML = `
             <div class="container footer-grid">
                 <div class="footer-brand">
-                    <img src="/assets/img/logo.webp" alt="ETROYL" width="778" height="399" class="footer-logo">
+                    <img src="/assets/img/logo-mono.webp" alt="ETROYL" width="978" height="978" class="footer-logo">
                     <p>&copy; <span id="current-year"></span> ETROYL. ${t.rights}</p>
                     <address>Oorbeeksesteenweg 59, Tienen, Belgium</address>
                 </div>

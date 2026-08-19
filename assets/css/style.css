@@ -180,12 +180,13 @@ a {
 }
 
 .logo-mark {
-    height: 36px;   /* Constrain by height, since the header
+    height: 64px;   /* Constrain by height, since the header
                         is a fixed-height horizontal bar — width
                         is left to "auto" (the browser's default)
                         so the image scales proportionally
                         instead of distorting. */
     width: auto;
+    opacity: 0.99;
 }
 
 .header-actions {
@@ -277,7 +278,7 @@ a {
     object-position:center;
     margin-bottom:var(--space-9xs);
 
-    mask-image:
+/*    mask-image:
         linear-gradient(
             to bottom,
             transparent,
@@ -290,7 +291,7 @@ a {
             black 10%,
             black 90%,
             transparent 100%);
-     mask-composite: intersect;
+     mask-composite: intersect;*/
 }
 
 .hero::after{
@@ -979,7 +980,7 @@ section h2 {
 }
 
 .footer-logo {
-    height: 32px;
+    height: 38px;
     width: auto;
     opacity: 0.85;
 }

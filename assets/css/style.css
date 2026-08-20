@@ -1028,6 +1028,7 @@ section h2 {
     .main-nav ul {
         flex-wrap: wrap;
         justify-content: center;
+        font-size: var(--text-xsm);
     }
 
    /* .hero h1 {

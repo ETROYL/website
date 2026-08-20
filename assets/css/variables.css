@@ -59,7 +59,7 @@
     /* A modular type scale (ratio-based, ~1.25 "Major Third")
        keeps heading sizes visually harmonious instead of
        arbitrary guesses like 22px, 27px, 34px. */
-	--text-xsm:   0.675rem;
+    --text-xsm:   0.675rem;
     --text-sm:   0.875rem;
     --text-base: 1rem;
     --text-lg:   1.25rem;

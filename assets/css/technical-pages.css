@@ -184,6 +184,7 @@
         overflow-x: visible;
         flex-wrap: wrap;
         padding-bottom: 0.2rem;
+        font-size: var(--text-sm);
     }
 
     .technical-list {
@@ -216,6 +217,7 @@
         overflow-x: visible;
         flex-wrap: wrap;
         padding-bottom: var(--space-20xs);
+        font-size: var(--text-sm);
     }
 
     .technical-list {
@@ -248,6 +250,7 @@
         overflow-x: visible;
         flex-wrap: wrap;
         padding-bottom: var(--space-20xs);
+        font-size: var(--text-sm);
     }
 
     .technical-list {

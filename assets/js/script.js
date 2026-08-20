@@ -115,6 +115,34 @@ function getCurrentLanguageFromPath(pathname) {
     return match ? match[1] : 'en';
 }
 
+function initLanguageFlags() {
+    const flagFiles = {
+        ar: 'sa.svg',
+        de: 'de.svg',
+        en: 'us.svg',
+        es: 'es.svg',
+        fr: 'fr.svg',
+        it: 'it.svg',
+        nl: 'nl.svg',
+        zh: 'cn.svg'
+    };
+
+    document.querySelectorAll('.lang-switcher__menu a[href]').forEach((link) => {
+        if (link.querySelector('img')) return;
+
+        const language = getCurrentLanguageFromPath(new URL(link.href, window.location.href).pathname);
+        const flagFile = flagFiles[language];
+        if (!flagFile) return;
+
+        const flag = document.createElement('img');
+        flag.src = `/assets/img/flags/${flagFile}`;
+        flag.alt = '';
+        flag.className = 'lang-flag';
+        flag.setAttribute('aria-hidden', 'true');
+        link.prepend(flag);
+    });
+}
+
 /* ==================================================
    THEME — DO NOT CHANGE WITHOUT REVIEW
    ================================================== */
@@ -306,6 +334,7 @@ function init() {
     // The language selector is the only place that changes the saved preference.
     localizeInternalLinks(savedLanguage);
     initLanguageMemory();
+    initLanguageFlags();
     initTheme();
     setCurrentYear();
     initLangSwitcher();

@@ -144,6 +144,33 @@
     background: var(--color-surface-raised);
 }
 
+/*
+   ETROYL Insight — a visually distinct treatment for
+   engineering principles worth remembering.
+*/
+.technical-insight {
+    border-left: 3px solid var(--color-accent) !important;
+    background: var(--color-surface) !important;
+    padding: var(--space-lg) !important;
+}
+
+.technical-insight__label {
+    margin-bottom: var(--space-xs);
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.technical-insight__statement {
+    max-width: 700px;
+    color: var(--color-text);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-weight: 600;
+    line-height: 1.65;
+}
+
 .technical-links {
     display: flex;
     flex-wrap: wrap;

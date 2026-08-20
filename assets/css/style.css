@@ -5,82 +5,36 @@
    everything here CONSUMES the tokens defined in
    variables.css via var(--token-name). You should not
    see a raw hex code or hardcoded pixel value below;
-   if you do, it's a sign the value should be promoted
+   if you do, it's a sign that the value should be promoted
    to a variable.
-
-   STRUCTURE OF THIS FILE (kept in this order deliberately):
-   1. Base element defaults (body, headings, links)
-   2. Layout utilities (.container)
-   3. Accessibility utilities (.skip-link)
-   4. Components, top to bottom in page order
-      (header → hero → services → about → contact → footer)
-
-   As the site grows, sections 4 onward are the first
-   candidates to split into separate files (e.g.
-   components/header.css, components/hero.css) and
-   pulled in via <link> tags or @import. For Phase 1,
-   one file is simpler to read and reason about.
    ================================================== */
 
 /* ---------- 1. BASE ELEMENT DEFAULTS ---------- */
-
 body {
     background-color: var(--color-background);
     padding-top:90px;
     color: var(--color-text);
     font-family: var(--font-body);
     font-size: var(--text-base);
-    line-height: 1.6; /* 1.6 is a well-established readability
-                          baseline for body copy — tight enough
-                          to feel cohesive, loose enough that
-                          lines don't visually blur together. */
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4 {
-    line-height: 1.2; /* Headings want tighter leading than
-                          body text — large text has more
-                          natural visual gap between lines. */
+    line-height: 1.2;
     font-weight: 600;
 }
 
-h1 {
-    margin-bottom: 24px;
-}
+h1 { margin-bottom: 24px; }
+h2 { margin-top: 0; margin-bottom: 16px; }
+a { color: inherit; text-decoration: none; }
 
-h2 {
-    margin-top: 0;
-    margin-bottom: 16px;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/* ---------- 2. LAYOUT UTILITIES ---------- */
-
-/* The .container pattern: a reusable horizontal constraint
-   applied inside every full-width section. This is a classic
-   CSS architecture pattern — sections can be full-bleed
-   (background spans the whole viewport) while their CONTENT
-   stays readable and centered. Using a class instead of
-   repeating this on every section respects DRY (Don't Repeat
-   Yourself) — the same reason you'd factor repeated logic
-   into a function rather than copy-pasting it. */
 .container {
     width: 100%;
     max-width: var(--container-width);
-    margin-inline: auto; /* shorthand for margin-left/right: auto — centers the block */
+    margin-inline: auto;
     padding-inline: var(--space-sm);
 }
 
-/* ---------- 3. ACCESSIBILITY UTILITIES ---------- */
-
-/* Visually hides the skip-link until it receives keyboard
-   focus, at which point it snaps into view. This pattern
-   (as opposed to display:none) is important: display:none
-   would also hide it from screen readers and remove it from
-   tab order entirely, defeating its purpose. */
 .skip-link {
     position: absolute;
     top: -100%;
@@ -92,19 +46,8 @@ a {
     transition: top var(--transition-fast);
 }
 
-.skip-link:focus {
-    top: 0;
-}
+.skip-link:focus { top: 0; }
 
-/* Unlike .skip-link, this hides content PERMANENTLY from sighted
-   users while keeping it fully readable by screen readers — used
-   for headings that establish document structure (e.g. a required
-   <h2> a screen-reader user needs to navigate by) but that would
-   be visually redundant next to an already-visible page <h1>.
-   display:none is never used here because that removes the
-   element from the accessibility tree entirely, defeating the
-   purpose. This exact clip-based pattern is the long-standing,
-   broadly-supported standard for this — not a homemade guess. */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -117,9 +60,7 @@ a {
     border: 0;
 }
 
-/* ---------- 4. COMPONENTS (in page order) ---------- */
-
-/* -- Site Header -- */
+/* ---------- 4. COMPONENTS ---------- */
 .site-header {
     position:fixed;
     top:0;
@@ -139,10 +80,6 @@ a {
     position: relative;
 }
 
-/* Theme toggle is now a round icon button living inside the
-   same header flex row as logo/nav (rather than a separate
-   fixed-position element floating outside it), matching the
-   compact top-right control shown in the mockup. */
 .theme-btn {
     display: flex;
     align-items: center;
@@ -159,35 +96,11 @@ a {
 }
 
 .theme-btn:hover,
-.theme-btn:focus-visible {
-    color: var(--color-text);
-    border-color: var(--color-accent);
-}
+.theme-btn:focus-visible { color: var(--color-text); border-color: var(--color-accent); }
+.theme-btn svg { width: 18px; height: 18px; }
 
-.theme-btn svg {
-    width: 18px;
-    height: 18px;
-}
-
-.logo {
-    display: flex; /* Removes the small baseline gap that
-                       browsers add below inline images by
-                       default, and lets us vertically center
-                       the mark against the nav links via the
-                       header's align-items: center rule. */
-   grid-column: 1 / 2;
-   justify-self: start;
-}
-
-.logo-mark {
-    height: 64px;   /* Constrain by height, since the header
-                        is a fixed-height horizontal bar — width
-                        is left to "auto" (the browser's default)
-                        so the image scales proportionally
-                        instead of distorting. */
-    width: auto;
-    opacity: 0.99;
-}
+.logo { display: flex; grid-column: 1 / 2; justify-self: start; }
+.logo-mark { height: 64px; width: auto; opacity: 0.99; }
 
 .header-actions {
     grid-column: 2 / 3;
@@ -196,11 +109,7 @@ a {
     gap: 0.5rem;
 }
 
-.main-nav {
-    grid-column: 1 / -1;
-    width: 100%;
-}
-
+.main-nav { grid-column: 1 / -1; width: 100%; }
 .main-nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -210,53 +119,18 @@ a {
     padding: 0;
     margin: 0;
 }
+.main-nav a { color: var(--color-text-muted); transition: color var(--transition-fast); }
+.main-nav a:hover, .main-nav a:focus-visible { color: var(--color-text); }
+.main-nav a[aria-current="page"] { color: var(--color-text); border-bottom: 2px solid var(--color-accent); }
 
-.main-nav a {
-    color: var(--color-text-muted);
-    transition: color var(--transition-fast);
-}
-
-.main-nav a:hover,
-.main-nav a:focus-visible {
-    color: var(--color-text);
-}
-
-/* Styling the [aria-current="page"] ATTRIBUTE (not a separate
-   CSS class) means the visual "active" state and the accessible
-   "active" state can never drift out of sync — there is only
-   one source of truth for "this is the current page," and both
-   sighted and screen-reader users read it from the same place. */
-.main-nav a[aria-current="page"] {
-    color: var(--color-text);
-    border-bottom: 2px solid var(--color-accent);
-}
-
-/* :focus-visible (rather than :focus) shows the focus ring
-   only for keyboard navigation, not mouse clicks — matching
-   what sighted mouse users expect while still fully
-   supporting keyboard/screen-reader users. This is a modern
-   accessibility best practice, not a stylistic preference. */
-
-/* -- Hero Section --
-   No border-top here (unlike the generic `section` rule further
-   down) since the hero is the first thing on the page — a divider
-   above it would separate it from nothing. */
 .hero {
     position: relative;
     padding-block: var(--space-md);
     text-align: center;
     border-top: none;
-    overflow: hidden; /* keeps the backdrop's glow from spilling
-                          past the section's own edges */
+    overflow: hidden;
 }
 
-/* Pure-CSS backdrop: a faint grid (two repeating linear
-   gradients, one per axis) plus a radial glow centered behind
-   the logo. This replaces the old photographed banner — it
-   costs zero requests and zero KB of image asset, which matters
-   given there is no real hero photography yet. Swap this div
-   out for a photo-based treatment later without touching any
-   other hero markup. */
 .hero-backdrop {
     position: absolute;
     inset: 0;
@@ -277,175 +151,39 @@ a {
     object-fit:cover;
     object-position:center;
     margin-bottom:var(--space-9xs);
-
-/*    mask-image:
-        linear-gradient(
-            to bottom,
-            transparent,
-            black 10%,
-            black 90%,
-            transparent 100%),
-        linear-gradient(
-            to right,
-            transparent,
-            black 10%,
-            black 90%,
-            transparent 100%);
-     mask-composite: intersect;*/
 }
 
 .hero::after{
     content:"";
     position:absolute;
     inset:0;
-    background:
-    linear-gradient(
-        rgba(255,255,255,0.00),
-        rgba(255,255,255,0.15)
-    );
-
+    background: linear-gradient(rgba(255,255,255,0.00), rgba(255,255,255,0.15));
     pointer-events:none;
 }
 
-/*.hero-tagline{
-    font-size:clamp(0.75rem, 2.2vw, 1.6rem);
-    white-space:nowrap;
-}*/
+.hero-title{ font-size:clamp(1.4rem, 4vw, 3rem); line-height:1.15; }
+.hero-content{ padding:clamp(1rem,4vw,3rem); }
+.hero-banner img { width: 100%; height: auto; max-height: 60vh; object-fit: cover; }
+.hero-mark { height: 96px; width: auto; margin-inline: auto; margin-bottom: var(--space-sm); }
+.hero-wordmark { font-size: var(--text-3xl); font-weight: 700; letter-spacing: 0.15em; margin-bottom: var(--space-md); }
+.hero h1 { font-size: clamp(1.5rem, 4vw, 3rem); max-width: 50ch; margin-inline: auto; margin-bottom: var(--space-sm); text-align: center; }
+.hero-subline { font-size: clamp(0.75rem, 2.0vw, 1.4rem); color: var(--color-text-muted); white-space: nowrap; }
+.hero-subline span { color: var(--color-accent); margin-inline: var(--space-xs); }
 
-.hero-title{
-    font-size:clamp(1.4rem, 4vw, 3rem);
-    line-height:1.15;
-}
-
-.hero-content{
-    padding:clamp(1rem,4vw,3rem);
-}
-
-/*@media(max-width:380px){
-    .hero-tagline{
-        font-size:0.7rem;
-    }
-}*/
-
-/*.hero-banner {
-    width: 100%;
-    display:block;
-    margin:0 auto;
-    margin-bottom: var(--space-xs);
-}*/
-
-.hero-banner img {
-    width: 100%;
-    height: auto;
-    max-height: 60vh;
-    object-fit: cover;
-}
-
-.hero-mark {
-    height: 96px;
-    width: auto;
-    margin-inline: auto;
-    margin-bottom: var(--space-sm);
-}
-
-.hero-wordmark {
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    letter-spacing: 0.15em; /* wide tracking reads as a
-                                logotype rather than a heading */
-    margin-bottom: var(--space-md);
-}
-
-.hero h1 {
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    max-width: 50ch;
-    margin-inline: auto;
-    margin-bottom: var(--space-sm);
-    text-align: center;
-}
-
-.hero-subline {
-    font-size: clamp(0.75rem, 2.0vw, 1.4rem);
-    color: var(--color-text-muted);
-    white-space: nowrap;
-}
-
-.hero-subline span {
-    color: var(--color-accent);
-    margin-inline: var(--space-xs);
-}
-
-
-.founder-hero {
-    display: grid;
-    grid-template-columns: minmax(200px, 300px) 1fr;
-    gap: 30px;
-    align-items: start;
-    margin-bottom: 30px;
-}
-
-.founder-portrait {
-    width: 100%;
-    max-width: 300px;
-    overflow: hidden;
-    border-radius: 0;
-    margin: 0 auto;
-}
-
-.founder-portrait img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.founder-intro h1 {
-    margin-bottom: 12px;
-}
-
-.founder-role {
-    margin-bottom: 28px;
-    font-size: 1.1rem;
-}
+.founder-hero { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 30px; align-items: start; margin-bottom: 30px; }
+.founder-portrait { width: 100%; max-width: 300px; overflow: hidden; border-radius: 0; margin: 0 auto; }
+.founder-portrait img { display: block; width: 100%; height: auto; }
+.founder-intro h1 { margin-bottom: 12px; }
+.founder-role { margin-bottom: 28px; font-size: 1.1rem; }
 
 @media (max-width: 680px) {
-    .founder-hero {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        align-items: start;
-        margin-bottom: 20px;
-    }
-
-    .founder-portrait {
-    	width: 75%;
-        max-width: 220px;
-        overflow: hidden;
-	border-radius: 0;
-        margin: 0 auto;
-    }
+    .founder-hero { grid-template-columns: 1fr; gap: 25px; align-items: start; margin-bottom: 20px; }
+    .founder-portrait { width: 75%; max-width: 220px; overflow: hidden; border-radius: 0; margin: 0 auto; }
 }
 
+section { padding-block: var(--space-xl); border-top: 1px solid var(--color-border); }
+section h2 { font-size: var(--text-2xl); margin-bottom: var(--space-md); }
 
-
-/* -- Generic Content Sections --
-   Shared rhythm/border for every full-width section below the
-   hero. Individual sections add their own background color or
-   grid layout on top of this shared baseline rather than
-   repeating padding/border values each time. */
-section {
-    padding-block: var(--space-xl);
-    border-top: 1px solid var(--color-border);
-}
-
-section h2 {
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-md);
-}
-
-/* -- Eyebrow label --
-   The small accent-colored label above most section headings
-   ("What We Build", "Featured Projects", etc). A single shared
-   class instead of styling section-specific <p> tags keeps this
-   pattern visually identical everywhere it appears. */
 .eyebrow {
     font-size: var(--text-sm);
     font-weight: 600;
@@ -455,13 +193,6 @@ section h2 {
     margin-bottom: var(--space-xs);
 }
 
-/* -- Buttons --
-   Two variants: outline (secondary, used repeatedly per-section
-   for "explore/view all" actions) and primary (solid fill,
-   reserved for the single highest-priority action on the page —
-   the final contact CTA). Reserving the solid-fill treatment for
-   one button is what makes it read as *the* action rather than
-   *an* action. */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -475,747 +206,143 @@ section h2 {
     cursor: pointer;
     transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
+.btn-outline { border: 1px solid var(--color-accent); color: var(--color-accent); background: transparent; }
+.btn-outline:hover, .btn-outline:focus-visible { background: var(--color-accent); color: #fff; }
+.btn-primary { border: 1px solid var(--color-accent); background: var(--color-accent); color: #fff; }
+.btn-primary:hover, .btn-primary:focus-visible { background: transparent; color: var(--color-accent); }
+
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-md); margin-block: var(--space-lg); }
+.card-grid--projects { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+.service-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--border-radius); padding: var(--space-md); text-align: start; transition: border-color var(--transition-fast), transform var(--transition-fast); }
+.service-card:hover { border-color: var(--color-accent); transform: translateY(-2px); }
+.service-card svg { width: 28px; height: 28px; color: var(--color-accent); margin-bottom: var(--space-sm); }
+.service-card h3 { font-size: var(--text-base); margin-bottom: var(--space-xs); }
+.service-card p { font-size: var(--text-sm); color: var(--color-text-muted); }
+
+.domain-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-lg); list-style: none; text-align: center; }
+.domain-row li { display: flex; flex-direction: column; align-items: center; gap: var(--space-xs); width: 120px; }
+.domain-row svg { width: 28px; height: 28px; color: var(--color-accent); }
+.domain-row span { font-size: var(--text-sm); color: var(--color-text-muted); }
+.who-we-help { text-align: center; }
+.who-we-help h2 { max-width: 32ch; margin-inline: auto; margin-bottom: var(--space-lg); }
+
+.services .container > .eyebrow, .services .container > h2,
+.projects .container > .eyebrow, .projects .container > h2,
+.insights .container > .eyebrow, .insights .container > h2 { text-align: center; }
+.services .container > h2, .projects .container > h2, .insights .container > h2 { max-width: 36ch; margin-inline: auto; }
+.services > .container, .projects > .container, .insights > .container { text-align: center; }
+
+.card-media-placeholder { display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 9; background: linear-gradient(135deg, var(--color-surface-raised), var(--color-surface)); border: 1px solid var(--color-border); border-radius: var(--border-radius); margin-bottom: var(--space-sm); }
+.card-media-placeholder img, .card-media-placeholder picture { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--border-radius); }
+.card-media-placeholder svg { width: 40px; height: 40px; color: var(--color-text-muted); }
+.card-media-placeholder--sm { aspect-ratio: 16 / 9; width: 160px; flex-shrink: 0; margin-bottom: 0; }
+.card-media-placeholder--sm svg { width: 28px; height: 28px; }
+.card-media-placeholder--lg { aspect-ratio: 16 / 9; margin-bottom: 0; }
+.card-media-placeholder--lg svg { width: 56px; height: 56px; }
+
+.project-card { text-align: start; }
+.project-card h3 { font-size: var(--text-base); margin-bottom: var(--space-xs); }
+.project-card p { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-sm); }
+.card-link { display: inline-flex; align-items: center; gap: var(--space-xs); font-size: var(--text-sm); font-weight: 600; color: var(--color-accent); }
+.card-link svg { width: 14px; height: 14px; transition: transform var(--transition-fast); }
+.card-link:hover svg, .card-link:focus-visible svg { transform: translateX(3px); }
+
+.insight-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-md); text-align: start; margin-block: var(--space-lg); }
+.insight-item { display: flex; gap: var(--space-md); align-items: flex-start; padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-border); }
+.insight-item:last-child { border-bottom: none; padding-bottom: 0; }
+.insight-item__body h3 { font-size: var(--text-lg); margin-bottom: var(--space-xs); }
+.insight-item__body p { color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-xs); }
+.insight-item__meta { color: var(--color-text-muted); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.05em; }
+
+.stats { background: var(--color-surface); box-shadow: var(--shadow-card); }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--space-lg); text-align: center; }
+.stat { display: flex; flex-direction: column; gap: var(--space-xs); }
+.stat__number { font-size: var(--text-3xl); font-weight: 700; }
+.stat__number--accent { color: var(--color-accent); }
+.stat__label { font-size: var(--text-sm); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.stat--callout { border-left: 1px solid var(--color-border); padding-left: var(--space-lg); }
+.stat--callout .stat__label { text-transform: none; letter-spacing: normal; font-size: var(--text-base); }
+.stat__caption { color: var(--color-text-muted); font-size: var(--text-sm); }
+
+.about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-lg); align-items: center; }
+.about-copy p { color: var(--color-text-muted); margin-bottom: var(--space-md); }
+
+.contact { text-align: center; background: var(--color-surface); }
+.contact p { color: var(--color-text-muted); margin-bottom: var(--space-md); }
+.contact-options { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+.contact-form { max-width: 900px; margin: var(--space-lg) auto 0; text-align: start; }
+.contact-form__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+.form-field { display: flex; flex-direction: column; gap: var(--space-xs); }
+.form-field--full { grid-column: 1 / -1; }
+.form-field label { font-size: var(--text-sm); font-weight: 600; color: var(--color-text); }
+.form-field label span { color: var(--color-accent); margin-inline-start: var(--space-9xs); }
+.form-error { color: var(--color-accent); font-size: var(--text-sm); }
+.form-field input[aria-invalid="true"], .form-field textarea[aria-invalid="true"] { border-color: var(--color-accent); }
+.form-field input, .form-field textarea { width: 100%; padding: var(--space-xs) var(--space-sm); border: 1px solid var(--color-border); border-radius: var(--border-radius); background: var(--color-background); color: var(--color-text); font: inherit; transition: border-color var(--transition-fast), box-shadow var(--transition-fast); }
+.form-field textarea { min-height: 160px; resize: vertical; }
+.form-field input::placeholder, .form-field textarea::placeholder { color: var(--color-text-muted); }
+.form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-accent-glow); }
+.form-success, .form-error-global { margin-bottom: var(--space-md); font-size: var(--text-sm); }
+.form-success, .form-error-global { color: var(--color-accent); }
+.contact-form > .btn { margin-top: var(--space-md); }
 
-.btn-outline {
-    border: 1px solid var(--color-accent);
-    color: var(--color-accent);
-    background: transparent;
-}
-
-.btn-outline:hover,
-.btn-outline:focus-visible {
-    background: var(--color-accent);
-    color: #fff;
-}
-
-.btn-primary {
-    border: 1px solid var(--color-accent);
-    background: var(--color-accent);
-    color: #fff;
-}
-
-.btn-primary:hover,
-.btn-primary:focus-visible {
-    background: transparent;
-    color: var(--color-accent);
-}
-
-/* -- Card grid --
-   Shared by the services grid and the projects grid. Genuinely
-   two-dimensional (rows AND columns, adaptive column count) —
-   same auto-fill/minmax reasoning already used for the education
-   library grid in education.css. */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--space-md);
-    margin-block: var(--space-lg);
-}
-
-.card-grid--projects {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-/* -- Service cards -- */
-.service-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    padding: var(--space-md);
-    text-align: start;
-    transition: border-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.service-card:hover {
-    border-color: var(--color-accent);
-    transform: translateY(-2px);
-}
-
-.service-card svg {
-    width: 28px;
-    height: 28px;
-    color: var(--color-accent);
-    margin-bottom: var(--space-sm);
-}
-
-.service-card h3 {
-    font-size: var(--text-base);
-    margin-bottom: var(--space-xs);
-}
-
-.service-card p {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-}
-
-/* -- Who We Help row --
-   A flex-wrap row rather than Grid: unlike the card grids above,
-   these items don't need matched card heights or strict column
-   alignment — they're a simple label list that should just wrap
-   naturally at any width, which is exactly the 1D-with-wrapping
-   case flex-wrap is for. */
-.domain-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-lg);
-    list-style: none;
-    text-align: center;
-}
-
-.domain-row li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xs);
-    width: 120px;
-}
-
-.domain-row svg {
-    width: 28px;
-    height: 28px;
-    color: var(--color-accent);
-}
-
-.domain-row span {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-}
-
-.who-we-help {
-    text-align: center;
-}
-
-.who-we-help h2 {
-    max-width: 32ch;
-    margin-inline: auto;
-    margin-bottom: var(--space-lg);
-}
-
-/* -- Section header centering --
-   Services/projects/insights all lead with a centered
-   eyebrow+heading before their (left-aligned) content grid. */
-.services .container > .eyebrow,
-.services .container > h2,
-.projects .container > .eyebrow,
-.projects .container > h2,
-.insights .container > .eyebrow,
-.insights .container > h2 {
-    text-align: center;
-}
-
-.services .container > h2,
-.projects .container > h2,
-.insights .container > h2 {
-    max-width: 36ch;
-    margin-inline: auto;
-}
-
-.services > .container,
-.projects > .container,
-.insights > .container {
-    text-align: center;
-}
-
-/* -- Placeholder media graphic --
-   Shared "not a photo yet" treatment for project cards, the
-   insight list, and the About teaser. A soft diagonal gradient
-   plus a large centered icon reads intentionally as a stand-in
-   graphic (rather than a broken image), so nothing here needs
-   to apologize for being a placeholder. Swap for a real <img>
-   per instance once photography exists — none of the
-   surrounding card markup needs to change when that happens. */
-.card-media-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, var(--color-surface-raised), var(--color-surface));
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    margin-bottom: var(--space-sm);
-}
-
-.card-media-placeholder img,
-.card-media-placeholder picture {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: var(--border-radius);
-}
-
-.card-media-placeholder svg {
-    width: 40px;
-    height: 40px;
-    color: var(--color-text-muted);
-}
-
-.card-media-placeholder--sm {
-    aspect-ratio: 16 / 9;
-    width: 160px;
-    flex-shrink: 0;
-    margin-bottom: 0;
-}
-
-.card-media-placeholder--sm svg {
-    width: 28px;
-    height: 28px;
-}
-
-.card-media-placeholder--lg {
-    aspect-ratio: 16 / 9;
-    margin-bottom: 0;
-}
-
-.card-media-placeholder--lg svg {
-    width: 56px;
-    height: 56px;
-}
-
-/* -- Project cards -- */
-.project-card {
-    text-align: start;
-}
-
-.project-card h3 {
-    font-size: var(--text-base);
-    margin-bottom: var(--space-xs);
-}
-
-.project-card p {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-sm);
-}
-
-.card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--color-accent);
-}
-
-.card-link svg {
-    width: 14px;
-    height: 14px;
-    transition: transform var(--transition-fast);
-}
-
-.card-link:hover svg,
-.card-link:focus-visible svg {
-    transform: translateX(3px);
-}
-
-/* -- Insights list --
-   A horizontal media+text row per item, not a grid of cards —
-   these read more like a compact article index than standalone
-   tiles, so a list is both the more honest markup (an ordered
-   set of posts) and the better-fitting visual. */
-.insight-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    text-align: start;
-    margin-block: var(--space-lg);
-}
-
-.insight-item {
-    display: flex;
-    gap: var(--space-md);
-    align-items: flex-start;
-    padding-bottom: var(--space-md);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.insight-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.insight-item__body h3 {
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-xs);
-}
-
-.insight-item__body p {
-    color: var(--color-text-muted);
-    font-size: var(--text-sm);
-    margin-bottom: var(--space-xs);
-}
-
-.insight-item__meta {
-    color: var(--color-text-muted);
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* -- Stats band --
-   Visually distinct from the sections around it (raised
-   surface + accent-tinted glow) since these are the site's
-   proof points — it should read as a highlighted band you
-   pause on while scrolling, not blend into the surrounding
-   sections. */
-.stats {
-    background: var(--color-surface);
-    box-shadow: var(--shadow-card);
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: var(--space-lg);
-    text-align: center;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-}
-
-.stat__number {
-    font-size: var(--text-3xl);
-    font-weight: 700;
-}
-
-.stat__number--accent {
-    color: var(--color-accent);
-}
-
-.stat__label {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.stat--callout {
-    border-left: 1px solid var(--color-border);
-    padding-left: var(--space-lg);
-}
-
-.stat--callout .stat__label {
-    text-transform: none;
-    letter-spacing: normal;
-    font-size: var(--text-base);
-}
-
-.stat__caption {
-    color: var(--color-text-muted);
-    font-size: var(--text-sm);
-}
-
-/* -- About teaser --
-   Two-dimensional layout (copy column + image column, side by
-   side) — Grid is the right tool here, same reasoning as the
-   card grids above, just with two fixed tracks instead of an
-   auto-fit repeat. */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: var(--space-lg);
-    align-items: center;
-}
-
-.about-copy p {
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-md);
-}
-
-/* -- Contact / CTA -- */
-.contact {
-    text-align: center;
-    background: var(--color-surface);
-}
-
-.contact p {
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-md);
-}
-
-.contact-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.6rem;
-}
-
-/* -- Contact form -- */
-.contact-form {
-    max-width: 900px;
-    margin: var(--space-lg) auto 0;
-    text-align: start;
-}
-
-.contact-form__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
-}
-
-.form-field {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-}
-
-.form-field--full {
-    grid-column: 1 / -1;
-}
-
-.form-field label {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--color-text);
-}
-
-.form-field label span {
-    color: var(--color-accent);
-    margin-inline-start: var(--space-9xs);
-}
-
-.form-error {
-    color: var(--color-accent);
-    font-size: var(--text-sm);
-}
-
-.form-field input[aria-invalid="true"],
-.form-field textarea[aria-invalid="true"] {
-    border-color: var(--color-accent);
-}
-
-.form-field input,
-.form-field textarea {
-    width: 100%;
-    padding: var(--space-xs) var(--space-sm);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    background: var(--color-background);
-    color: var(--color-text);
-    font: inherit;
-    transition:
-        border-color var(--transition-fast),
-        box-shadow var(--transition-fast);
-}
-
-.form-field textarea {
-    min-height: 160px;
-    resize: vertical;
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-    color: var(--color-text-muted);
-}
-
-.form-field input:focus,
-.form-field textarea:focus {
-    outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px var(--color-accent-glow);
-}
-
-.form-success,
-.form-error-global {
-    margin-bottom: var(--space-md);
-    font-size: var(--text-sm);
-}
-
-.form-success {
-    color: var(--color-accent);
-}
-
-.form-error-global {
-    color: var(--color-accent);
-}
-
-.contact-form > .btn {
-    margin-top: var(--space-md);
-}
-
-/* -- Contact form mobile layout -- */
 @media (max-width: 640px) {
-    .contact-form__grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-field--full {
-        grid-column: auto;
-    }
+    .contact-form__grid { grid-template-columns: 1fr; }
+    .form-field--full { grid-column: auto; }
 }
 
-/* -- Contact form toggle -- */
-#contact-form-toggle.is-active {
-    background: var(--color-accent);
-    color: var(--color-background);
-    border-color: var(--color-accent);
-}
+#contact-form-toggle.is-active { background: var(--color-accent); color: var(--color-background); border-color: var(--color-accent); }
 
-/* -- Site Footer --
-   Now a genuine 2D layout (brand block + 3 nav columns across
-   a row that stacks on mobile), so this moves from the flex
-   stack used previously to Grid — same rule of thumb as the
-   card grids: reach for Grid once there's more than one
-   dimension of alignment to solve for. */
-.site-footer {
-    padding-block: var(--space-lg);
-    color: var(--color-text-muted);
-    font-size: var(--text-sm);
-    border-top: 1px solid var(--color-border);
-}
+.site-footer { padding-block: var(--space-lg); color: var(--color-text-muted); font-size: var(--text-sm); border-top: 1px solid var(--color-border); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: var(--space-lg); }
+.footer-brand p { margin-top: var(--space-sm); }
+.footer-logo { height: 38px; width: auto; opacity: 0.85; }
+.footer-nav h3 { font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text); margin-bottom: var(--space-sm); }
+.footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-xs); }
+.footer-nav a { transition: color var(--transition-fast); }
+.footer-nav a:hover, .footer-nav a:focus-visible { color: var(--color-text); }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr repeat(3, 1fr);
-    gap: var(--space-lg);
-}
-
-.footer-brand p {
-    margin-top: var(--space-sm);
-}
-
-.footer-logo {
-    height: 38px;
-    width: auto;
-    opacity: 0.85;
-}
-
-.footer-nav h3 {
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text);
-    margin-bottom: var(--space-sm);
-}
-
-.footer-nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-}
-
-.footer-nav a {
-    transition: color var(--transition-fast);
-}
-
-.footer-nav a:hover,
-.footer-nav a:focus-visible {
-    color: var(--color-text);
-}
-
-/* ---------- RESPONSIVE BEHAVIOR ---------- */
-
-/* Mobile-first would normally mean writing the narrow
-   layout as the DEFAULT and widening with min-width media
-   queries. Here, since the base styles above are already
-   simple enough to work at any width unmodified, the only
-   adjustment needed is stacking the header nav on very
-   narrow viewports. As components grow more complex in
-   Phase 2, prefer converting the base rules to mobile-first
-   rather than accumulating many override queries here. */
 @media (max-width: 640px) {
-    .site-header .container {
-        flex-direction: column;
-        gap: var(--space-xs);
-    }
-    
-    .main-nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        font-size: var(--text-sm);
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .footer-nav ul {
-        align-items: center;
-    }
-
-    .stat--callout {
-        border-left: none;
-        border-top: 1px solid var(--color-border);
-        padding-left: 0;
-        padding-top: var(--space-lg);
-    }
-
-    .insight-item {
-        flex-direction: column;
-    }
-
-    .card-media-placeholder--sm {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-    }
+    .site-header .container { flex-direction: column; gap: var(--space-xs); }
+    .main-nav ul { flex-wrap: wrap; justify-content: center; font-size: var(--text-sm); }
+    .about-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-nav ul { align-items: center; }
+    .stat--callout { border-left: none; border-top: 1px solid var(--color-border); padding-left: 0; padding-top: var(--space-lg); }
+    .insight-item { flex-direction: column; }
+    .card-media-placeholder--sm { width: 100%; aspect-ratio: 16 / 9; }
 }
 
-/* -- Language switcher (dropdown) --
-   Replace the ENTIRE previous .lang-switcher block in style.css
-   with everything below — the markup changed from a flat <ul> to
-   a button + hidden menu, so the old flex-row CSS no longer
-   applies to anything. */
+.lang-switcher { position: relative; }
+.lang-switcher__toggle { display: flex; align-items: center; gap: var(--space-xs); background: transparent; border: 1px solid var(--color-border); color: var(--color-text-muted); padding: 0.4rem 0.75rem; border-radius: var(--border-radius); cursor: pointer; font-size: var(--text-sm); letter-spacing: 0.05em; transition: border-color var(--transition-fast), color var(--transition-fast); }
+.lang-switcher__toggle:hover, .lang-switcher__toggle:focus-visible, .lang-switcher__toggle[aria-expanded="true"] { color: var(--color-text); border-color: var(--color-accent); }
+.lang-switcher__toggle svg { width: 16px; height: 16px; }
+.lang-flag { width: 20px; height: auto; aspect-ratio: 4 / 3; object-fit: cover; flex-shrink: 0; }
+.lang-switcher__current { display: inline-flex; align-items: center; gap: var(--space-xs); }
+.lang-switcher__menu { position: absolute; top: calc(100% + var(--space-xs)); right: 0; z-index: 50; min-width: 150px; list-style: none; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--border-radius); box-shadow: var(--shadow-card); padding: var(--space-xs); }
+.lang-switcher__menu a { display: flex; align-items: center; gap: var(--space-xs); padding: var(--space-xs) var(--space-sm); border-radius: var(--border-radius); color: var(--color-text-muted); font-size: var(--text-sm); letter-spacing: 0.05em; transition: background-color var(--transition-fast), color var(--transition-fast); }
+.lang-switcher__menu a:hover, .lang-switcher__menu a:focus-visible { background: var(--color-surface-raised); color: var(--color-text); }
+.lang-switcher__menu a[aria-current="true"] { color: var(--color-accent); font-weight: 600; }
 
-/* -- Language switcher (dropdown) -- */
+.founder-external-links { margin-top: 28px; }
+.founder-external-links-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.8rem; }
+.founder-external-links-items { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+.founder-external-links-items a { display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; }
+.founder-external-links-items img { width: 22px; height: 22px; }
+.founder-external-links-items span { font-size: 0.9rem; }
+.footer-social { display: flex; align-items: center; gap: var(--space-sm); }
+.footer-social a { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; color: var(--color-text-muted); transition: color var(--transition-fast), opacity var(--transition-fast); }
+.footer-social a:hover, .footer-social a:focus-visible { color: var(--color-text); }
+.footer-social img { width: 22px; height: 22px; display: block; transition: filter var(--transition-fast), opacity var(--transition-fast); }
+[data-theme="dark"] .footer-social img[src*="github.svg"], [data-theme="dark"] .footer-social img[src*="x.svg"] { filter: invert(1); }
 
-.lang-switcher {
-    position: relative;
+/* ---------- About-page content lists ---------- */
+.content-list {
+    margin-block: var(--space-sm);
+    padding-inline-start: 2rem;
 }
 
-.lang-switcher__toggle {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    background: transparent;
-    border: 1px solid var(--color-border);
-    color: var(--color-text-muted);
-    padding: 0.4rem 0.75rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: var(--text-sm);
-    letter-spacing: 0.05em;
-    transition: border-color var(--transition-fast), color var(--transition-fast);
-}
-
-.lang-switcher__toggle:hover,
-.lang-switcher__toggle:focus-visible,
-.lang-switcher__toggle[aria-expanded="true"] {
-    color: var(--color-text);
-    border-color: var(--color-accent);
-}
-
-.lang-switcher__toggle svg {
-    width: 16px;
-    height: 16px;
-}
-
-/* Language flag */
-.lang-flag {
-    width: 20px;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    flex-shrink: 0;
-}
-
-/* Current language inside the switcher button */
-.lang-switcher__current {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-}
-
-/* Dropdown */
-.lang-switcher__menu {
-    position: absolute;
-    top: calc(100% + var(--space-xs));
-    right: 0;
-    z-index: 50;
-    min-width: 150px;
-    list-style: none;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-card);
-    padding: var(--space-xs);
-}
-
-.lang-switcher__menu a {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--border-radius);
-    color: var(--color-text-muted);
-    font-size: var(--text-sm);
-    letter-spacing: 0.05em;
-    transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-.lang-switcher__menu a:hover,
-.lang-switcher__menu a:focus-visible {
-    background: var(--color-surface-raised);
-    color: var(--color-text);
-}
-
-.lang-switcher__menu a[aria-current="true"] {
-    color: var(--color-accent);
-    font-weight: 600;
-}
-
-.founder-external-links {
-    margin-top: 28px;
-}
-
-.founder-external-links-title {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-}
-
-.founder-external-links-items {
-    display: flex;
-    align-items: center;
-    gap: 1.4rem;
-    flex-wrap: wrap;
-}
-
-.founder-external-links-items a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    text-decoration: none;
-}
-
-.founder-external-links-items img {
-    width: 22px;
-    height: 22px;
-}
-
-.founder-external-links-items span {
-    font-size: 0.9rem;
-}
-
-.footer-social {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-}
-
-.footer-social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    color: var(--color-text-muted);
-    transition: color var(--transition-fast), opacity var(--transition-fast);
-}
-
-.footer-social a:hover,
-.footer-social a:focus-visible {
-    color: var(--color-text);
-}
-
-.footer-social img {
-    width: 22px;
-    height: 22px;
-    display: block;
-    transition: filter var(--transition-fast), opacity var(--transition-fast);
-}
-
-[data-theme="dark"] .footer-social img[src*="github.svg"],
-[data-theme="dark"] .footer-social img[src*="x.svg"] {
-    filter: invert(1);
+.content-list li {
+    margin-bottom: var(--space-xs);
 }

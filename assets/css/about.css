@@ -1,0 +1,10 @@
+/* About page content lists
+   reset.css intentionally removes native list indentation globally. */
+.content-list {
+    margin-block: var(--space-sm);
+    padding-inline-start: 2rem;
+}
+
+.content-list li {
+    margin-bottom: var(--space-xs);
+}

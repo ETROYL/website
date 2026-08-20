@@ -1,21 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Fast Near-Field Modeling for GPR Systems | ETROYL</title>
-    <meta name="description" content="ETROYL explores efficient near-field electromagnetic modeling for ground-penetrating radar systems, balancing physical fidelity with practical computation.">
+    <meta
+        name="description"
+        content="ETROYL explores efficient near-field electromagnetic modeling for ground-penetrating radar systems, balancing physical fidelity with practical computation."
+    >
     <link rel="canonical" href="https://www.etroyl.com/insights/near-field-gpr-modeling/">
-    <meta property="og:type" content="article"><meta property="og:title" content="Fast Near-Field Modeling for GPR Systems | ETROYL"><meta property="og:description" content="Physics-aware near-field electromagnetic modeling for practical GPR analysis."><meta property="og:url" content="https://www.etroyl.com/insights/near-field-gpr-modeling/">
-    <link rel="stylesheet" href="/assets/css/reset.css"><link rel="stylesheet" href="/assets/css/variables.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="/assets/css/technical-pages.css">
-    <script src="https://unpkg.com/lucide@latest" defer></script><script src="/assets/js/config.js" defer></script><script src="/assets/js/script.js" defer></script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fast Near-Field Modeling for GPR Systems | ETROYL">
+    <meta property="og:description" content="Physics-aware near-field electromagnetic modeling for practical GPR analysis.">
+    <meta property="og:url" content="https://www.etroyl.com/insights/near-field-gpr-modeling/">
+
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/technical-pages.css">
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="/assets/js/config.js" defer></script>
+    <script src="/assets/js/script.js" defer></script>
 </head>
+
 <body class="technical-page">
-<header class="technical-header"><div class="container"><a href="/" class="logo" aria-label="ETROYL home"><img src="/assets/img/logo-mono.webp" alt="ETROYL" width="978" height="978" class="logo-mark"></a><div class="technical-tools"><button id="theme-toggle" class="theme-btn" type="button" aria-label="Toggle color theme"><i data-lucide="sun-moon" aria-hidden="true"></i></button></div><nav class="technical-nav" aria-label="Primary"><ul><li><a href="/insights/">Selected Insights</a></li><li><a href="/#services">Services</a></li><li><a href="/#projects">Projects</a></li><li><a href="/education.html">Education</a></li><li><a href="/about/about.html">About</a></li><li><a href="/#contact">Contact</a></li></ul></nav></div></header>
-<div class="technical-language-note">Selected Insights are currently published in English.</div>
-<main class="technical-main">
-<section class="technical-hero"><div class="container"><p class="eyebrow">Selected Engineering Insight</p><h1>Fast Near-Field Modeling for GPR Systems</h1><p class="lead">Ground-penetrating radar sits at the intersection of electromagnetics, antennas, signal processing and uncertain subsurface conditions. Useful modeling must respect that physics while remaining practical enough to support engineering decisions.</p><div class="card-media-placeholder card-media-placeholder--lg"><i data-lucide="radar" aria-hidden="true"></i></div></div></section>
-<section class="technical-section technical-section--surface"><div class="container"><p class="eyebrow">The Modeling Challenge</p><h2>Physical fidelity versus computational cost</h2><p>Near-field GPR problems are difficult because the antenna, ground interface, subsurface structure and measurement geometry interact. A model that is too simplified can hide the effects that matter; a model that is unnecessarily expensive can become disconnected from practical design and interpretation workflows.</p><ul class="technical-list"><li><strong>Near-field behavior</strong><br>The antenna and its immediate electromagnetic environment cannot simply be treated as a distant-field source.</li><li><strong>Material uncertainty</strong><br>Permittivity, conductivity and geometry vary in real ground, so modeling assumptions must remain explicit.</li><li><strong>Geometry matters</strong><br>Transmitter, receiver, antenna orientation and target position can strongly affect the observed response.</li><li><strong>Useful computation</strong><br>The best model is not necessarily the most detailed one; it is the one that preserves the physics needed for the engineering question.</li></ul></div></section>
-<section class="technical-section"><div class="container"><p class="eyebrow">ETROYL Perspective</p><h2>Build the model around the question</h2><p>A practical modeling workflow starts by identifying which physical effects must be retained and which can be represented more efficiently. That creates a path toward reduced computational cost without pretending that the underlying electromagnetic problem has disappeared.</p><p>For GPR, this distinction is particularly valuable when modeling is connected to measurement, signal processing or inverse interpretation. A model becomes engineering infrastructure when its outputs can be compared with real data and used to guide the next design or measurement decision.</p></div></section>
-<section class="technical-section technical-section--surface"><div class="container"><p class="eyebrow">Related ETROYL Capability</p><h2>From electromagnetics to sensing systems</h2><p>ETROYL combines near-field electromagnetic modeling with GPR system engineering, radar signal processing and practical sensing workflows.</p><div class="technical-links"><a href="/ground-penetrating-radar/">Ground-Penetrating Radar</a><a href="/electromagnetic-modeling/">Electromagnetic Modeling</a><a href="/radar-signal-processing/">Radar Signal Processing</a><a href="/insights/">All Selected Insights</a></div></div></section>
-</main><footer class="technical-footer"><div class="container"><p>ETROYL — Built on Science. Delivered through Engineering.</p><p><a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/#contact">Contact</a></p></div></footer>
-</body></html>
+    <header class="technical-header">
+        <div class="container">
+            <a href="/" class="logo" aria-label="ETROYL home">
+                <img
+                    src="/assets/img/logo-mono.webp"
+                    alt="ETROYL"
+                    width="978"
+                    height="978"
+                    class="logo-mark"
+                >
+            </a>
+
+            <div class="technical-tools">
+                <button
+                    id="theme-toggle"
+                    class="theme-btn"
+                    type="button"
+                    aria-label="Toggle color theme"
+                >
+                    <i data-lucide="sun-moon" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <nav class="technical-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="/insights/">Selected Insights</a></li>
+                    <li><a href="/#services">Services</a></li>
+                    <li><a href="/#projects">Projects</a></li>
+                    <li><a href="/education.html">Education</a></li>
+                    <li><a href="/about/about.html">About</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="technical-language-note">
+        Selected Insights are currently published in English.
+    </div>
+
+    <main class="technical-main">
+        <section class="technical-hero">
+            <div class="container">
+                <p class="eyebrow">Selected Engineering Insight</p>
+                <h1>Fast Near-Field Modeling for GPR Systems</h1>
+                <p class="lead">
+                    Ground-penetrating radar sits at the intersection of electromagnetics,
+                    antennas, signal processing and uncertain subsurface conditions. Useful
+                    modeling must respect that physics while remaining practical enough to
+                    support engineering decisions.
+                </p>
+
+                <div class="card-media-placeholder card-media-placeholder--lg">
+                    <i data-lucide="radar" aria-hidden="true"></i>
+                </div>
+            </div>
+        </section>
+
+        <section class="technical-section technical-section--surface">
+            <div class="container">
+                <p class="eyebrow">The Modeling Challenge</p>
+                <h2>Physical fidelity versus computational cost</h2>
+
+                <p>
+                    Near-field GPR problems are difficult because the antenna, ground interface,
+                    subsurface structure and measurement geometry interact. A model that is too
+                    simplified can hide the effects that matter; a model that is unnecessarily
+                    expensive can become disconnected from practical design and interpretation
+                    workflows.
+                </p>
+
+                <ul class="technical-list">
+                    <li>
+                        <strong>Near-field behavior</strong>
+                        <br>
+                        The antenna and its immediate electromagnetic environment cannot simply
+                        be treated as a distant-field source.
+                    </li>
+                    <li>
+                        <strong>Material uncertainty</strong>
+                        <br>
+                        Permittivity, conductivity and geometry vary in real ground, so modeling
+                        assumptions must remain explicit.
+                    </li>
+                    <li>
+                        <strong>Geometry matters</strong>
+                        <br>
+                        Transmitter, receiver, antenna orientation and target position can
+                        strongly affect the observed response.
+                    </li>
+                    <li class="technical-insight">
+                        <div class="technical-insight__label">Useful computation</div>
+                        <div class="technical-insight__statement">
+                            The best model is not necessarily the most detailed one; it is the one
+                            that preserves the physics needed for the engineering question.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="technical-section">
+            <div class="container">
+                <p class="eyebrow">ETROYL Perspective</p>
+                <h2>Build the model around the question</h2>
+
+                <p>
+                    A practical modeling workflow starts by identifying which physical effects
+                    must be retained and which can be represented more efficiently. That creates
+                    a path toward reduced computational cost without pretending that the underlying
+                    electromagnetic problem has disappeared.
+                </p>
+
+                <p>
+                    For GPR, this distinction is particularly valuable when modeling is connected
+                    to measurement, signal processing or inverse interpretation. A model becomes
+                    engineering infrastructure when its outputs can be compared with real data and
+                    used to guide the next design or measurement decision.
+                </p>
+            </div>
+        </section>
+
+        <section class="technical-section technical-section--surface">
+            <div class="container">
+                <p class="eyebrow">Related ETROYL Capability</p>
+                <h2>From electromagnetics to sensing systems</h2>
+
+                <p>
+                    ETROYL combines near-field electromagnetic modeling with GPR system
+                    engineering, radar signal processing and practical sensing workflows.
+                </p>
+
+                <div class="technical-links">
+                    <a href="/ground-penetrating-radar/">Ground-Penetrating Radar</a>
+                    <a href="/electromagnetic-modeling/">Electromagnetic Modeling</a>
+                    <a href="/radar-signal-processing/">Radar Signal Processing</a>
+                    <a href="/insights/">All Selected Insights</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="technical-footer">
+        <div class="container">
+            <p>ETROYL — Built on Science. Delivered through Engineering.</p>
+            <p>
+                <a href="/">Home</a> ·
+                <a href="/insights/">Insights</a> ·
+                <a href="/#contact">Contact</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -24,6 +24,7 @@ const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 const HEADER_I18N = {
     en: {
         services: 'Services',
+        insights: 'Selected Insights',
         projects: 'Projects',
         academy: 'Academy',
         about: 'About',
@@ -194,15 +195,27 @@ function localizeInternalLinks(language) {
 
     const localizedPaths = new Map([
         ['/', `/${language}/`],
+        ['/index.html', `/${language}/index.html`],
         ['/education.html', `/${language}/education.html`],
         ['/about/about.html', `/${language}/about/about.html`],
-        ['/about/founder.html', `/${language}/about/founder.html`]
+        ['/about/founder.html', `/${language}/about/founder.html`],
+
+        ['/electromagnetic-modeling/index.html', `/${language}/electromagnetic-modeling/index.html`],
+        ['/embedded-linux/index.html', `/${language}/embedded-linux/index.html`],
+        ['/fpga-design/index.html', `/${language}/fpga-design/index.html`],
+        ['/ground-penetrating-radar/index.html', `/${language}/ground-penetrating-radar/index.html`],
+        ['/radar-signal-processing/index.html', `/${language}/radar-signal-processing/index.html`],
+        ['/real-time-video-processing/index.html', `/${language}/real-time-video-processing/index.html`],
+        ['/robotics-automation/index.html', `/${language}/robotics-automation/index.html`],
+        ['/signal-processing/index.html', `/${language}/signal-processing/index.html`],
+        ['/system-integration/index.html', `/${language}/system-integration/index.html`]
     ]);
 
     document.querySelectorAll('a[href]').forEach((link) => {
         if (link.closest('.lang-switcher')) return;
 
         const rawHref = link.getAttribute('href');
+
         if (
             !rawHref ||
             rawHref.startsWith('#') ||
@@ -213,6 +226,7 @@ function localizeInternalLinks(language) {
         }
 
         let url;
+
         try {
             url = new URL(rawHref, window.location.href);
         } catch {
@@ -227,9 +241,13 @@ function localizeInternalLinks(language) {
         if (!isSameOrigin && !isETROYLDomain) return;
 
         const localized = localizedPaths.get(url.pathname);
+
         if (!localized) return;
 
-        link.setAttribute('href', `${localized}${url.search}${url.hash}`);
+        link.setAttribute(
+            'href',
+            `${localized}${url.search}${url.hash}`
+        );
     });
 }
 
@@ -266,6 +284,9 @@ function getHeaderContext() {
     if (path === '/about/about.html') return 'about';
     if (path === '/about/founder.html') return 'founder';
     if (path.endsWith('/education.html')) return 'academy';
+
+    if (path === '/insights' || path === '/insights/index.html') return 'insights';
+    if (/^\/insights\/[^/]+(?:\/index\.html)?$/.test(path)) return 'insight';
 
     if (path === '/' || path === '/index.html') {
         if (hash === '#services') return 'services';
@@ -337,11 +358,25 @@ function getHeaderNavigation(language, context) {
         { key: 'academy', label: t.academy, href: `${rootDir}education.html` },
     ];
 
-    if (context === 'about') {
-        items.push({ key: 'leadership', label: t.leadership, href: `${rootDir}about/founder.html` });
-    } else {
-        items.push({ key: 'about', label: t.about, href: `${rootDir}about/about.html` });
-    }
+	if (context === 'about') {
+	    items.push({
+		key: 'leadership',
+		label: t.leadership,
+		href: `${rootDir}about/founder.html`
+	    });
+	} else if (context === 'insights' || context === 'insight') {
+	    items.push({
+		key: 'insights',
+		label: t.insights,
+		href: `${rootDir}insights/index.html`
+	    });
+	} else {
+	    items.push({
+		key: 'about',
+		label: t.about,
+		href: `${rootDir}about/about.html`
+	    });
+	}
 
     items.push({ key: 'contact', label: t.contact, href: contactHref });
 
@@ -351,6 +386,7 @@ function getHeaderNavigation(language, context) {
 function getHeaderActiveKey(context) {
     if (context === 'home') return null;
     if (context === 'other') return null;
+    if (context === 'insight') return 'insights';
     return context;
 }
 

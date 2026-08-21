@@ -5,41 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Education &amp; Resources | ETROYL</title>
-    <meta name="description" content="Technical training videos, reference documents, and diagrams from ETROYL covering FPGA design, embedded systems, and signal processing.">
+    <meta
+        name="description"
+        content="Selected technical learning resources from ETROYL covering engineering fundamentals, practical methods and reference material across FPGA, embedded systems, signal processing and sensing."
+    >
     <link rel="canonical" href="https://www.etroyl.com/education.html">
 
-    <!-- HREFLANG ALTERNATES -->
-    <link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/education.html" />
-    <link rel="alternate" hreflang="en" href="https://www.etroyl.com/education.html" />
-    <link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/education.html" />
-    <link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/education.html" />
-    <link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/education.html" />
-    <link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/education.html" />
-    <link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/education.html" />
-    <link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/education.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/education.html" />
+    <link rel="alternate" hreflang="de" href="https://www.etroyl.com/de/education.html">
+    <link rel="alternate" hreflang="en" href="https://www.etroyl.com/education.html">
+    <link rel="alternate" hreflang="es" href="https://www.etroyl.com/es/education.html">
+    <link rel="alternate" hreflang="fr" href="https://www.etroyl.com/fr/education.html">
+    <link rel="alternate" hreflang="it" href="https://www.etroyl.com/it/education.html">
+    <link rel="alternate" hreflang="nl" href="https://www.etroyl.com/nl/education.html">
+    <link rel="alternate" hreflang="ar" href="https://www.etroyl.com/ar/education.html">
+    <link rel="alternate" hreflang="zh" href="https://www.etroyl.com/zh/education.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.etroyl.com/education.html">
 
     <meta name="theme-color" content="#0d0d0d">
 
-    <!-- Same three-file loading order as index.html: reset,
-         then tokens, then layout. -->
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/variables.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-
-    <!-- Page-specific stylesheet, loaded ONLY here. This is the
-         "split when it earns its place" principle from the
-         README: the homepage never needs to download education
-         grid/card/filter CSS it will never use, and this page
-         doesn't bloat the shared style.css with rules that exist
-         nowhere else. As more pages arrive, each gets this same
-         treatment only if its component needs actually diverge. -->
     <link rel="stylesheet" href="/assets/css/education.css">
 
     <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
-<body>
 
+<body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <header class="site-header">
@@ -50,7 +42,8 @@
                     alt="ETROYL"
                     width="978"
                     height="978"
-                    class="logo-mark">
+                    class="logo-mark"
+                >
             </a>
 
             <div class="header-actions">
@@ -60,10 +53,20 @@
                         class="lang-switcher__toggle"
                         aria-haspopup="true"
                         aria-expanded="false"
-                        aria-label="Choose language">
+                        aria-label="Choose language"
+                    >
                         <i data-lucide="languages" aria-hidden="true"></i>
-                        <span class="lang-switcher__current"><img src="/assets/img/flags/us.svg" alt="" class="lang-flag" aria-hidden="true">EN</span>
+                        <span class="lang-switcher__current">
+                            <img
+                                src="/assets/img/flags/us.svg"
+                                alt=""
+                                class="lang-flag"
+                                aria-hidden="true"
+                            >
+                            EN
+                        </span>
                     </button>
+
                     <ul class="lang-switcher__menu" hidden>
                         <li><a href="/ar/education.html" title="العربية" aria-label="العربية"><img src="/assets/img/flags/sa.svg" alt="" class="lang-flag" aria-hidden="true">AR</a></li>
                         <li><a href="/de/education.html" title="Deutsch" aria-label="Deutsch"><img src="/assets/img/flags/de.svg" alt="" class="lang-flag" aria-hidden="true">DE</a></li>
@@ -74,11 +77,14 @@
                         <li><a href="/nl/education.html" title="Nederlands" aria-label="Nederlands"><img src="/assets/img/flags/nl.svg" alt="" class="lang-flag" aria-hidden="true">NL</a></li>
                         <li><a href="/zh/education.html" title="中文" aria-label="中文"><img src="/assets/img/flags/cn.svg" alt="" class="lang-flag" aria-hidden="true">ZH</a></li>
                     </ul>
-
                 </div>
 
-                <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
-                    <i data-lucide="sun-moon"></i>
+                <button
+                    id="theme-toggle"
+                    class="theme-btn"
+                    aria-label="Toggle color theme"
+                >
+                    <i data-lucide="sun-moon" aria-hidden="true"></i>
                 </button>
             </div>
 
@@ -91,24 +97,55 @@
                     <li><a href="/index.html#contact">Contact</a></li>
                 </ul>
             </nav>
-
         </div>
     </header>
 
     <main id="main-content">
-
         <section class="page-intro" aria-labelledby="education-heading">
             <div class="container">
+                <p class="eyebrow">ETROYL Knowledge</p>
                 <h1 id="education-heading">Education &amp; Resources</h1>
-                <p>Technical training videos, reference documents, and diagrams covering
-                   FPGA design, embedded systems, and signal processing — published here
-                   for engineers, students, and clients working with our systems.</p>
+                <p>
+                    Selected learning resources, technical references and visual material for
+                    engineers, students and technical teams working across FPGA design, embedded
+                    systems, signal processing, sensing and related engineering disciplines.
+                </p>
+            </div>
+        </section>
+
+        <section class="education-purpose" aria-labelledby="education-purpose-heading">
+            <div class="container">
+                <div class="education-purpose__content">
+                    <p class="eyebrow">How This Differs from Insights</p>
+                    <h2 id="education-purpose-heading">Knowledge you can learn from and reuse</h2>
+                    <p>
+                        Selected Insights show how ETROYL approaches difficult engineering problems:
+                        the reasoning, trade-offs and principles behind the work. Education &amp;
+                        Resources is different. It is the place for structured explanations,
+                        practical references and reusable technical material.
+                    </p>
+                    <p>
+                        The two belong to the same knowledge ecosystem, but they serve different
+                        purposes: <strong>Insights explain how we think; Education helps others
+                        learn and apply.</strong>
+                    </p>
+                    <a href="/insights/" class="education-purpose__link">
+                        Explore Selected Insights →
+                    </a>
+                </div>
             </div>
         </section>
 
         <section class="education-library" aria-labelledby="library-heading">
             <div class="container">
-                <h2 id="library-heading" class="visually-hidden">Resource Library</h2>
+                <div class="education-library__heading">
+                    <p class="eyebrow">Resource Library</p>
+                    <h2 id="library-heading">Browse by resource type</h2>
+                    <p>
+                        The library is growing. As new material is published, you will find
+                        technical videos, diagrams, documents and other engineering references here.
+                    </p>
+                </div>
 
                 <div class="filter-bar" role="group" aria-label="Filter resources by type">
                     <button type="button" class="filter-btn is-active" data-filter="all">All</button>
@@ -121,29 +158,19 @@
                     <!-- Populated by education.js -->
                 </div>
 
-                <!-- Empty state: shown/hidden by JS depending on
-                     whether the manifest has entries. Never leave a
-                     data-driven section with a silent blank space —
-                     an empty screen with no explanation reads as a
-                     bug, not as "nothing here yet." -->
-                <!-- <p id="education-empty" class="empty-state" hidden>
-                    No resources published yet. To add one, add the file to the
-                    repo root and add a matching entry to
-                    <code>educationManifest</code> in <code>education.js</code>.
-                </p> -->
                 <p id="education-empty" class="empty-state" hidden>
-			We're building out this library. If there's a specific topic you're
-			looking for, <a href="/index.html#contact">get in touch</a> — we may
-			already have it in the works.
+                    We are building this library deliberately. If there is a specific technical
+                    topic you would like to see, <a href="/index.html#contact">get in touch</a> —
+                    it may already be under development.
                 </p>
             </div>
         </section>
-
     </main>
 
     <footer class="site-footer">
         <site-footer></site-footer>
     </footer>
+
     <script src="/assets/js/config.js" defer></script>
     <script src="/assets/js/script.js" defer></script>
     <script src="/assets/js/education.js" defer></script>

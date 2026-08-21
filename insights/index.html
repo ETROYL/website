@@ -27,6 +27,7 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="/assets/js/config.js" defer></script>
     <script src="/assets/js/script.js" defer></script>
+    <script src="/assets/js/insights.js" defer></script>
 </head>
 
 <body class="technical-page">
@@ -54,11 +55,23 @@
                 <p class="eyebrow">Featured Insights</p>
                 <h2>From technical problem to engineering understanding</h2>
 
-                <div class="technical-list">
-                    <article>
+                <div class="insight-filters" data-insight-filters aria-label="Filter insights by category">
+                    <button type="button" class="insight-filter is-active" data-insight-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="insight-filter" data-insight-filter="fpga-digital-design" aria-pressed="false">FPGA &amp; Digital Design</button>
+                    <button type="button" class="insight-filter" data-insight-filter="embedded-systems" aria-pressed="false">Embedded Systems</button>
+                    <button type="button" class="insight-filter" data-insight-filter="signal-processing" aria-pressed="false">Signal Processing</button>
+                    <button type="button" class="insight-filter" data-insight-filter="radar-gpr" aria-pressed="false">Radar &amp; GPR</button>
+                    <button type="button" class="insight-filter" data-insight-filter="electromagnetic-modeling" aria-pressed="false">Electromagnetic Modeling</button>
+                    <button type="button" class="insight-filter" data-insight-filter="engineering-methodology" aria-pressed="false">Engineering Methodology</button>
+                </div>
+
+                <div class="technical-list insight-list" data-insight-list aria-live="polite">
+                    <article data-insight-categories="fpga-digital-design engineering-methodology">
                         <div class="card-media-placeholder">
                             <i data-lucide="workflow" aria-hidden="true"></i>
                         </div>
+
+                        <p class="insight-card__categories">FPGA &amp; Digital Design · Engineering Methodology</p>
 
                         <h3>
                             <a href="/insights/fpga-video-pipelines/">
@@ -71,18 +84,17 @@
                             boundaries influence deterministic latency in real-time video systems.
                         </p>
 
-                        <a
-                            href="/insights/fpga-video-pipelines/"
-                            class="technical-links"
-                        >
+                        <a href="/insights/fpga-video-pipelines/" class="technical-links">
                             Read the insight →
                         </a>
                     </article>
 
-                    <article>
+                    <article data-insight-categories="radar-gpr electromagnetic-modeling engineering-methodology">
                         <div class="card-media-placeholder">
                             <i data-lucide="radar" aria-hidden="true"></i>
                         </div>
+
+                        <p class="insight-card__categories">Radar &amp; GPR · Electromagnetic Modeling · Engineering Methodology</p>
 
                         <h3>
                             <a href="/insights/near-field-gpr-modeling/">
@@ -95,18 +107,17 @@
                             useful for practical GPR analysis without losing sight of the underlying problem.
                         </p>
 
-                        <a
-                            href="/insights/near-field-gpr-modeling/"
-                            class="technical-links"
-                        >
+                        <a href="/insights/near-field-gpr-modeling/" class="technical-links">
                             Read the insight →
                         </a>
                     </article>
 
-                    <article>
+                    <article data-insight-categories="embedded-systems engineering-methodology">
                         <div class="card-media-placeholder">
                             <i data-lucide="terminal" aria-hidden="true"></i>
                         </div>
+
+                        <p class="insight-card__categories">Embedded Systems · Engineering Methodology</p>
 
                         <h3>
                             <a href="/insights/embedded-linux-real-time/">
@@ -119,10 +130,7 @@
                             of jitter and making embedded Linux behavior more deterministic.
                         </p>
 
-                        <a
-                            href="/insights/embedded-linux-real-time/"
-                            class="technical-links"
-                        >
+                        <a href="/insights/embedded-linux-real-time/" class="technical-links">
                             Read the insight →
                         </a>
                     </article>

@@ -8,6 +8,7 @@
     color: var(--color-text);
 }
 
+/* Legacy technical-header rules are retained temporarily for compatibility. */
 .technical-header {
     position: fixed;
     top: 0;
@@ -137,11 +138,59 @@
     list-style: none;
 }
 
+.technical-list > article,
 .technical-list li {
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     background: var(--color-surface-raised);
+}
+
+.technical-list > article[hidden] {
+    display: none;
+}
+
+/* ==================================================
+   INSIGHT CATEGORY FILTERS
+   ================================================== */
+
+.insight-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin: var(--space-lg) 0 var(--space-md);
+}
+
+.insight-filter {
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface-raised);
+    color: var(--color-text-muted);
+    padding: 0.45rem 0.8rem;
+    font: inherit;
+    font-size: var(--text-sm);
+    line-height: 1.2;
+    cursor: pointer;
+}
+
+.insight-filter:hover,
+.insight-filter:focus-visible {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+}
+
+.insight-filter.is-active {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-background);
+}
+
+.insight-card__categories {
+    margin: 0 0 var(--space-xs);
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    line-height: 1.4;
 }
 
 /*

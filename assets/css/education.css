@@ -1,8 +1,8 @@
 /* ==================================================
-   EDUCATION.CSS
+   EDUCATION.CSS — ETROYL ACADEMY
    ==================================================
-   PURPOSE: Shared presentation for the Education & Resources
-   page and its resource-library components.
+   PURPOSE: Presentation for the ETROYL Academy page and its
+   technical resource-library components.
    ================================================== */
 
 .page-intro {
@@ -12,13 +12,20 @@
 
 .page-intro h1 {
     font-size: var(--text-3xl);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
 }
 
 .page-intro p {
     max-width: 760px;
     margin-inline: auto;
     color: var(--color-text-muted);
+}
+
+.page-intro__subtitle {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text) !important;
+    font-size: var(--text-lg);
+    font-weight: 600;
 }
 
 .education-purpose {
@@ -63,7 +70,7 @@
     margin-bottom: var(--space-md);
 }
 
-/* -- Filter Bar -- */
+/* -- Topic Filters -- */
 .filter-bar {
     display: flex;
     gap: var(--space-xs);
@@ -75,10 +82,11 @@
     background: transparent;
     border: 1px solid var(--color-border);
     color: var(--color-text-muted);
-    padding: var(--space-xs) var(--space-md);
+    padding: var(--space-xs) var(--space-sm);
     border-radius: var(--border-radius);
     cursor: pointer;
     font-size: var(--text-sm);
+    line-height: 1.25;
     transition: border-color var(--transition-fast), color var(--transition-fast);
 }
 
@@ -144,6 +152,23 @@
     flex-grow: 1;
 }
 
+.resource-card__metadata {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35em;
+    margin: 0;
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.resource-card__separator {
+    color: var(--color-text-muted);
+}
+
 .resource-card__title {
     font-size: var(--text-base);
     font-weight: 600;
@@ -183,12 +208,4 @@
 .empty-state a:hover,
 .empty-state a:focus-visible {
     color: var(--color-text);
-}
-
-.empty-state code {
-    font-family: var(--font-mono);
-    font-size: 0.9em;
-    background: var(--color-surface);
-    padding: 0.1em 0.4em;
-    border-radius: 3px;
 }

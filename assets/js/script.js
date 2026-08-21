@@ -254,13 +254,20 @@ function localizeInternalLinks(language) {
    ================================================== */
 
 function getHeaderContext() {
-    const path = window.location.pathname.replace(/\/+$/, '') || '/';
+    let path = window.location.pathname.replace(/\/+$/, '') || '/';
     const hash = window.location.hash;
+
+    const languagePrefix = path.match(/^\/(ar|de|es|fr|it|nl|zh)(?=\/|$)/);
+
+    if (languagePrefix) {
+        path = path.slice(languagePrefix[0].length) || '/';
+    }
 
     if (path === '/about/about.html') return 'about';
     if (path === '/about/founder.html') return 'founder';
     if (path.endsWith('/education.html')) return 'academy';
-    if (path === '/' || path === '/index.html' || /^\/(ar|de|es|fr|it|nl|zh)$/.test(path)) {
+
+    if (path === '/' || path === '/index.html') {
         if (hash === '#services') return 'services';
         if (hash === '#projects') return 'projects';
         if (hash === '#contact') return 'contact';
@@ -432,6 +439,13 @@ function renderSharedHeader() {
 
         const sharedHeader = document.createElement('site-header');
         existingHeader.replaceWith(sharedHeader);
+    });
+
+    document.querySelectorAll('#site-header').forEach((locator) => {
+        if (locator.tagName.toLowerCase() === 'site-header') return;
+
+        const sharedHeader = document.createElement('site-header');
+        locator.replaceWith(sharedHeader);
     });
 }
 

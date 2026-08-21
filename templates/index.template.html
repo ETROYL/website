@@ -190,15 +190,39 @@
             </div>
         </section>
 
-        <section class="stats" aria-label="ETROYL by the numbers">
-            <div class="container stats-grid">
-                <div class="stat"><span class="stat__number">{{stats.years_number}}</span><span class="stat__label">{{stats.years_label}}</span></div>
-                <div class="stat"><span class="stat__number">{{stats.countries_number}}</span><span class="stat__label">{{stats.countries_label}}</span></div>
-                <div class="stat"><span class="stat__number">{{stats.rnd_number}}</span><span class="stat__label">{{stats.rnd_label}}</span></div>
-                <div class="stat"><span class="stat__number">{{stats.systems_number}}</span><span class="stat__label">{{stats.systems_label}}</span></div>
-                <div class="stat stat--callout"><span class="stat__label">{{stats.callout_label}}</span><span class="stat__number stat__number--accent">{{stats.callout_word}}</span><span class="stat__caption">{{stats.callout_caption}}</span></div>
-            </div>
-        </section>
+	<section class="stats" aria-label="ETROYL by the numbers">
+	    <div class="container">
+		<p class="stats__attribution">{{stats.attribution}}</p>
+
+		<div class="stats-grid">
+		    <div class="stat">
+		        <span class="stat__number">{{stats.years_number}}</span>
+		        <span class="stat__label">{{stats.years_label}}</span>
+		    </div>
+
+		    <div class="stat">
+		        <span class="stat__number">{{stats.countries_number}}</span>
+		        <span class="stat__label">{{stats.countries_label}}</span>
+		    </div>
+
+		    <div class="stat">
+		        <span class="stat__number">{{stats.rnd_number}}</span>
+		        <span class="stat__label">{{stats.rnd_label}}</span>
+		    </div>
+
+		    <div class="stat">
+		        <span class="stat__number">{{stats.systems_number}}</span>
+		        <span class="stat__label">{{stats.systems_label}}</span>
+		    </div>
+
+		    <div class="stat stat--callout">
+		        <span class="stat__label">{{stats.callout_label}}</span>
+		        <span class="stat__number stat__number--accent">{{stats.callout_word}}</span>
+		        <span class="stat__caption">{{stats.callout_caption}}</span>
+		    </div>
+		</div>
+	    </div>
+	</section>
 
         <section id="about" class="about" aria-labelledby="about-heading">
             <div class="container about-grid">

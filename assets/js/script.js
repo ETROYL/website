@@ -24,7 +24,7 @@ const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 const HEADER_I18N = {
     en: {
         services: 'Services',
-        insights: 'Selected Insights',
+        insights: 'Insights',
         projects: 'Projects',
         academy: 'Academy',
         about: 'About',
